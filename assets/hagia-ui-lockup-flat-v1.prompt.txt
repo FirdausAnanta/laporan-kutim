@@ -1,0 +1,8 @@
+Mode: Built-in image_gen, transparent_background: true.
+Asset: hagia-ui-lockup-flat-v1.png
+
+Use case: logo-brand.
+Asset type: finished horizontal logo lockup for "Hagia UI", a product division's calm, joyful, human-centered experience layer for Penyala OS, for use in a white and light-gray desktop presentation.
+Create a single distinctive, minimal flat 2D brand logo on a genuinely transparent background. A compact abstract capital H symbol sits to the left of the exact wordmark "Hagia UI". The symbol consists of two softly rounded upright strokes connected by one graceful continuous curved bridge, expressing people working together. Strong recognizable silhouette, precise simple geometry, ample internal negative space, legible at small sizes. No enclosing app tile.
+Use two solid soft sky-blue shades for the symbol, #9BD3F2 and #65B0DB, with no rendered depth. Wordmark in dark graphite #1D1D1F, Google Sans typeface or its closest geometric humanist letterforms, medium weight, friendly rounded proportions and careful optical kerning. Exact spelling "Hagia UI" only, with uppercase H, U, I and lowercase agia. The symbol's visible height matches the capital H in the wordmark. Modest clear gap between symbol and name. One balanced horizontal line, centered, wide composition with modest transparent margins and the artwork filling most of the available width.
+Avoid 3D, shadows, bevels, gloss, metallic material, gradients, background panels, mockups, extra captions, registration marks, slogans, watermarks, duplicate logo variations, and fake transparency patterns. Output one clean reusable transparent PNG logo.

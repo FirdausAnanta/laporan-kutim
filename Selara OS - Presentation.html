@@ -1,0 +1,1707 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Selara OS | Program · Acara Puncak · Publikasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --night: #1d1d1f;
+            --blue: #0071e3;
+            --foam: #f5f5f7;
+            --ink: #1d1d1f;
+            --paper: #ffffff;
+            --line: #d2d2d7;
+            --muted: #6e6e73;
+            --surface: #f5f5f7;
+            --selection: #e5e5ea;
+            --accent-program: #0071e3;
+            --accent-puncak: #f59e0b;
+            --accent-publikasi: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: "Google Sans", "Product Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #0071e3;
+            outline-offset: 3px;
+        }
+
+        /* Photographic Desktop Wallpaper */
+        .desktop {
+            position: relative;
+            isolation: isolate;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            color: var(--ink);
+            background: #1d1d1f url('Rapat%20Koordinasi%20FL%20Kutai%20Timur.jpg') no-repeat center center / cover;
+        }
+
+        .desktop::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.08);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* macOS Menu Bar */
+        .bar {
+            position: relative;
+            z-index: 50;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 18px;
+            background: rgba(255, 255, 255, 0.86);
+            backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            color: var(--ink);
+            font-size: 13px;
+        }
+
+        .brand-identity {
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .brand-logo {
+            display: block;
+            height: 22px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+        }
+
+        .bar .spacer {
+            flex: 1;
+        }
+
+        .screen-control {
+            padding: 4px 9px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: #ffffff;
+            color: var(--ink);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all .15s ease;
+        }
+
+        .screen-control:hover:not(:disabled) {
+            background: var(--selection);
+            border-color: #a1a1a6;
+        }
+
+        .screen-control:disabled {
+            color: #a1a1a6;
+            border-color: #e5e5ea;
+            cursor: default;
+        }
+
+        .clock {
+            font-weight: 500;
+            font-feature-settings: "tnum";
+            color: #3a3a3c;
+        }
+
+        /* macOS Floating Dock with 3 Apps */
+        .dock {
+            position: fixed;
+            z-index: 90;
+            left: 50%;
+            bottom: 22px;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: max-content;
+            max-width: calc(100% - 28px);
+            padding: 10px 14px;
+            overflow: visible;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(32px) saturate(190%);
+        }
+
+        .app-hover-zone {
+            position: relative;
+            display: grid;
+            flex: none;
+            width: 54px;
+            height: 54px;
+            place-items: center;
+        }
+
+        .app-hover-zone::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: -26px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .app-hover-zone:hover {
+            z-index: 2;
+        }
+
+        .app {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            width: 54px;
+            height: 54px;
+            padding: 0;
+            border: 0;
+            border-radius: 14px;
+            color: #ffffff;
+            cursor: pointer;
+            transform-origin: center bottom;
+            transition: transform .2s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow .2s ease;
+        }
+
+        .app.program {
+            background: linear-gradient(145deg, #2563eb, #1d4ed8);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+
+        .app.puncak {
+            background: linear-gradient(145deg, #f59e0b, #d97706);
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+
+        .app.publikasi {
+            background: linear-gradient(145deg, #10b981, #059669);
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+
+        .app svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            pointer-events: none;
+        }
+
+        .app-hover-zone:hover .app,
+        .app:focus-visible {
+            transform: translateY(-16px) scale(1.15);
+        }
+
+        .app::after {
+            content: attr(aria-label);
+            position: absolute;
+            bottom: calc(100% + 14px);
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: rgba(29, 29, 31, 0.94);
+            color: #ffffff;
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(10px);
+            transform: translateY(4px);
+            transition: opacity .15s ease, transform .15s ease;
+        }
+
+        .app-hover-zone:hover .app::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dock-indicator {
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #1d1d1f;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity .18s ease;
+        }
+
+        .app.is-open .dock-indicator {
+            opacity: 1;
+        }
+
+        .divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.12);
+            margin: 0 2px;
+        }
+
+        /* Dock Stack for Minimized Windows */
+        .dock-stack {
+            position: relative;
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            padding: 0;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            background: rgba(245, 245, 247, 0.9);
+            color: var(--ink);
+            cursor: pointer;
+            transition: transform .18s ease, background .18s ease;
+        }
+
+        .dock-stack:hover {
+            transform: translateY(-8px) scale(1.08);
+            background: #e5e5ea;
+        }
+
+        .dock-stack-glyph {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            align-items: center;
+        }
+
+        .dock-stack-glyph i {
+            display: block;
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+            background: #6e6e73;
+        }
+
+        .dock-stack-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            min-width: 18px;
+            height: 18px;
+            padding: 0 4px;
+            border-radius: 9px;
+            background: #0071e3;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 700;
+            display: grid;
+            place-items: center;
+            line-height: 1;
+        }
+
+        .dock-stack-count:empty {
+            display: none;
+        }
+
+        .dock-fan {
+            position: absolute;
+            bottom: calc(100% + 14px);
+            right: 0;
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            padding: 8px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(20px);
+            z-index: 20;
+            min-width: 180px;
+        }
+
+        .dock-fan.open {
+            display: flex;
+        }
+
+        .dock-window {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--ink);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: left;
+            transition: background .12s ease;
+        }
+
+        .dock-window:hover {
+            background: #e5e5ea;
+        }
+
+        /* Window System */
+        .window {
+            position: absolute;
+            z-index: 6;
+            left: 50%;
+            top: calc(38px + (100vh - 38px - 94px) / 2);
+            display: none;
+            flex-direction: column;
+            width: min(1220px, calc(100vw - 48px));
+            height: min(760px, calc(100vh - 148px));
+            max-height: calc(100vh - 148px);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.14);
+            border-radius: 16px;
+            background: #ffffff;
+            color: var(--ink);
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.22), 0 4px 16px rgba(0, 0, 0, 0.08);
+            transform: translate(-50%, -50%);
+            animation: windowPop .22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes windowPop {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -46%) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .window.open {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 1fr);
+            grid-template-rows: 48px minmax(0, 1fr);
+        }
+
+        .window.screen-expanded {
+            position: fixed;
+            z-index: 20;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            max-height: none;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .window:fullscreen {
+            width: 100%;
+            height: 100%;
+            max-height: none;
+            border: 0;
+            border-radius: 0;
+        }
+
+        .window-top {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            flex: none;
+            padding: 0 16px;
+            border-bottom: 1px solid var(--line);
+            background: #fbfbfd;
+            user-select: none;
+        }
+
+        .traffic {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .traffic button {
+            width: 13px;
+            height: 13px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: opacity .12s ease;
+        }
+
+        .traffic .close {
+            background: #ff5f57;
+        }
+
+        .traffic .minimize {
+            background: #febc2e;
+        }
+
+        .traffic .fullscreen {
+            background: #28c840;
+        }
+
+        .traffic button:hover {
+            filter: brightness(0.9);
+        }
+
+        .window-title {
+            margin: auto;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Sidebar Tabs */
+        .tab-list {
+            padding: 18px 12px;
+            border-right: 1px solid var(--line);
+            background: #fbfbfd;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            overflow-y: auto;
+        }
+
+        .tab {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: #4b4b4e;
+            cursor: pointer;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 550;
+            transition: all .12s ease;
+        }
+
+        .tab:hover {
+            background: #efeff2;
+            color: #1d1d1f;
+        }
+
+        .tab[aria-selected="true"] {
+            background: #e5e5ea;
+            color: #1d1d1f;
+            font-weight: 650;
+        }
+
+        .tab-mark {
+            display: inline-grid;
+            place-items: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.05);
+            color: #6e6e73;
+            font-size: 11px;
+            font-weight: 700;
+            flex: none;
+        }
+
+        .tab[aria-selected="true"] .tab-mark {
+            background: #0071e3;
+            color: #ffffff;
+        }
+
+        /* Workspace Content Area */
+        .workspace-content {
+            display: grid;
+            grid-template-columns: minmax(360px, 1.15fr) minmax(320px, 0.85fr);
+            gap: 48px;
+            overflow-y: auto;
+            padding: 44px;
+            background: #ffffff;
+        }
+
+        .workspace-content.full-width {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .kicker {
+            color: #0071e3;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            margin: 0 0 16px;
+            font-size: clamp(28px, 3.2vw, 42px);
+            letter-spacing: -.04em;
+            line-height: 1.15;
+            color: #111111;
+        }
+
+        .lead {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #48484a;
+            margin: 0 0 24px;
+        }
+
+        .workspace-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin: 20px 0 28px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #f5f5f7;
+            border: 1px solid #e5e5ea;
+        }
+
+        .workspace-meta div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .workspace-meta span {
+            font-size: 11px;
+            font-weight: 600;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        .workspace-meta b {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        /* Product & Feature Lists */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 14px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #fbfbfd;
+            border: 1px solid #e5e5ea;
+            transition: transform .15s ease, border-color .15s ease;
+        }
+
+        .feature-item:hover {
+            border-color: #d2d2d7;
+            transform: translateY(-2px);
+        }
+
+        .feature-item-index {
+            display: grid;
+            place-items: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: #0071e3;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            flex: none;
+        }
+
+        .feature-item-body h3 {
+            margin: 0 0 4px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        .feature-item-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #555558;
+        }
+
+        /* Scorecards & Metrics */
+        .scorecard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .scorecard {
+            padding: 18px 16px;
+            border-radius: 12px;
+            background: #f5f5f7;
+            border: 1px solid #e5e5ea;
+        }
+
+        .scorecard strong {
+            display: block;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -.04em;
+            color: #0071e3;
+            line-height: 1.1;
+        }
+
+        .scorecard span {
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6e6e73;
+        }
+
+        .metric-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #fbfbfd;
+            border: 1px solid #e5e5ea;
+        }
+
+        .metric-row span {
+            font-size: 13px;
+            color: #555558;
+        }
+
+        .metric-row strong {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        /* Comparison cases */
+        .compare-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .compare-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e5ea;
+        }
+
+        .compare-panel {
+            padding: 16px;
+        }
+
+        .compare-panel.before {
+            background: #fbfbfd;
+            border-right: 1px solid #e5e5ea;
+        }
+
+        .compare-panel.after {
+            background: #ffffff;
+        }
+
+        .compare-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .compare-panel.before .compare-status {
+            color: #ef4444;
+        }
+
+        .compare-panel.after .compare-status {
+            color: #10b981;
+        }
+
+        .compare-panel p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #48484a;
+        }
+
+        /* Evidence / Visual Gallery */
+        .evidence-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .evidence-stage {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e5ea;
+            background: #000000;
+        }
+
+        .evidence-stage img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: cover;
+        }
+
+        .evidence-caption {
+            padding: 12px 14px;
+            background: #f5f5f7;
+            font-size: 12px;
+            color: #555558;
+            border-top: 1px solid #e5e5ea;
+        }
+
+        .evidence-thumbs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .evidence-thumb {
+            width: 64px;
+            height: 48px;
+            flex: none;
+            padding: 0;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #e5e5ea;
+        }
+
+        .evidence-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .evidence-thumb[aria-selected="true"] {
+            border-color: #0071e3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .window.open {
+                grid-template-columns: 1fr;
+                grid-template-rows: 48px auto 1fr;
+            }
+
+            .tab-list {
+                flex-direction: row;
+                overflow-x: auto;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+                padding: 10px 14px;
+            }
+
+            .tab {
+                white-space: nowrap;
+                width: auto;
+            }
+
+            .workspace-content {
+                grid-template-columns: 1fr;
+                padding: 24px;
+                gap: 28px;
+            }
+
+            .compare-card {
+                grid-template-columns: 1fr;
+            }
+
+            .compare-panel.before {
+                border-right: 0;
+                border-bottom: 1px solid #e5e5ea;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="desktop">
+        <!-- macOS Top Navigation Bar -->
+        <header class="bar">
+            <div class="brand-identity">
+                <img class="brand-logo" src="assets/nyalanesia-brand-logo.png" alt="Nyalanesia" height="24">
+            </div>
+            <button class="screen-control" id="enter-fullscreen" type="button">Fullscreen</button>
+            <button class="screen-control" id="exit-fullscreen" type="button" disabled>Normal Screen</button>
+            <span class="spacer"></span>
+            <span class="clock" id="clock"></span>
+        </header>
+
+        <!-- Clean White Plain Desktop Background (No folders, no decorations) -->
+
+        <!-- macOS Floating Dock: Exactly 3 Apps -->
+        <nav class="dock" aria-label="Aplikasi Selara OS">
+            <span class="app-hover-zone">
+                <button class="app program" id="dock-btn-program" aria-label="Program" data-target="window-program" type="button">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <rect x="5" y="4" width="22" height="24" rx="4" />
+                        <path d="M10 2v4M22 2v4M5 10h22M10 16h6M10 21h12" />
+                    </svg>
+                    <span class="dock-indicator" aria-hidden="true"></span>
+                </button>
+            </span>
+            <span class="app-hover-zone">
+                <button class="app puncak" id="dock-btn-puncak" aria-label="Acara Puncak" data-target="window-acara-puncak" type="button">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M8 5h16v8a8 8 0 0 1-16 0V5z" />
+                        <path d="M5 8h3v4a5 5 0 0 1-3-4zM24 12V8h3a5 5 0 0 1-3 4zM16 21v5M10 26h12" />
+                    </svg>
+                    <span class="dock-indicator" aria-hidden="true"></span>
+                </button>
+            </span>
+            <span class="app-hover-zone">
+                <button class="app publikasi" id="dock-btn-publikasi" aria-label="Publikasi" data-target="window-publikasi" type="button">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 0-2.5 2.5z" />
+                        <path d="M6 22h14v6H6.5A2.5 2.5 0 0 1 4 25.5V25" />
+                        <path d="M20 6h6a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H6" />
+                    </svg>
+                    <span class="dock-indicator" aria-hidden="true"></span>
+                </button>
+            </span>
+            <i class="divider" aria-hidden="true"></i>
+            <button class="dock-stack" id="dock-stack" type="button" aria-label="Jendela yang diminimalkan" aria-expanded="false" aria-controls="dock-fan">
+                <span class="dock-stack-glyph" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="dock-stack-count" id="dock-stack-count" aria-hidden="true"></span>
+            </button>
+            <div class="dock-fan" id="dock-fan" aria-label="Jendela yang diminimalkan"></div>
+        </nav>
+    </main>
+
+    <!-- WINDOW 1: PROGRAM -->
+    <section class="window" id="window-program" role="dialog" aria-modal="true" aria-labelledby="program-window-title">
+        <div class="window-top">
+            <div class="traffic">
+                <button class="close" type="button" aria-label="Tutup jendela"></button>
+                <button class="minimize" type="button" aria-label="Minimalkan jendela"></button>
+                <button class="fullscreen" type="button" aria-label="Layar penuh"></button>
+            </div>
+            <strong class="window-title" id="program-window-title">
+                <svg width="15" height="15" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="4" width="22" height="24" rx="4"/><path d="M10 2v4M22 2v4M5 10h22M10 16h6M10 21h12"/></svg>
+                Program
+            </strong>
+        </div>
+        <nav class="tab-list" aria-label="Tab Navigasi Program">
+            <button class="tab" data-window="window-program" data-tab="overview" aria-selected="true"><span class="tab-mark">01</span>Ringkasan &amp; Visi</button>
+            <button class="tab" data-window="window-program" data-tab="portfolio" aria-selected="false"><span class="tab-mark">02</span>Portofolio Program</button>
+            <button class="tab" data-window="window-program" data-tab="journey" aria-selected="false"><span class="tab-mark">03</span>Alur Pelaksanaan</button>
+            <button class="tab" data-window="window-program" data-tab="evidence" aria-selected="false"><span class="tab-mark">04</span>Bukti &amp; Capaian</button>
+            <button class="tab" data-window="window-program" data-tab="benefits" aria-selected="false"><span class="tab-mark">05</span>Manfaat Ekosistem</button>
+            <button class="tab" data-window="window-program" data-tab="next" aria-selected="false"><span class="tab-mark">06</span>Langkah Strategis</button>
+        </nav>
+        <div class="workspace-content" id="program-content" tabindex="-1">
+            <!-- Dynamic Content rendered by JS -->
+        </div>
+    </section>
+
+    <!-- WINDOW 2: ACARA PUNCAK -->
+    <section class="window" id="window-acara-puncak" role="dialog" aria-modal="true" aria-labelledby="puncak-window-title">
+        <div class="window-top">
+            <div class="traffic">
+                <button class="close" type="button" aria-label="Tutup jendela"></button>
+                <button class="minimize" type="button" aria-label="Minimalkan jendela"></button>
+                <button class="fullscreen" type="button" aria-label="Layar penuh"></button>
+            </div>
+            <strong class="window-title" id="puncak-window-title">
+                <svg width="15" height="15" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 5h16v8a8 8 0 0 1-16 0V5z"/><path d="M5 8h3v4a5 5 0 0 1-3-4zM24 12V8h3a5 5 0 0 1-3 4zM16 21v5M10 26h12"/></svg>
+                Acara Puncak
+            </strong>
+        </div>
+        <nav class="tab-list" aria-label="Tab Navigasi Acara Puncak">
+            <button class="tab" data-window="window-acara-puncak" data-tab="overview" aria-selected="true"><span class="tab-mark">01</span>Konsep &amp; Esensi</button>
+            <button class="tab" data-window="window-acara-puncak" data-tab="rundown" aria-selected="false"><span class="tab-mark">02</span>Rangkaian Acara</button>
+            <button class="tab" data-window="window-acara-puncak" data-tab="regions" aria-selected="false"><span class="tab-mark">03</span>Rekam Jejak Daerah</button>
+            <button class="tab" data-window="window-acara-puncak" data-tab="awards" aria-selected="false"><span class="tab-mark">04</span>Penganugerahan &amp; Prestise</button>
+            <button class="tab" data-window="window-acara-puncak" data-tab="production" aria-selected="false"><span class="tab-mark">05</span>Standar Panggung</button>
+        </nav>
+        <div class="workspace-content" id="puncak-content" tabindex="-1">
+            <!-- Dynamic Content rendered by JS -->
+        </div>
+    </section>
+
+    <!-- WINDOW 3: PUBLIKASI -->
+    <section class="window" id="window-publikasi" role="dialog" aria-modal="true" aria-labelledby="publikasi-window-title">
+        <div class="window-top">
+            <div class="traffic">
+                <button class="close" type="button" aria-label="Tutup jendela"></button>
+                <button class="minimize" type="button" aria-label="Minimalkan jendela"></button>
+                <button class="fullscreen" type="button" aria-label="Layar penuh"></button>
+            </div>
+            <strong class="window-title" id="publikasi-window-title">
+                <svg width="15" height="15" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 0-2.5 2.5z"/><path d="M6 22h14v6H6.5A2.5 2.5 0 0 1 4 25.5V25"/><path d="M20 6h6a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H6"/></svg>
+                Publikasi
+            </strong>
+        </div>
+        <nav class="tab-list" aria-label="Tab Navigasi Publikasi">
+            <button class="tab" data-window="window-publikasi" data-tab="overview" aria-selected="true"><span class="tab-mark">01</span>Ekosistem NyalaPress</button>
+            <button class="tab" data-window="window-publikasi" data-tab="workflow" aria-selected="false"><span class="tab-mark">02</span>Dari Naskah ke Buku</button>
+            <button class="tab" data-window="window-publikasi" data-tab="puspresnas" aria-selected="false"><span class="tab-mark">03</span>Kurasi Puspresnas</button>
+            <button class="tab" data-window="window-publikasi" data-tab="printing" aria-selected="false"><span class="tab-mark">04</span>Percetakan &amp; Logistik</button>
+            <button class="tab" data-window="window-publikasi" data-tab="royalty" aria-selected="false"><span class="tab-mark">05</span>Hak Cipta &amp; Royalti</button>
+        </nav>
+        <div class="workspace-content" id="publikasi-content" tabindex="-1">
+            <!-- Dynamic Content rendered by JS -->
+        </div>
+    </section>
+
+    <script>
+        /* State & Elements */
+        const windows = [...document.querySelectorAll('.window')];
+        const dockApps = [...document.querySelectorAll('.app')];
+        const dockStack = document.getElementById('dock-stack');
+        const dockFan = document.getElementById('dock-fan');
+        const dockStackCount = document.getElementById('dock-stack-count');
+        let lastTrigger = null;
+
+        /* Clock update */
+        const clockEl = document.getElementById('clock');
+        function updateClock() {
+            clockEl.textContent = new Intl.DateTimeFormat('id-ID', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'short',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(new Date()).replace(',', ' ·');
+        }
+        updateClock();
+        setInterval(updateClock, 30000);
+
+        /* Dock Stack & Minimized Fan Management */
+        function syncDockStack() {
+            const count = dockFan.children.length;
+            dockStackCount.textContent = count ? String(count) : '';
+            dockStack.setAttribute('aria-label', count ? `${count} jendela diminimalkan` : 'Jendela yang diminimalkan');
+            dockStack.setAttribute('aria-expanded', String(dockFan.classList.contains('open')));
+            if (!count) dockFan.classList.remove('open');
+        }
+
+        function removeDockWindow(windowId) {
+            dockFan.querySelector(`[data-restore-window="${windowId}"]`)?.remove();
+            syncDockStack();
+        }
+
+        function addDockWindow(windowEl) {
+            const windowId = windowEl.id;
+            let item = dockFan.querySelector(`[data-restore-window="${windowId}"]`);
+            if (!item) {
+                item = document.createElement('button');
+                item.type = 'button';
+                item.className = 'dock-window';
+                item.dataset.restoreWindow = windowId;
+                item.innerHTML = `<span>●</span> <span class="dock-window-label"></span>`;
+                item.addEventListener('click', () => {
+                    windowEl.classList.remove('minimized');
+                    windowEl.classList.add('open');
+                    removeDockWindow(windowId);
+                    syncDockIndicators();
+                    windowEl.querySelector('.close').focus();
+                });
+                dockFan.appendChild(item);
+            }
+            const title = windowEl.querySelector('.window-title').textContent.trim();
+            item.querySelector('.dock-window-label').textContent = title;
+            dockFan.classList.add('open');
+            syncDockStack();
+            syncDockIndicators();
+        }
+
+        function syncDockIndicators() {
+            dockApps.forEach(app => {
+                const targetId = app.dataset.target;
+                const win = document.getElementById(targetId);
+                const isOpen = win && win.classList.contains('open');
+                app.classList.toggle('is-open', Boolean(isOpen));
+            });
+        }
+
+        function openWindow(id, trigger) {
+            windows.forEach(w => {
+                if (w.id !== id) {
+                    w.classList.remove('open', 'screen-expanded');
+                }
+            });
+            lastTrigger = trigger;
+            const targetWin = document.getElementById(id);
+            if (!targetWin) return;
+            targetWin.classList.remove('minimized');
+            removeDockWindow(id);
+            targetWin.classList.add('open');
+            syncDockIndicators();
+            targetWin.querySelector('.close')?.focus();
+        }
+
+        async function closeWindow(winEl) {
+            if (document.fullscreenElement && document.fullscreenElement === winEl) {
+                await document.exitFullscreen();
+            }
+            winEl.classList.remove('open', 'minimized', 'screen-expanded');
+            removeDockWindow(winEl.id);
+            syncDockIndicators();
+            if (lastTrigger) lastTrigger.focus();
+        }
+
+        /* DATA: PROGRAM */
+        const programData = {
+            overview: {
+                kicker: 'Ekosistem Literasi Sekolah Terpadu',
+                title: 'Membangun Kapasitas Literasi yang Mandiri dan Skalabel',
+                lead: 'Program Nyalanesia mengintegrasikan pembelajaran menulis, bimbingan teknis intensif, pembinaan karakter, hingga penerbitan buku karya bersama dalam satu gerakan literasi nasional yang terukur dan berdampak nyata bagi ribuan sekolah di seluruh Nusantara.',
+                meta: [
+                    ['Fokus', 'Pemberdayaan & Karya'],
+                    ['Jangkauan', '34 Provinsi Indonesia'],
+                    ['Sasaran', 'Siswa, Guru & Kepala Sekolah']
+                ],
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-item-index">01</span>
+                            <div class="feature-item-body">
+                                <h3>Gerakan Literasi Terstruktur</h3>
+                                <p>Bukan sekadar lomba sesaat, melainkan pendampingan berkelanjutan dari naskah awal hingga karya terbit dan siap diapresiasi secara resmi.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">02</span>
+                            <div class="feature-item-body">
+                                <h3>Inklusif untuk Seluruh Jenjang</h3>
+                                <p>Melayani SD/MI, SMP/MTs, SMA/SMK/MA hingga Perguruan Tinggi, menjamin setiap anak dan pendidik memiliki kesempatan berkarya.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">03</span>
+                            <div class="feature-item-body">
+                                <h3>Sinergi Pemerintah Daerah</h3>
+                                <p>Bekerja sama secara resmi dengan Dinas Pendidikan Kota/Kabupaten dan Provinsi untuk mewujudkan target Standar Pelayanan Minimal (SPM) Literasi.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>12</strong><span>Gelombang GSMB</span></article>
+                        <article class="scorecard"><strong>1.401</strong><span>Sekolah Mitra</span></article>
+                        <article class="scorecard"><strong>10</strong><span>Festival Daerah</span></article>
+                        <article class="scorecard"><strong>100%</strong><span>SLA Layanan</span></article>
+                    </div>
+                    <div class="metric-list">
+                        <div class="metric-row"><span>Kepuasan GSMB Nasional</span><strong>96,7%</strong></div>
+                        <div class="metric-row"><span>Kepuasan Mitra FLN</span><strong>100%</strong></div>
+                        <div class="metric-row"><span>Kepuasan Bimbingan Teknis</span><strong>97,5%</strong></div>
+                    </div>
+                `
+            },
+            portfolio: {
+                kicker: 'Layanan & Inisiatif Unggulan',
+                title: 'Portofolio Program Literasi & Akademi',
+                lead: 'Dirancang fleksibel agar dapat disesuaikan dengan kebutuhan daerah, sekolah, serta pendidik profesional.',
+                meta: [
+                    ['Kategori', '5 Program Utama'],
+                    ['Format', 'Hybrid & Terpadu'],
+                    ['Dukungan', 'Puspresnas & ISBN']
+                ],
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-item-index">01</span>
+                            <div class="feature-item-body">
+                                <h3>GSMB Nasional (Gerakan Sekolah Menulis Buku)</h3>
+                                <p>Program literasi sekolah serentak terbesar di Indonesia yang memfasilitasi setiap siswa dan guru menerbitkan buku antologi ber-ISBN resmi.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">02</span>
+                            <div class="feature-item-body">
+                                <h3>Festival Literasi Daerah (FLD)</h3>
+                                <p>Kolaborasi resmi bersama Pemda dan Disdikbud untuk menyelenggarakan festival, kejuaraan cipta karya, serta penganugerahan rekor daerah.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">03</span>
+                            <div class="feature-item-body">
+                                <h3>Sekolah Literasi Nasional (SLN)</h3>
+                                <p>Program pendampingan sistemik bagi sekolah untuk mewujudkan ekosistem sekolah aktif literasi dan peningkatan nilai rapor pendidikan.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">04</span>
+                            <div class="feature-item-body">
+                                <h3>NextGen Teacher Academy (NTA)</h3>
+                                <p>Akademi peningkatan kompetensi guru modern di bidang pedagogi kreatif, teknologi edukasi, dan penulisan ilmiah populer.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">05</span>
+                            <div class="feature-item-body">
+                                <h3>Akademisi Menulis Buku (AMB Bootcamp)</h3>
+                                <p>Program inkubator intensif bagi dosen dan guru untuk menuntaskan penulisan buku referensi hingga diterbitkan secara luas.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>Rp54,7M</strong><span>ATH Capaian AMB</span></article>
+                        <article class="scorecard"><strong>Rp33,9M</strong><span>ATH Capaian NTA</span></article>
+                    </div>
+                    <div class="evidence-gallery">
+                        <div class="evidence-stage">
+                            <img src="assets/product/nextgen-landing.jpg" alt="NextGen Teacher Academy" loading="lazy">
+                            <div class="evidence-caption">Landing page resmi pelatihan guru NextGen Teacher Academy.</div>
+                        </div>
+                    </div>
+                `
+            },
+            journey: {
+                kicker: 'Mekanisme & Tahapan',
+                title: 'Alur Pelaksanaan Program yang Terstruktur',
+                lead: 'Transformasi dari proses manual menjadi alur terkoordinasi digital yang memastikan pendampingan teratur di setiap langkah.',
+                body: `
+                    <div class="compare-grid">
+                        <div class="compare-card">
+                            <div class="compare-panel before">
+                                <div class="compare-status">✕ Pola Tradisional</div>
+                                <p>Pendaftaran lambat, penyesuaian fasilitas daerah tidak fleksibel, koordinasi antar instansi memakan waktu hingga berbulan-bulan.</p>
+                            </div>
+                            <div class="compare-panel after">
+                                <div class="compare-status">✓ Alur Terkoordinasi Selara OS</div>
+                                <p>Sistem pendaftaran cepat tanpa hambatan, timeline fleksibel sesuai kalender daerah, pembagian tugas jelas via shared workbook terpadu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-list" style="margin-top:20px;">
+                        <div class="feature-item"><span class="feature-item-index">1</span><div class="feature-item-body"><h3>Sosialisasi &amp; Pendaftaran</h3><p>Penjelasan juknis program ke dinas dan sekolah, pendaftaran mandiri atau kolektif.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">2</span><div class="feature-item-body"><h3>Bimbingan Teknis Menulis</h3><p>Pelatihan teknik penulisan puisi, cerpen, artikel bagi guru dan siswa secara interaktif.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">3</span><div class="feature-item-body"><h3>Kurasi &amp; Penjurian Naskah</h3><p>Pemeriksaan naskah oleh tim editor dan juri kompeten berstandar objektif.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">4</span><div class="feature-item-body"><h3>Penerbitan &amp; Distribusi Fasilitas</h3><p>Penerbitan buku ber-ISBN, pencetakan sertifikat Puspresnas, dan persiapan selebrasi.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="metric-list">
+                        <div class="metric-row"><span>SLA Penjurian Tepat Waktu</span><strong>97,0%</strong></div>
+                        <div class="metric-row"><span>Pemahaman Bimbingan Teknis</span><strong>90,1%</strong></div>
+                        <div class="metric-row"><span>Penyelesaian Aduan Layanan</span><strong>100%</strong></div>
+                        <div class="metric-row"><span>Sesi Pelatihan Daring</span><strong>>20 Sesi</strong></div>
+                    </div>
+                `
+            },
+            evidence: {
+                kicker: 'Data & Pencapaian Nyata',
+                title: 'Bukti Penerapan & Skala Dampak Program',
+                lead: 'Tercermin dari rekam jejak pelaksanaan, kepuasan mitra sekolah, serta pengakuan resmi pemerintah.',
+                body: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>1.401</strong><span>Sekolah &amp; Koordinator</span></article>
+                        <article class="scorecard"><strong>12 Gelombang</strong><span>GSMB Nasional</span></article>
+                        <article class="scorecard"><strong>10 Wilayah</strong><span>Festival Literasi Daerah</span></article>
+                        <article class="scorecard"><strong>4 Gelombang</strong><span>Sekolah Literasi Nasional</span></article>
+                    </div>
+                    <div class="metric-list">
+                        <div class="metric-row"><span>Kepuasan FL Balikpapan #5</span><strong>93,3%</strong></div>
+                        <div class="metric-row"><span>Kepuasan FL Denpasar #6</span><strong>100%</strong></div>
+                        <div class="metric-row"><span>Kepuasan FL Batam #1</span><strong>100%</strong></div>
+                        <div class="metric-row"><span>Kepuasan FL Bangli #1</span><strong>100%</strong></div>
+                        <div class="metric-row"><span>Kepuasan FL Kutai Timur #1</span><strong>100%</strong></div>
+                        <div class="metric-row"><span>Kepuasan FL Sumatera Selatan</span><strong>93,3%</strong></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="evidence-gallery">
+                        <div class="evidence-stage">
+                            <img src="assets/product/nextgen-registration.jpg" alt="Alur Pendaftaran" loading="lazy">
+                            <div class="evidence-caption">Alur pendaftaran terintegrasi langsung dengan konfirmasi otomatis.</div>
+                        </div>
+                    </div>
+                `
+            },
+            benefits: {
+                kicker: 'Nilai Bagi Seluruh Pihak',
+                title: 'Dampak Positif Bagi Ekosistem Pendidikan',
+                lead: 'Setiap elemen ekosistem merasakan manfaat konkret yang mendukung peningkatan kualitas belajar.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">S</span><div class="feature-item-body"><h3>Bagi Siswa</h3><p>Meningkatkan rasa percaya diri, daya kritis, memiliki karya buku ber-ISBN pertama, dan sertifikat berharga untuk jenjang pendidikan berikutnya.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">G</span><div class="feature-item-body"><h3>Bagi Guru Koordinator</h3><p>Mendapatkan sertifikat resmi kurasi Puspresnas, angka kredit kenaikan pangkat, serta jejaring penggerak literasi se-Indonesia.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">K</span><div class="feature-item-body"><h3>Bagi Sekolah</h3><p>Mendongkrak indeks literasi rapor pendidikan, memfasilitasi akreditasi perpustakaan, dan membangun reputasi unggul.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">D</span><div class="feature-item-body"><h3>Bagi Dinas Pendidikan &amp; Pemda</h3><p>Memenuhi indikator kinerja literasi daerah dan rekor pencapaian karya pelajar tanpa membebani APBD secara berlebih.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>100%</strong><span>Kesiapan Fasilitas</span></article>
+                        <article class="scorecard"><strong>Ber-ISBN</strong><span>Legalitas Nasional</span></article>
+                    </div>
+                `
+            },
+            next: {
+                kicker: 'Arah Masa Depan',
+                title: 'Langkah Pengembangan & Orkestrasi Program',
+                lead: 'Mempersiapkan replikasi sistem yang semakin kokoh untuk menjangkau jutaan siswa dan guru di Indonesia.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">01</span><div class="feature-item-body"><h3>Orkestrasi Program Paralel</h3><p>Menyelaraskan GSMB, FLD, dan SLN agar berjalan beriringan dengan sistem monitoring terpusat.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">02</span><div class="feature-item-body"><h3>Pemberdayaan Jejaring Alumni</h3><p>Menjadikan alumni AMB dan NextGen Teacher Academy sebagai mentor dan penggerak di daerah masing-masing.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">03</span><div class="feature-item-body"><h3>Standarisasi SLA &amp; Kepuasan</h3><p>Menjaga tingkat kepuasan pelanggan di atas 95% untuk seluruh wilayah dan klaster kemitraan baru.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="feature-item" style="background:#f5f5f7;">
+                        <div class="feature-item-body">
+                            <h3>Komitmen Kualitas</h3>
+                            <p>Program yang hebat adalah program yang konsisten memberikan dampak nyata, terukur, dan berkelanjutan bagi manusia di dalamnya.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        /* DATA: ACARA PUNCAK */
+        const puncakData = {
+            overview: {
+                kicker: 'Panggung Selebrasi Akbar',
+                title: 'Merayakan Karya, Memuliakan Dedikasi Guru dan Pelajar',
+                lead: 'Acara Puncak adalah klimaks emosional dari seluruh rangkaian program literasi. Momen di mana kerja keras berbulan-bulan dirayakan di atas panggung megah berstandar nasional bersama para tokoh inspiratif dan pimpinan daerah.',
+                meta: [
+                    ['Format', 'Perayaan Akbar & Penganugerahan'],
+                    ['Tingkat', 'Daerah (FLD) & Nasional (FLN)'],
+                    ['Kehadiran', 'Walikota, Bupati, Kadisdik & Tokoh']
+                ],
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-item-index">★</span>
+                            <div class="feature-item-body">
+                                <h3>Panggung Kehormatan Tertinggi</h3>
+                                <p>Siswa dan guru yang biasanya hanya berkarya di sudut kelas mendapatkan panggung megah, sorotan lampu, trofi piala, dan pengakuan resmi di hadapan publik.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">★</span>
+                            <div class="feature-item-body">
+                                <h3>Selebrasi Budaya &amp; Sastra</h3>
+                                <p>Menghadirkan pertunjukan seni budaya siswa, paduan suara, musikalisasi puisi, teater literasi, serta peluncuran karya bersama.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">★</span>
+                            <div class="feature-item-body">
+                                <h3>Gelar Wicara Tokoh Bangsa</h3>
+                                <p>Dialog edukatif bersama pegiat literasi nasional, sastrawan ternama, akademisi, dan pejabat kementerian.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>100%</strong><span>Kepuasan FLN</span></article>
+                        <article class="scorecard"><strong>10 FLD</strong><span>Terselenggara</span></article>
+                        <article class="scorecard"><strong>Ribuan</strong><span>Hadirin &amp; Pemenang</span></article>
+                        <article class="scorecard"><strong>Megah</strong><span>Tata Panggung VVIP</span></article>
+                    </div>
+                `
+            },
+            rundown: {
+                kicker: 'Struktur Pelaksanaan',
+                title: 'Rangkaian Agenda Acara Puncak',
+                lead: 'Disusun runut dengan standar keprotokolan resmi pemerintah daerah dan atmosfer selebrasi penuh suka cita.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">1</span><div class="feature-item-body"><h3>Pameran Karya &amp; Galeri Literasi</h3><p>Display ratusan judul buku karya siswa dan guru yang baru terbit, booth interaktif, dan apresiasi karya.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">2</span><div class="feature-item-body"><h3>Peluncuran Antologi &amp; Penandatanganan</h3><p>Peluncuran simbolis buku antologi bersama yang ditandatangani oleh Walikota, Bupati, atau Kepala Dinas.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">3</span><div class="feature-item-body"><h3>Penganugerahan Juara &amp; Duta Literasi</h3><p>Penyerahan piala bergilir, selempang juara, sertifikat penghargaan, dan apresiasi pemenang kompetisi.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">4</span><div class="feature-item-body"><h3>Talkshow Inspiratif Nasional</h3><p>Sesi dialog interaktif berbagi kiat kepenulisan dan masa depan pendidikan bersama tokoh nasional.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">5</span><div class="feature-item-body"><h3>Pentas Seni &amp; Pertunjukan Budaya</h3><p>Penampilan bakat tari daerah, orkestra sekolah, dan pembacaan puisi terbaik oleh para juara.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="metric-list">
+                        <div class="metric-row"><span>Durasi Acara Rata-rata</span><strong>4 - 6 Jam</strong></div>
+                        <div class="metric-row"><span>Format Penyelenggaraan</span><strong>Hybrid (Luring + Streaming)</strong></div>
+                        <div class="metric-row"><span>Partisipasi Sekolah</span><strong>Ratusan Delegasi</strong></div>
+                    </div>
+                `
+            },
+            regions: {
+                kicker: 'Rekam Jejak Keberhasilan',
+                title: 'Festival Literasi di Seluruh Penjuru Daerah',
+                lead: 'Sukses diselenggarakan di berbagai kota dan kabupaten dengan sambutan antusias dari kepala daerah.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">01</span><div class="feature-item-body"><h3>Festival Literasi Nasional (FLN) - Solo &amp; Jakarta</h3><p>Puncak perayaan tingkat nasional yang mempertemukan pemenang dari seluruh provinsi dengan kepuasan 100%.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">02</span><div class="feature-item-body"><h3>Festival Literasi Balikpapan (Acara Puncak #5)</h3><p>Kerja sama Disdikbud Balikpapan di Gedung Kesenian, meluncurkan karya ratusan sekolah secara serentak.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">03</span><div class="feature-item-body"><h3>Festival Literasi Denpasar (Paket Premium #6)</h3><p>Mengintegrasikan literasi modern dengan kekayaan seni budaya lokal Bali berstandar internasional.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">04</span><div class="feature-item-body"><h3>Festival Literasi Kutai Timur, Batam, Sumsel, Bangli, Aceh</h3><p>Menjangkau wilayah kepulauan dan luar Jawa, menghidupkan api literasi hingga daerah terpencil.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>100%</strong><span>FL Denpasar #6</span></article>
+                        <article class="scorecard"><strong>100%</strong><span>FL Kutim #1</span></article>
+                        <article class="scorecard"><strong>100%</strong><span>FL Batam #1</span></article>
+                        <article class="scorecard"><strong>93,3%</strong><span>FL Balikpapan</span></article>
+                    </div>
+                `
+            },
+            awards: {
+                kicker: 'Penghargaan & Prestise',
+                title: 'Penganugerahan Resmi Berstandar Nasional',
+                lead: 'Memberikan nilai legitimasi nyata yang diakui oleh dinas pendidikan dan instansi terkait.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">🏆</span><div class="feature-item-body"><h3>Siswa Penulis &amp; Juara Cipta Karya</h3><p>Penghargaan untuk kategori Puisi, Cerpen, dan Artikel tingkat SD, SMP, hingga SMA/SMK.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">🎖</span><div class="feature-item-body"><h3>Guru Penggerak Literasi Terbaik</h3><p>Apresiasi bagi para pendidik yang berdedikasi membimbing puluhan siswa hingga menerbitkan buku.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">🥇</span><div class="feature-item-body"><h3>Sekolah Aktif Literasi Nasional</h3><p>Plakat dan piagam bergengsi untuk sekolah dengan persentase karya dan komitmen literasi tertinggi.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="feature-item" style="background:#fbfbfd;">
+                        <div class="feature-item-body">
+                            <h3>Legitimasi Puspresnas</h3>
+                            <p>Sertifikat kejuaraan didaftarkan dalam sistem kurasi Puspresnas Kemendikbudristek untuk keperluan jalur prestasi akademik lanjutan.</p>
+                        </div>
+                    </div>
+                `
+            },
+            production: {
+                kicker: 'Tata Kelola Acara',
+                title: 'Standar Produksi & Keprotokolan Panggung',
+                lead: 'Dikelola oleh tim profesional untuk menjaga kekhidmatan, kenyamanan tamu VVIP, serta kemeriahan panggung.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">1</span><div class="feature-item-body"><h3>Protokol VVIP Pemerintah Daerah</h3><p>Penataan alur kedatangan Walikota/Bupati, sambutan pejabat, dan penyerahan penghargaan berstandar kenegaraan.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">2</span><div class="feature-item-body"><h3>Manajemen Tata Panggung &amp; Multimedia</h3><p>Visual LED resolusi tinggi, tata pencahayaan panggung, tata suara akustik, serta live streaming multi-kamera.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">3</span><div class="feature-item-body"><h3>Distribusi Trofi &amp; Logistik Terpadu</h3><p>Pengaturan ratusan piala, medali, selempang, dan buku antologi berjalan teratur tanpa jeda kendala teknis.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>Broadcast</strong><span>Multi-Camera</span></article>
+                        <article class="scorecard"><strong>VVIP Ready</strong><span>Protokol Disdik</span></article>
+                    </div>
+                `
+            }
+        };
+
+        /* DATA: PUBLIKASI */
+        const publikasiData = {
+            overview: {
+                kicker: 'Lini Penerbitan Digital Berbantuan AI',
+                title: 'Ekosistem NyalaPress: Dari Naskah Menjadi Buku Standar Nasional',
+                lead: 'NyalaPress mengombinasikan keahlian tim redaksi profesional dengan teknologi otomasi dan kecerdasan buatan (AI) untuk memproses ribuan naskah secara cepat, terstandar, serta menjaga kemurnian suara penulis muda.',
+                meta: [
+                    ['Legalitas', 'ISBN & QRCBN Resmi Perpusnas'],
+                    ['Teknologi', 'AI Assisted Editorial Workflow'],
+                    ['Kapasitas', 'Ribuan Judul per Periode']
+                ],
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-item-index">📖</span>
+                            <div class="feature-item-body">
+                                <h3>Standar Penerbitan Industri Buku</h3>
+                                <p>Setiap buku karya sekolah diterbitkan dengan standar tata letak interior profesional, sampul eksklusif, serta terdaftar resmi di Perpustakaan Nasional RI.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">🤖</span>
+                            <div class="feature-item-body">
+                                <h3>Bantuan AI Editorial Terpadu</h3>
+                                <p>Mempercepat proses pemeriksaan naskah, ejaan bahasa (PUEBI), penataan naskah, hingga persiapan cetak tanpa mengorbankan kualitas isi.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">🏛</span>
+                            <div class="feature-item-body">
+                                <h3>Penyimpanan Master Digital &amp; E-Book</h3>
+                                <p>Seluruh karya tersimpan rapi dalam arsip digital Nyalanesia, membuka peluang pembacaan kembali melalui platform e-learning dan perpustakaan digital.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>Ribuan</strong><span>Judul Buku Terbit</span></article>
+                        <article class="scorecard"><strong>Resmi</strong><span>ISBN Perpusnas</span></article>
+                        <article class="scorecard"><strong>AI-Driven</strong><span>Alur NyalaPress</span></article>
+                        <article class="scorecard"><strong>100%</strong><span>Kepatuhan HAKI</span></article>
+                    </div>
+                `
+            },
+            workflow: {
+                kicker: 'Alur Penerbitan 5 Tahap',
+                title: 'Dari Tulisan Tangan & File Menjadi Buku Jadi',
+                lead: 'Sistem pengolahan naskah terstruktur yang memudahkan tim sekolah mengunggah hingga menerima kiriman buku fisik.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">01</span><div class="feature-item-body"><h3>Penerimaan &amp; Verifikasi Naskah</h3><p>Naskah siswa dan guru diunggah via portal digital, dikelompokkan berdasarkan sekolah dan kategori karya.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">02</span><div class="feature-item-body"><h3>Penyuntingan &amp; Kurasi Tata Bahasa</h3><p>Pemeriksaan ejaan, pemformatan teks, dan kurasi editorial dengan dukungan AI NyalaPress.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">03</span><div class="feature-item-body"><h3>Desain Sampul &amp; Tata Letak</h3><p>Penataan layout isi buku ramah baca dan pembuatan cover buku artistik sesuai karakter tema.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">04</span><div class="feature-item-body"><h3>Pendaftaran ISBN Resmi Perpusnas</h3><p>Pengurusan legalitas penerbitan buku ke Perpustakaan Nasional Republik Indonesia.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">05</span><div class="feature-item-body"><h3>Cetak &amp; Distribusi Terpadu</h3><p>Pencetakan fisik berkualitas tinggi dengan kertas bookpaper dan pengiriman via ekspedisi terintegrasi.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="compare-card">
+                        <div class="compare-panel before">
+                            <div class="compare-status">✕ Cetak Manual Biasa</div>
+                            <p>Tanpa ISBN, kertas fotokopi biasa, sampul generik, dan tanpa data pengarsipan perpustakaan nasional.</p>
+                        </div>
+                        <div class="compare-panel after">
+                            <div class="compare-status">✓ Standar NyalaPress</div>
+                            <p>Buku ber-ISBN resmi, sampul laminasi doff/glossy, bookpaper premium, tercatat di katalog Perpusnas.</p>
+                        </div>
+                    </div>
+                `
+            },
+            puspresnas: {
+                kicker: 'Validitas & Legitimasi Nasional',
+                title: 'Kurasi Resmi Pusat Prestasi Nasional (Puspresnas)',
+                lead: 'Memberikan nilai tambah yang tak ternilai bagi portofolio siswa dan peningkatan karir guru pendamping.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">✔</span><div class="feature-item-body"><h3>Terdaftar di Database Puspresnas</h3><p>Festival Literasi Nyalanesia telah tercantum dalam sistem kurasi Pusat Prestasi Nasional (Kemendikbudristek RI).</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">✔</span><div class="feature-item-body"><h3>Jalur Prestasi PPDB Siswa</h3><p>Piagam juara diakui secara sah untuk melengkapi persyaratan seleksi masuk sekolah menengah/kejuruan unggulan maupun perguruan tinggi.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">✔</span><div class="feature-item-body"><h3>Angka Kredit &amp; SKP Guru</h3><p>Sertifikat pendamping dan piagam pembimbing literasi dapat digunakan untuk pelaporan kinerja guru dan portofolio profesional.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="evidence-gallery">
+                        <div class="evidence-stage">
+                            <img src="assets/product/puspresnas-evidence.jpg" alt="Bukti Kurasi Puspresnas" loading="lazy">
+                            <div class="evidence-caption">Festival Literasi tercantum resmi pada sistem kurasi Puspresnas Kemendikbudristek.</div>
+                        </div>
+                    </div>
+                `
+            },
+            printing: {
+                kicker: 'Kualitas Fisik & Distribusi',
+                title: 'Standar Percetakan Industri & Logistik Terpadu',
+                lead: 'Memastikan buku sampai ke tangan sekolah dan siswa di seluruh pelosok Indonesia dengan kondisi prima.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">1</span><div class="feature-item-body"><h3>Spesifikasi Buku Berkualitas</h3><p>Ukuran standar UNESCO/UNESCO B5/A5, kertas isi Bookpaper 57-70gsm yang nyaman di mata, jilid lem panas (perfect binding) kokoh.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">2</span><div class="feature-item-body"><h3>Kemitraan Percetakan Terpercaya</h3><p>Dukungan fasilitas percetakan berkapasitas besar dengan kendali mutu (quality control) pada setiap eksemplar buku.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">3</span><div class="feature-item-body"><h3>Logistik Terintegrasi Biteship</h3><p>Pelacakan resi otomatis langsung dari sistem, memastikan pengiriman buku aman sampai ke sekolah di 34 provinsi.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="scorecard-grid">
+                        <article class="scorecard"><strong>Bookpaper</strong><span>Kertas Ramah Mata</span></article>
+                        <article class="scorecard"><strong>Biteship</strong><span>Pelacakan Otomatis</span></article>
+                    </div>
+                `
+            },
+            royalty: {
+                kicker: 'Akuntabilitas & Apresiasi Finansial',
+                title: 'Pengelolaan Hak Cipta & Transparansi Royalti',
+                lead: 'Menghargai setiap karya dengan tata kelola hak kekayaan intelektual yang jujur, transparan, dan berkelanjutan.',
+                body: `
+                    <div class="feature-list">
+                        <div class="feature-item"><span class="feature-item-index">§</span><div class="feature-item-body"><h3>Kepemilikan Hak Cipta Penulis</h3><p>Hak cipta naskah tetap menjadi milik siswa, guru, dan sekolah sebagai kreator karya.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">§</span><div class="feature-item-body"><h3>Pencatatan Royalti Melalui ERP Dipsy</h3><p>Setiap buku yang terjual di marketplace dan toko buku terdata akurat secara real-time di sistem operasional perusahaan.</p></div></div>
+                        <div class="feature-item"><span class="feature-item-index">§</span><div class="feature-item-body"><h3>Kemudahan Pemesanan Ulang (Re-Order)</h3><p>Keluarga dan sekolah dapat memesan cetak ulang dengan alur mudah dan harga khusus komunitas.</p></div></div>
+                    </div>
+                `,
+                aside: `
+                    <div class="metric-list">
+                        <div class="metric-row"><span>Transparansi Penjualan</span><strong>Dashboard Dipsy</strong></div>
+                        <div class="metric-row"><span>Hak Royalti Penulis</span><strong>Tercatat Otomatis</strong></div>
+                        <div class="metric-row"><span>Layanan Aduan Royalti</span><strong>100% Dituntaskan</strong></div>
+                    </div>
+                `
+            }
+        };
+
+        /* Renderer for Workspace Windows */
+        function renderWindowContent(windowId, tabKey) {
+            let dataPackage, contentContainer;
+            if (windowId === 'window-program') {
+                dataPackage = programData;
+                contentContainer = document.getElementById('program-content');
+            } else if (windowId === 'window-acara-puncak') {
+                dataPackage = puncakData;
+                contentContainer = document.getElementById('puncak-content');
+            } else if (windowId === 'window-publikasi') {
+                dataPackage = publikasiData;
+                contentContainer = document.getElementById('publikasi-content');
+            }
+            if (!dataPackage || !contentContainer) return;
+
+            const page = dataPackage[tabKey] || dataPackage[Object.keys(dataPackage)[0]];
+            const isFullWidth = !page.aside;
+            contentContainer.className = `workspace-content ${isFullWidth ? 'full-width' : ''}`;
+
+            let metaHtml = '';
+            if (page.meta && page.meta.length) {
+                metaHtml = `<div class="workspace-meta">${page.meta.map(m => `<div><span>${m[0]}</span><b>${m[1]}</b></div>`).join('')}</div>`;
+            }
+
+            contentContainer.innerHTML = `
+                <article class="workspace-copy">
+                    <div class="kicker">${page.kicker || ''}</div>
+                    <h2>${page.title || ''}</h2>
+                    <p class="lead">${page.lead || ''}</p>
+                    ${metaHtml}
+                    ${page.body || ''}
+                </article>
+                ${page.aside ? `<aside class="workspace-aside">${page.aside}</aside>` : ''}
+            `;
+            contentContainer.scrollTop = 0;
+        }
+
+        /* Event Listeners Setup */
+        dockApps.forEach(app => {
+            app.addEventListener('click', () => {
+                const targetWindowId = app.dataset.target;
+                openWindow(targetWindowId, app);
+            });
+        });
+
+        // Window Controls
+        windows.forEach(win => {
+            const windowId = win.id;
+
+            // Close button
+            win.querySelector('.close')?.addEventListener('click', () => closeWindow(win));
+
+            // Minimize button
+            win.querySelector('.minimize')?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                win.classList.remove('screen-expanded', 'open');
+                win.classList.add('minimized');
+                addDockWindow(win);
+            });
+
+            // Fullscreen toggle button
+            win.querySelector('.fullscreen')?.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                if (document.fullscreenElement === win) {
+                    await document.exitFullscreen();
+                    return;
+                }
+                win.classList.toggle('screen-expanded');
+            });
+
+            // Tabs inside the window
+            win.querySelectorAll('.tab').forEach(tabButton => {
+                tabButton.addEventListener('click', () => {
+                    win.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', 'false'));
+                    tabButton.setAttribute('aria-selected', 'true');
+                    const tabKey = tabButton.dataset.tab;
+                    renderWindowContent(windowId, tabKey);
+                });
+            });
+
+            // Initial render of first tab
+            const firstTab = win.querySelector('.tab');
+            if (firstTab) {
+                renderWindowContent(windowId, firstTab.dataset.tab);
+            }
+        });
+
+        // Dock Stack fan toggle
+        dockStack.addEventListener('click', () => {
+            if (!dockFan.children.length) return;
+            dockFan.classList.toggle('open');
+            syncDockStack();
+        });
+
+        document.addEventListener('pointerdown', (e) => {
+            if (!dockFan.contains(e.target) && !dockStack.contains(e.target)) {
+                dockFan.classList.remove('open');
+                syncDockStack();
+            }
+        });
+
+        // OS Screen Controls
+        const enterFullscreen = document.getElementById('enter-fullscreen');
+        const exitFullscreen = document.getElementById('exit-fullscreen');
+        function syncOSScreenControls() {
+            const isFull = Boolean(document.fullscreenElement);
+            enterFullscreen.disabled = isFull;
+            exitFullscreen.disabled = !isFull;
+        }
+
+        enterFullscreen.addEventListener('click', async () => {
+            if (!document.fullscreenElement) {
+                await document.documentElement.requestFullscreen();
+            }
+        });
+
+        exitFullscreen.addEventListener('click', async () => {
+            if (document.fullscreenElement) {
+                await document.exitFullscreen();
+            }
+        });
+
+        document.addEventListener('fullscreenchange', syncOSScreenControls);
+
+        // Keyboard escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openWin = document.querySelector('.window.open');
+                if (openWin) closeWindow(openWin);
+            }
+        });
+    </script>
+</body>
+
+</html>
