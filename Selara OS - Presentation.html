@@ -816,8 +816,8 @@
         .program-poster-thumb-wrap {
             position: relative;
             width: 100%;
-            height: 230px;
-            background: #111622;
+            aspect-ratio: 297 / 420;
+            background: #0f172a;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -827,7 +827,8 @@
         .program-poster-thumb-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background: #0b0f19;
             transition: transform .3s ease;
         }
 
@@ -2820,21 +2821,21 @@
                     <span class="tab-mark mark-pending">08</span>
                     <span class="tab-label">Implementasi Literasi Numerasi</span>
                 </div>
-                <span class="tab-status-pill status-pending">Belum</span>
+                <span class="tab-status-pill status-pending">Belum Terlaksana</span>
             </button>
             <button class="tab" data-window="window-program" data-tab="sains" aria-selected="false">
                 <div class="tab-main">
                     <span class="tab-mark mark-pending">09</span>
                     <span class="tab-label">Implementasi Literasi Sains</span>
                 </div>
-                <span class="tab-status-pill status-pending">Belum</span>
+                <span class="tab-status-pill status-pending">Belum Terlaksana</span>
             </button>
             <button class="tab" data-window="window-program" data-tab="budaya" aria-selected="false">
                 <div class="tab-main">
                     <span class="tab-mark mark-pending">10</span>
                     <span class="tab-label">Implementasi Literasi Budaya</span>
                 </div>
-                <span class="tab-status-pill status-pending">Belum</span>
+                <span class="tab-status-pill status-pending">Belum Terlaksana</span>
             </button>
             <button class="tab" data-window="window-program" data-tab="fln" aria-selected="false">
                 <div class="tab-main">
@@ -3147,16 +3148,10 @@
                 kicker: 'Kabupaten Kutai Timur · Ekosistem Gerakan Literasi',
                 title: 'Rekapitulasi Program & Capaian Agregat Daerah',
                 lead: 'Gerakan Literasi Terpadu Kabupaten Kutai Timur menyatukan 268 sekolah, 746 guru pendamping, dan 15.012 siswa dalam satu ekosistem karya, penerbitan antologi, aktivasi digital, dan asesmen kompetensi dengan total 15.758 peserta aktif.',
-                meta: [
-                    ['Total Peserta', '15.758 Orang (746 Guru & 15.012 Siswa)'],
-                    ['Sekolah Terlibat', '268 Sekolah (185 SD · 83 SMP)'],
-                    ['Pengiriman Poster', '270 Sekolah (94% Partisipasi)'],
-                    ['Pengiriman Naskah', '268 Sekolah (93% Partisipasi · 91% Tepat Waktu)']
-                ],
                 body: `
                     <div class="program-kpi-grid">
                         <div class="program-kpi-card">
-                            <span class="program-kpi-label">Total Sekolah</span>
+                            <span class="program-kpi-label">Sekolah Terlibat</span>
                             <strong class="program-kpi-val highlight">268</strong>
                             <span class="program-kpi-sub">185 SD &amp; 83 SMP Mitra</span>
                         </div>
@@ -3177,9 +3172,9 @@
                         </div>
                     </div>
 
-                    <div class="feature-item" style="margin-bottom:20px; background:#ffffff;">
+                    <div class="feature-item" style="margin-bottom:28px; background:#ffffff; border:1px solid #e5e5ea; border-radius:12px; padding:20px;">
                         <div class="feature-item-body" style="width:100%;">
-                            <h3 style="margin-bottom:12px;">📊 Metrik Kinerja Pengumpulan &amp; Partisipasi</h3>
+                            <h3 style="margin-bottom:16px; font-size:16px; font-weight:700;">Metrik Kinerja Pengumpulan &amp; Partisipasi</h3>
                             
                             <div class="prog-bar-wrap">
                                 <div class="prog-bar-header">
@@ -3213,6 +3208,16 @@
 
                             <div class="prog-bar-wrap">
                                 <div class="prog-bar-header">
+                                    <span>Sekolah Turun Cetak (161 dari 268 Sekolah)</span>
+                                    <strong>60%</strong>
+                                </div>
+                                <div class="prog-bar-track">
+                                    <div class="prog-bar-fill highlight" style="width: 60%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="prog-bar-wrap">
+                                <div class="prog-bar-header">
                                     <span>Sekolah Klaim Weblit (148 Sekolah)</span>
                                     <strong>55,2%</strong>
                                 </div>
@@ -3223,14 +3228,15 @@
                         </div>
                     </div>
 
-                    <h3 style="margin:24px 0 10px; font-size:16px;">📋 Matriks Status 10 Tahapan Program Literasi</h3>
+                    <h3 style="margin:24px 0 12px; font-size:16px; font-weight:700;">Matriks Status 10 Tahapan Program Literasi</h3>
                     <table class="program-status-table">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th style="width:50px;">No</th>
                                 <th>Tahapan Inisiatif</th>
                                 <th>Capaian &amp; Realisasi</th>
                                 <th>Status Pelaksanaan</th>
+                                <th>Tanggal Pelaksanaan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -3239,79 +3245,73 @@
                                 <td><strong>Pengumpulan Poster</strong></td>
                                 <td>270 Sekolah (94% Rasio Capaian)</td>
                                 <td><span class="tab-status-pill status-done">Selesai</span></td>
+                                <td><strong>31 Agustus 2026</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>02</strong></td>
                                 <td><strong>Pengumpulan Naskah</strong></td>
                                 <td>268 Sekolah (93% Rasio · 91% Tepat Waktu)</td>
                                 <td><span class="tab-status-pill status-done">Selesai</span></td>
+                                <td><strong>13 September 2026</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>03</strong></td>
                                 <td><strong>Weblit Sekolah</strong></td>
                                 <td>148 Sekolah Telah Klaim &amp; Aktivasi</td>
                                 <td><span class="tab-status-pill status-done">Selesai</span></td>
+                                <td><strong>11 Oktober 2026</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>04</strong></td>
                                 <td><strong>Kompetisi Literasi Daerah</strong></td>
                                 <td>22 Sekolah Terlibat Lomba Tim Literasi</td>
                                 <td><span class="tab-status-pill status-done">Selesai</span></td>
+                                <td><strong>20 Oktober 2026</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>05</strong></td>
                                 <td><strong>Nyalagames</strong></td>
                                 <td>Gamifikasi Kuis &amp; Asah Kosakata Siswa</td>
                                 <td><span class="tab-status-pill status-process">Proses</span></td>
+                                <td><strong>November 2026</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>06</strong></td>
                                 <td><strong>TKA dan Pembahasan</strong></td>
                                 <td>Asesmen Diagnostik &amp; Bedah Materi</td>
                                 <td><span class="tab-status-pill status-process">Proses</span></td>
+                                <td><strong>Desember 2026</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>07</strong></td>
                                 <td><strong>Implementasi Literasi Numerasi</strong></td>
                                 <td>Modul Numerasi Kontekstual &amp; Soal Cerita</td>
                                 <td><span class="tab-status-pill status-pending">Terjadwal</span></td>
+                                <td><strong>Januari 2027</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>08</strong></td>
                                 <td><strong>Implementasi Literasi Sains</strong></td>
                                 <td>Eksperimen Sederhana &amp; Jurnal Lingkungan</td>
                                 <td><span class="tab-status-pill status-pending">Terjadwal</span></td>
+                                <td><strong>Februari 2027</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>09</strong></td>
                                 <td><strong>Implementasi Literasi Budaya</strong></td>
                                 <td>Antologi Kearifan Lokal &amp; Etnografi Budaya</td>
                                 <td><span class="tab-status-pill status-pending">Terjadwal</span></td>
+                                <td><strong>Maret 2027</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>10</strong></td>
                                 <td><strong>Festival Literasi Nasional (FLN)</strong></td>
                                 <td>Pendelegasian Juara Daerah ke Panggung Nasional</td>
                                 <td><span class="tab-status-pill status-pending">Mendatang</span></td>
+                                <td><strong>April 2027</strong></td>
                             </tr>
                         </tbody>
                     </table>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>268</strong><span>Sekolah Mitra (185 SD · 83 SMP)</span></article>
-                        <article class="scorecard"><strong>15.758</strong><span>Total Peserta Terlibat</span></article>
-                        <article class="scorecard"><strong>94%</strong><span>Rasio Kirim Poster</span></article>
-                        <article class="scorecard"><strong>93%</strong><span>Rasio Kirim Naskah</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Sekolah Turun Cetak</span><strong style="color:#0071e3;">268 Sekolah (Siap)</strong></div>
-                        <div class="metric-row"><span>Ketepatan Waktu Naskah</span><strong>91%</strong></div>
-                        <div class="metric-row"><span>Sekolah Klaim Weblit</span><strong>148 Sekolah (55,2%)</strong></div>
-                        <div class="metric-row"><span>Sekolah Lomba Tim Literasi</span><strong>22 Sekolah (On Process)</strong></div>
-                        <div class="metric-row"><span>Komposisi Sekolah</span><strong>185 SD / 83 SMP</strong></div>
-                    </div>
                 `
             },
 
@@ -3319,15 +3319,9 @@
                 kicker: 'Tahap 01 · Karya Visual Budaya & Pameran',
                 title: 'Pengumpulan Poster Kreativitas Budaya & Literasi',
                 lead: 'Karya poster representasi seni tari, budaya suku Dayak, tradisi pesisir, dan inovasi literasi sekolah dasar serta menengah di seluruh Kabupaten Kutai Timur.',
-                meta: [
-                    ['Status Tahap', 'Selesai Dilaksanakan'],
-                    ['Sekolah Kirim Poster', '270 Sekolah'],
-                    ['Rasio Partisipasi', '94% dari Target Daerah'],
-                    ['Format Standar', 'Poster A3 (29,7 cm × 42,0 cm)']
-                ],
                 body: `
                     <div class="status-badge-banner done">
-                        Tahap Selesai Dilaksanakan · Capaian Partisipasi 94%
+                        Tahap Selesai Dilaksanakan · Capaian Partisipasi 94% (31 Agustus 2026)
                     </div>
 
                     <div class="program-kpi-grid">
@@ -3342,7 +3336,7 @@
                             <span class="program-kpi-sub">Tingkat Keikutsertaan</span>
                         </div>
                         <div class="program-kpi-card">
-                            <span class="program-kpi-label">Format Cetak</span>
+                            <span class="program-kpi-label">Format Standar</span>
                             <strong class="program-kpi-val">A3</strong>
                             <span class="program-kpi-sub">29,7 cm × 42,0 cm</span>
                         </div>
@@ -3353,8 +3347,32 @@
                         </div>
                     </div>
 
-                    <h3 style="margin:22px 0 6px; font-size:16px;">🖼 Galeri Karya Poster Terverifikasi (Klik Gambar untuk Lihat Utuh)</h3>
-                    <p style="font-size:13px; color:#6e6e73; margin:0 0 14px;">Berikut adalah contoh poster A3 karya siswa dan tim budaya sekolah se-Kutai Timur yang telah tuntas dihimpun dan siap dipamerkan pada Acara Puncak:</p>
+                    <div class="feature-list" style="margin:24px 0 28px;">
+                        <div class="feature-item">
+                            <span class="feature-item-index">01</span>
+                            <div class="feature-item-body">
+                                <h3>Dokumentasi Kearifan Lokal Kalimantan Timur</h3>
+                                <p>Poster karya siswa memvisualisasikan Tari Kreasi Dayak (SDN 002 Long Mesangat), Tradisi Ngambang Taun Dayak Basap (SDN 002 Kaubun), Pesona Tari Jepen Pesisir Mahakam (SDN 002 Muara Ancalong), hingga Tarian Hudoq Anek Puyat (SDN 008 Kombeng).</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">02</span>
+                            <div class="feature-item-body">
+                                <h3>Integrasi Sistem Sketsel Pameran &amp; Stiker Voting</h3>
+                                <p>Setiap poster dipasang di Sketsel Display Partisi (1.0 × 2.5 m) dengan celah 3 cm menuju tempat voting stiker bulat Ø 2 cm untuk pemilihan karya terfavorit pengunjung Acara Puncak.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-item-index">03</span>
+                            <div class="feature-item-body">
+                                <h3>Kurasi Grafis &amp; Resolusi Tinggi</h3>
+                                <p>Seluruh naskah desain poster telah melalui proses verifikasi resolusi cetak industri untuk memastikan ketajaman visual maksimal saat dipamerkan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin:24px 0 8px; font-size:16px; font-weight:700;">Galeri Karya Poster Terverifikasi (Klik Gambar untuk Lihat Utuh)</h3>
+                    <p style="font-size:13px; color:#6e6e73; margin:0 0 16px;">Berikut adalah contoh poster A3 karya siswa dan tim budaya sekolah se-Kutai Timur dengan proporsi A3 vertikal utuh yang telah tuntas dihimpun dan siap dipamerkan pada Acara Puncak:</p>
 
                     <div class="program-poster-grid">
                         <div class="program-poster-card" data-modal-poster-id="1" title="Klik untuk lihat poster utuh: Macam Macam Tari Kalimantan">
@@ -3417,52 +3435,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <span class="feature-item-index">01</span>
-                            <div class="feature-item-body">
-                                <h3>Dokumentasi Kearifan Lokal Kalimantan Timur</h3>
-                                <p>Poster karya siswa memvisualisasikan Tari Kreasi Dayak (SDN 002 Long Mesangat), Tradisi Ngambang Taun Dayak Basap (SDN 002 Kaubun), Pesona Tari Jepen Pesisir Mahakam (SDN 002 Muara Ancalong), hingga Tarian Hudoq Anek Puyat (SDN 008 Kombeng).</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-item-index">02</span>
-                            <div class="feature-item-body">
-                                <h3>Integrasi Sistem Sketsel Pameran &amp; Stiker Voting</h3>
-                                <p>Setiap poster dipasang di Sketsel Display Partisi (1.0 × 2.5 m) dengan celah 3 cm menuju tempat voting stiker bulat Ø 2 cm untuk pemilihan karya terfavorit pengunjung Acara Puncak.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-item-index">03</span>
-                            <div class="feature-item-body">
-                                <h3>Kurasi Grafis &amp; Resolusi Tinggi</h3>
-                                <p>Seluruh naskah desain poster telah melalui proses verifikasi resolusi cetak industri untuk memastikan ketajaman visual maksimal saat dipamerkan.</p>
-                            </div>
-                        </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>270</strong><span>Sekolah Kirim Poster</span></article>
-                        <article class="scorecard"><strong>94%</strong><span>Rasio Sekolah</span></article>
-                        <article class="scorecard"><strong>A3</strong><span>Standar Format</span></article>
-                        <article class="scorecard"><strong>100%</strong><span>Kurasi Visual</span></article>
-                    </div>
-
-                    <div class="evidence-gallery" style="margin-bottom:16px;">
-                        <div class="evidence-stage" data-modal-poster-id="1" style="cursor:pointer;" title="Klik untuk pratinjau utuh poster">
-                            <img src="assets/posters/poster-1.jpg" alt="Poster A3 Pameran" loading="lazy">
-                            <div class="evidence-caption">Spesifikasi cetak fisik A3 (29,7 × 42 cm) karya SDN 002 Long Mesangat. Klik gambar untuk melihat resolusi penuh.</div>
-                        </div>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Tahapan</span><strong style="color:#1b813e;">Selesai</strong></div>
-                        <div class="metric-row"><span>Total Poster Diterima</span><strong>270 Berkas</strong></div>
-                        <div class="metric-row"><span>Kepatuhan Spesifikasi</span><strong>100%</strong></div>
-                        <div class="metric-row"><span>Fitur Pop-Up Utuh</span><strong>Aktif di Sistem</strong></div>
-                    </div>
                 `
             },
 
@@ -3470,37 +3442,31 @@
                 kicker: 'Tahap 02 · Penerbitan Buku Antologi Ber-ISBN',
                 title: 'Pengumpulan & Kurasi Naskah Siswa dan Guru',
                 lead: 'Kumpulan karya cipta puisi, cerpen, dan artikel sastra dari siswa dan guru di 268 sekolah se-Kutai Timur yang telah tuntas dihimpun dan disunting untuk penerbitan antologi resmi.',
-                meta: [
-                    ['Status Tahap', 'Selesai Dilaksanakan'],
-                    ['Sekolah Kirim Naskah', '268 Sekolah'],
-                    ['Rasio Sekolah', '93% Capaian'],
-                    ['Ketepatan Waktu', '91% Tepat Waktu']
-                ],
                 body: `
                     <div class="status-badge-banner done">
-                        Tahap Selesai Dilaksanakan · 268 Sekolah Tuntas Menghimpun Karya
+                        Tahap Selesai Dilaksanakan · 268 Sekolah Tuntas Menghimpun Karya (13 September 2026)
                     </div>
 
                     <div class="program-kpi-grid">
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Sekolah Kirim Naskah</span>
                             <strong class="program-kpi-val success">268</strong>
-                            <span class="program-kpi-sub">Sekolah Berhasil Kirim</span>
-                        </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Rasio Partisipasi</span>
-                            <strong class="program-kpi-val highlight">93%</strong>
-                            <span class="program-kpi-sub">Dari Total Sekolah</span>
+                            <span class="program-kpi-sub">93% Rasio Partisipasi</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Ketepatan Waktu</span>
-                            <strong class="program-kpi-val success">91%</strong>
+                            <strong class="program-kpi-val highlight">91%</strong>
                             <span class="program-kpi-sub">Disiplin Tenggat</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Sekolah Turun Cetak</span>
-                            <strong class="program-kpi-val highlight">268</strong>
-                            <span class="program-kpi-sub">Buku Antologi Ber-ISBN</span>
+                            <strong class="program-kpi-val success">60%</strong>
+                            <span class="program-kpi-sub">161 dari 268 Sekolah</span>
+                        </div>
+                        <div class="program-kpi-card">
+                            <span class="program-kpi-label">Standar Publikasi</span>
+                            <strong class="program-kpi-val highlight">ISBN</strong>
+                            <span class="program-kpi-sub">Perpusnas &amp; Puspresnas</span>
                         </div>
                     </div>
 
@@ -3508,8 +3474,8 @@
                         <div class="feature-item">
                             <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
-                                <h3>268 Sekolah Siap Turun Cetak</h3>
-                                <p>Seluruh naskah dari 268 sekolah yang lolos verifikasi redaksional siap memasuki lini percetakan massal dengan spesifikasi bookpaper 57-70gsm standar UNESCO dan jilid lem panas kokoh.</p>
+                                <h3>Progres Sekolah Siap Turun Cetak Mencapai 60%</h3>
+                                <p>Saat ini sebanyak 60% sekolah (161 sekolah mitra) telah menyelesaikan tahap pra-cetak dan tata letak interior final ber-ISBN resmi, sementara sisanya sedang dalam tahap kurasi dan penyelesaian akhir.</p>
                             </div>
                         </div>
                         <div class="feature-item">
@@ -3523,24 +3489,9 @@
                             <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Penyuntingan Redaksional Profesional</h3>
-                                <p>Pemeriksaan ejaan, keterbacaan anak, etika bahasa, serta perwajahan tata letak puisi dan cerpen dikerjakan secara cermat oleh tim editor Nyalanesia.</p>
+                                <p>Pemeriksaan ejaan, keterbacaan anak, etika bahasa, serta perwajahan tata letak puisi dan cerpen dikerjakan secara cermat oleh tim editor Nyalanesia sesuai standar industri buku.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>268</strong><span>Sekolah Kirim Naskah</span></article>
-                        <article class="scorecard"><strong>93%</strong><span>Rasio Pengiriman</span></article>
-                        <article class="scorecard"><strong>91%</strong><span>Ketepatan Waktu</span></article>
-                        <article class="scorecard"><strong>268</strong><span>Sekolah Turun Cetak</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Tahapan</span><strong style="color:#1b813e;">Selesai</strong></div>
-                        <div class="metric-row"><span>Legalitas Karya</span><strong>ISBN Resmi Perpusnas</strong></div>
-                        <div class="metric-row"><span>Penerbitan Buku</span><strong>Antologi Berjilid Rapi</strong></div>
-                        <div class="metric-row"><span>Jalur Puspresnas</span><strong>Diakui Resmi</strong></div>
                     </div>
                 `
             },
@@ -3549,15 +3500,9 @@
                 kicker: 'Tahap 03 · Transformasi Literasi Digital',
                 title: 'Aktivasi Portal Website Literasi Sekolah (Weblit)',
                 lead: 'Penyediaan dan aktivasi portal website literasi resmi sekolah sebagai ruang publikasi digital karya tulisan, resensi buku, profil perpustakaan, dan berita literasi berkelanjutan.',
-                meta: [
-                    ['Status Tahap', 'Selesai Diluncurkan'],
-                    ['Sekolah Klaim Weblit', '148 Sekolah'],
-                    ['Rasio Adopsi', '55,2% Total Mitra'],
-                    ['Infrastruktur', 'Cloud Subdomain Mandiri']
-                ],
                 body: `
                     <div class="status-badge-banner done">
-                        Tahap Selesai Diluncurkan · 148 Sekolah Telah Mengklaim Portal
+                        Tahap Selesai Diluncurkan · 148 Sekolah Telah Mengklaim Portal (11 Oktober 2026)
                     </div>
 
                     <div class="program-kpi-grid">
@@ -3572,14 +3517,14 @@
                             <span class="program-kpi-sub">Dari Total 268 Sekolah</span>
                         </div>
                         <div class="program-kpi-card">
-                            <span class="program-kpi-label">Waktu Layanan</span>
-                            <strong class="program-kpi-val">24/7</strong>
-                            <span class="program-kpi-sub">Akses Publik Daring</span>
+                            <span class="program-kpi-label">Infrastruktur</span>
+                            <strong class="program-kpi-val">Cloud</strong>
+                            <span class="program-kpi-sub">Subdomain Mandiri SSL</span>
                         </div>
                         <div class="program-kpi-card">
-                            <span class="program-kpi-label">Keamanan Data</span>
-                            <strong class="program-kpi-val success">SSL</strong>
-                            <span class="program-kpi-sub">Terenkripsi Mandiri</span>
+                            <span class="program-kpi-label">Biaya Platform</span>
+                            <strong class="program-kpi-val success">0 Biaya</strong>
+                            <span class="program-kpi-sub">Fasilitas Program Daerah</span>
                         </div>
                     </div>
 
@@ -3602,24 +3547,9 @@
                             <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Pendampingan Berkelanjutan untuk Sisa Sekolah</h3>
-                                <p>Tim teknis Nyalanesia terus membuka layanan konsultasi klaim mandiri agar 120 sekolah lainnya segera mengaktivasi hak akses subdomain weblit mereka.</p>
+                                <p>Tim teknis Nyalanesia terus membuka layanan konsultasi klaim mandiri agar 120 sekolah lainnya segera mengaktivasi hak akses subdomain weblit mereka menuju target 268 sekolah.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>148</strong><span>Sekolah Klaim Weblit</span></article>
-                        <article class="scorecard"><strong>55,2%</strong><span>Rasio Adopsi Digital</span></article>
-                        <article class="scorecard"><strong>100%</strong><span>Cloud Responsive</span></article>
-                        <article class="scorecard"><strong>0 Biaya</strong><span>Fasilitas Program</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Tahapan</span><strong style="color:#1b813e;">Selesai</strong></div>
-                        <div class="metric-row"><span>Akses Subdomain</span><strong>Aktif Otomatis</strong></div>
-                        <div class="metric-row"><span>Mading Digital</span><strong>Dapat Diunggah Siswa</strong></div>
-                        <div class="metric-row"><span>Target Akhir</span><strong>268 Sekolah Terkoneksi</strong></div>
                     </div>
                 `
             },
@@ -3628,22 +3558,16 @@
                 kicker: 'Tahap 04 · Ajang Kejuaraan & Seleksi Berjenjang',
                 title: 'Kompetisi Literasi Daerah & Lomba Tim Literasi',
                 lead: 'Ajang kompetisi bergengsi untuk menyeleksi karya cipta terbaik, pemilihan Duta Literasi Pelajar, serta kejuaraan Lomba Tim Literasi Sekolah se-Kabupaten Kutai Timur.',
-                meta: [
-                    ['Status Tahap', 'Selesai Tahap Penjurian'],
-                    ['Sekolah Lomba Tim', '22 Sekolah (On Process Penjurian)'],
-                    ['Kategori Kejuaraan', 'Siswa, Guru & Tim Literasi Sekolah'],
-                    ['Pengakuan Prestasi', 'Piala Bupati & Rekomendasi Puspresnas']
-                ],
                 body: `
                     <div class="status-badge-banner done">
-                        Tahap Selesai Dilaksanakan · 22 Tim Sekolah Bertanding di Lomba Tim Literasi
+                        Tahap Selesai Dilaksanakan · 22 Tim Sekolah Bertanding di Lomba Tim Literasi (20 Oktober 2026)
                     </div>
 
                     <div class="program-kpi-grid">
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Lomba Tim Literasi</span>
                             <strong class="program-kpi-val success">22</strong>
-                            <span class="program-kpi-sub">Sekolah Bersaing (On Process)</span>
+                            <span class="program-kpi-sub">Sekolah Bersaing</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Kategori Lomba</span>
@@ -3685,21 +3609,6 @@
                             </div>
                         </div>
                     </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>22</strong><span>Sekolah Lomba Tim</span></article>
-                        <article class="scorecard"><strong>5</strong><span>Kategori Juara</span></article>
-                        <article class="scorecard"><strong>Puspresnas</strong><span>Validasi Kemendikbud</span></article>
-                        <article class="scorecard"><strong>Piala Bupati</strong><span>Anugerah Tertinggi</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Tahapan</span><strong style="color:#1b813e;">Selesai</strong></div>
-                        <div class="metric-row"><span>Lomba Tim Literasi</span><strong>22 Sekolah (On Process)</strong></div>
-                        <div class="metric-row"><span>Duta Pelajar Kutim</span><strong>Seleksi Final</strong></div>
-                        <div class="metric-row"><span>Pemberian Piala</span><strong>Di Acara Puncak</strong></div>
-                    </div>
                 `
             },
 
@@ -3707,15 +3616,9 @@
                 kicker: 'Tahap 05 · Gamifikasi Edukasi Interaktif',
                 title: 'Nyalagames: Gamifikasi & Asah Literasi Interaktif',
                 lead: 'Metode belajar inovatif melalui mini game digital untuk memacu penguasaan kosakata bahasa Indonesia baku, pemahaman bacaan, dan kelincahan berpikir kritis para siswa.',
-                meta: [
-                    ['Status Tahap', 'Sedang Berjalan'],
-                    ['Sasaran Pengguna', 'Siswa SD & SMP se-Kutai Timur'],
-                    ['Format Media', 'Platform Web App Gamifikasi'],
-                    ['Sistem Tantangan', 'Tantangan Harian & Leaderboard']
-                ],
                 body: `
                     <div class="status-badge-banner process">
-                        Tahap Sedang Berjalan · Pelaksanaan Gamifikasi di Sekolah
+                        Tahap Sedang Berjalan · Pelaksanaan Gamifikasi di Sekolah (November 2026)
                     </div>
 
                     <div class="program-kpi-grid">
@@ -3743,40 +3646,26 @@
 
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-item-index">•</span>
+                            <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
                                 <h3>Distribusi Kode Kelas &amp; Aktivasi Akun Siswa</h3>
                                 <p>Saat ini guru pendamping di sekolah sedang mengaktifkan akun dan memandu siswa mencoba modul tantangan logika kata, sinonim-antonim, dan tebak konteks bacaan.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index">•</span>
+                            <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
                                 <h3>Membangun Kebiasaan Membaca Menyenangkan</h3>
                                 <p>Sistem poin dan lencana digital memotivasi anak untuk rajin membaca tanpa merasa dipaksa, menjadikan literasi sebagai kegiatan bermain yang seru dan menantang.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index">•</span>
+                            <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Perekaman Skor Otomatis ke Guru</h3>
                                 <p>Guru dapat melihat kemajuan perbendaharaan kata masing-masing siswa melalui dashboard nilai terintegrasi secara cepat dan akurat.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>Proses</strong><span>Tahap Berjalan</span></article>
-                        <article class="scorecard"><strong>100+</strong><span>Level Tantangan</span></article>
-                        <article class="scorecard"><strong>Realtime</strong><span>Skor &amp; Peringkat</span></article>
-                        <article class="scorecard"><strong>SD &amp; SMP</strong><span>Sasaran Peserta</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Indikator</span><strong style="color:#636366;">Sedang Berjalan</strong></div>
-                        <div class="metric-row"><span>Akses Siswa</span><strong>Daring via Browser</strong></div>
-                        <div class="metric-row"><span>Integrasi Kurikulum</span><strong>Literasi Bahasa</strong></div>
                     </div>
                 `
             },
@@ -3785,15 +3674,9 @@
                 kicker: 'Tahap 06 · Pengukuran Akademik & Diagnostik',
                 title: 'Tes Kemampuan Akademik (TKA) dan Sesi Pembahasan',
                 lead: 'Asesmen diagnostik terstandar untuk memetakan capaian literasi membaca dan nalar kritis siswa, disusul bedah soal dan pembahasan menyeluruh bersama tim ahli.',
-                meta: [
-                    ['Status Tahap', 'Sedang Berjalan'],
-                    ['Sasaran Peserta', 'Siswa SD & SMP Kutai Timur'],
-                    ['Metode Ujian', 'Computer-Based Test (CBT)'],
-                    ['Output Hasil', 'Rapor Diagnostik Individual & Rombel']
-                ],
                 body: `
                     <div class="status-badge-banner process">
-                        Tahap Sedang Berjalan · Pelaksanaan Asesmen &amp; Bedah Materi
+                        Tahap Sedang Berjalan · Pelaksanaan Asesmen &amp; Bedah Materi (Desember 2026)
                     </div>
 
                     <div class="program-kpi-grid">
@@ -3809,8 +3692,8 @@
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Bedah Soal</span>
-                            <strong class="program-kpi-val success">Video &amp; PDF</strong>
-                            <span class="program-kpi-sub">Pembahasan Lengkap</span>
+                            <strong class="program-kpi-val success">Lengkap</strong>
+                            <span class="program-kpi-sub">Video &amp; Panduan Solusi</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Tujuan Utama</span>
@@ -3821,40 +3704,26 @@
 
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-item-index">•</span>
+                            <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
                                 <h3>Pengukuran Objektif Kemampuan Membaca</h3>
                                 <p>Soal disusun mengacu pada kerangka Asesmen Kompetensi Minimum (AKM) meliputi aspek menemukan informasi, interpretasi &amp; integrasi, serta evaluasi &amp; refleksi teks.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index">•</span>
+                            <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
                                 <h3>Sesi Pembahasan Interaktif untuk Guru &amp; Siswa</h3>
                                 <p>Setiap butir soal dilengkapi kunci analisis dan penjelasan runtut agar guru mengetahui letak kesulitan belajar siswa dan dapat merancang remidial yang tepat sasaran.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index">•</span>
+                            <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Laporan Rapor Diagnostik Sekolah</h3>
                                 <p>Hasil TKA menghasilkan peta kekuatan dan kelemahan literasi per-satuan pendidikan sebagai landasan peningkatan nilai Rapor Pendidikan Kabupaten Kutai Timur.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>Proses</strong><span>Pelaksanaan TKA</span></article>
-                        <article class="scorecard"><strong>CBT</strong><span>Ujian Digital</span></article>
-                        <article class="scorecard"><strong>AKM</strong><span>Standar Asesmen</span></article>
-                        <article class="scorecard"><strong>Lengkap</strong><span>Video Pembahasan</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Indikator</span><strong style="color:#636366;">Sedang Berjalan</strong></div>
-                        <div class="metric-row"><span>Tindak Lanjut</span><strong>Bedah Pembahasan</strong></div>
-                        <div class="metric-row"><span>Korelasi ANBK</span><strong>Tinggi (Prediktif)</strong></div>
                     </div>
                 `
             },
@@ -3863,22 +3732,16 @@
                 kicker: 'Tahap 07 · Literasi Matematika Terapan',
                 title: 'Implementasi Literasi Numerasi Kontekstual',
                 lead: 'Program pendampingan penguatan numerasi kontekstual untuk menghubungkan konsep matematika dengan pemecahan masalah nyata dalam kehidupan sehari-hari.',
-                meta: [
-                    ['Status Tahap', 'Terjadwal'],
-                    ['Jadwal Rencana', 'Fase Lanjutan Semester Berjalan'],
-                    ['Sasaran Pelatihan', 'Guru Matematika & Kelas Tematik SD/SMP'],
-                    ['Target Jangkauan', '268 Sekolah di Kutai Timur']
-                ],
                 body: `
                     <div class="status-badge-banner pending">
-                        Terjadwal · Agenda Rencana Implementasi Lanjutan
+                        Terjadwal · Agenda Rencana Implementasi Lanjutan (Januari 2027)
                     </div>
 
                     <div class="program-kpi-grid">
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Status Program</span>
-                            <strong class="program-kpi-val" style="color:#d81b60;">Belum Jalan</strong>
-                            <span class="program-kpi-sub">Agenda Mendatang </span>
+                            <strong class="program-kpi-val" style="color:#b0124d;">Belum Terlaksana</strong>
+                            <span class="program-kpi-sub">Agenda Mendatang</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Target Sekolah</span>
@@ -3899,40 +3762,26 @@
 
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
                                 <h3>Pendekatan Soal Cerita &amp; Data Nyata Borneo</h3>
                                 <p>Mengembangkan stimulus numerasi berbasis kasus riil di Kutai Timur seperti perhitungan estimasi hasil kebun, jarak transportasi antar-kecamatan, dan anggaran belanja rumah tangga.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
                                 <h3>Bimtek Khusus Guru Matematika &amp; Kelas Awal</h3>
                                 <p>Pelatihan strategi mengajar numerasi yang ramah dan tidak menakutkan, membekali guru dengan media manipulatif sederhana dan lembar kerja eksploratif.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Kesiapan Instrumen Modul</h3>
                                 <p>Silabus dan perangkat ajar modul numerasi kontekstual telah siap dan dijadwalkan untuk digulirkan pada fase lanjutan kegiatan akademik daerah.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong style="color:#d81b60;">Belum</strong><span>Status Implementasi</span></article>
-                        <article class="scorecard"><strong>268</strong><span>Target Sekolah</span></article>
-                        <article class="scorecard"><strong>Modul</strong><span>Perangkat Ajar Siap</span></article>
-                        <article class="scorecard"><strong>SPM</strong><span>Standar Mutu Daerah</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Indikator</span><strong style="color:#d81b60;">Terjadwal</strong></div>
-                        <div class="metric-row"><span>Pelaksanaan</span><strong>Tahap Lanjutan</strong></div>
-                        <div class="metric-row"><span>Fasilitas Guru</span><strong>Modul &amp; Panduan Ajar</strong></div>
                     </div>
                 `
             },
@@ -3941,22 +3790,16 @@
                 kicker: 'Tahap 08 · Observasi & Eksperimen Ilmiah',
                 title: 'Implementasi Literasi Sains Berbasis Lingkungan',
                 lead: 'Pemberdayaan nalar saintifik siswa melalui observasi lingkungan hidup, penyelidikan keanekaragaman hayati Kalimantan Timur, dan penulisan jurnal sains sederhana.',
-                meta: [
-                    ['Status Tahap', 'Terjadwal'],
-                    ['Jadwal Rencana', 'Fase Lanjutan Semester Berjalan'],
-                    ['Fokus Materi', 'Ekologi Borneo & Percobaan Praktis'],
-                    ['Target Jangkauan', '268 Sekolah di Kutai Timur']
-                ],
                 body: `
                     <div class="status-badge-banner pending">
-                        Terjadwal · Agenda Rencana Implementasi Lanjutan
+                        Terjadwal · Agenda Rencana Implementasi Lanjutan (Februari 2027)
                     </div>
 
                     <div class="program-kpi-grid">
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Status Program</span>
-                            <strong class="program-kpi-val" style="color:#d81b60;">Belum Jalan</strong>
-                            <span class="program-kpi-sub">Agenda Mendatang </span>
+                            <strong class="program-kpi-val" style="color:#b0124d;">Belum Terlaksana</strong>
+                            <span class="program-kpi-sub">Agenda Mendatang</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Target Sekolah</span>
@@ -3977,40 +3820,26 @@
 
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
                                 <h3>Eksperimen Tanpa Laboratorium Mewah</h3>
                                 <p>Siswa diajak mengamati fenomena fisika dan biologi sederhana menggunakan bahan alam sekitar: filtrasi air gambut, daur ulang limbah organik, dan siklus cuaca tropis.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
                                 <h3>Dokumentasi Biodiversitas Kutai Timur</h3>
                                 <p>Mengenalkan kekayaan flora dan fauna endemik (Orangutan Sangatta, Bekantan, pohon Ulin, dan hutan mangrove) sebagai topik penulisan esai sains populer siswa.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Menumbuhkan Rasa Ingin Tahu &amp; Logika Kritis</h3>
                                 <p>Membiasakan murid untuk merumuskan hipotesis, mencatat hasil pengamatan, serta menyimpulkan temuan dengan data yang terukur dan berlandaskan fakta ilmiah.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong style="color:#d81b60;">Belum</strong><span>Status Implementasi</span></article>
-                        <article class="scorecard"><strong>268</strong><span>Target Sekolah</span></article>
-                        <article class="scorecard"><strong>STEM</strong><span>Pendekatan Praktik</span></article>
-                        <article class="scorecard"><strong>Borneo</strong><span>Eksplorasi Alam</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Indikator</span><strong style="color:#d81b60;">Terjadwal</strong></div>
-                        <div class="metric-row"><span>Jadwal</span><strong>Tahap Lanjutan</strong></div>
-                        <div class="metric-row"><span>Bentuk Kegiatan</span><strong>Praktik &amp; Jurnal Sains</strong></div>
                     </div>
                 `
             },
@@ -4019,22 +3848,16 @@
                 kicker: 'Tahap 09 · Pelestarian Kearifan Lokal',
                 title: 'Implementasi Literasi Budaya & Kewargaan Daerah',
                 lead: 'Penggalian adat istiadat, cerita lisan suku Dayak, tradisi Kutai, dan nilai kebhinekaan nusantara sebagai pilar pembentukan karakter profil pelajar Pancasila.',
-                meta: [
-                    ['Status Tahap', 'Terjadwal'],
-                    ['Jadwal Rencana', 'Fase Lanjutan Semester Berjalan'],
-                    ['Muatan Pembelajaran', 'Etnografi Tradisi & Kearifan Lokal'],
-                    ['Target Jangkauan', '268 Sekolah di Kutai Timur']
-                ],
                 body: `
                     <div class="status-badge-banner pending">
-                        Terjadwal · Agenda Rencana Implementasi Lanjutan
+                        Terjadwal · Agenda Rencana Implementasi Lanjutan (Maret 2027)
                     </div>
 
                     <div class="program-kpi-grid">
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Status Program</span>
-                            <strong class="program-kpi-val" style="color:#d81b60;">Belum Jalan</strong>
-                            <span class="program-kpi-sub">Agenda Mendatang </span>
+                            <strong class="program-kpi-val" style="color:#b0124d;">Belum Terlaksana</strong>
+                            <span class="program-kpi-sub">Agenda Mendatang</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Target Sekolah</span>
@@ -4055,40 +3878,26 @@
 
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
                                 <h3>Wawancara Tetua Adat &amp; Tokoh Masyarakat</h3>
                                 <p>Siswa dilatih melakukan liputan sederhana untuk merekam cerita rakyat, asal-usul kampung, dan makna ritual adat langsung dari narasumber sepuh di desa masing-masing.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
                                 <h3>Mencegah Kepunahan Warisan Lisan Daerah</h3>
                                 <p>Kisah-kisah tutur yang sebelumnya hanya diwariskan lewat ingatan akan diabadikan ke dalam bentuk teks tertulis dan ilustrasi bergambar yang menarik bagi generasi muda.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#d81b60;">⏱</span>
+                            <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Harmoni Keberagaman 1001 Kultur Nusantara</h3>
                                 <p>Kutai Timur sebagai muara berbagai suku (Dayak, Kutai, Bugis, Jawa, Banjar, Flores, Toraja) ditonjolkan sebagai teladan kerukunan hidup berbangsa dan toleransi berbudaya.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong style="color:#d81b60;">Belum</strong><span>Status Implementasi</span></article>
-                        <article class="scorecard"><strong>268</strong><span>Target Sekolah</span></article>
-                        <article class="scorecard"><strong>Etnografi</strong><span>Kearifan Lokal</span></article>
-                        <article class="scorecard"><strong>Pancasila</strong><span>Karakter Pelajar</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Indikator</span><strong style="color:#d81b60;">Terjadwal</strong></div>
-                        <div class="metric-row"><span>Koleksi Karya</span><strong>Cerita Rakyat Kutim</strong></div>
-                        <div class="metric-row"><span>Pelestarian Adat</span><strong>Dayak, Kutai &amp; Pesisir</strong></div>
                     </div>
                 `
             },
@@ -4097,22 +3906,16 @@
                 kicker: 'Tahap 10 · Apresiasi Akbar Indonesia di Panggung Nasional',
                 title: 'Festival Literasi Nasional (FLN)',
                 lead: 'Panggung kehormatan tertinggi tempat berkumpulnya delegasi kepala daerah, koordinator guru berprestasi, dan siswa pemenang karya dari 34 provinsi se-Indonesia di hadapan pimpinan kementerian.',
-                meta: [
-                    ['Status Tahap', 'Agenda Puncak Nasional'],
-                    ['Lokasi Penyelenggaraan', 'Panggung Nasional (Surakarta / Jakarta)'],
-                    ['Delegasi Kutai Timur', 'Juara &amp; Tim Literasi Terbaik FLD Kutim'],
-                    ['Jangkauan Acara', '34 Provinsi se-Indonesia']
-                ],
                 body: `
                     <div class="status-badge-banner pending">
-                        Agenda Puncak Nasional · Pendelegasian Juara Daerah Kutai Timur
+                        Agenda Puncak Nasional · Pendelegasian Juara Daerah Kutai Timur (April 2027)
                     </div>
 
                     <div class="program-kpi-grid">
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Status Penyelenggaraan</span>
-                            <strong class="program-kpi-val" style="color:#d81b60;">Mendatang</strong>
-                            <span class="program-kpi-sub">Agenda Puncak Nasional </span>
+                            <strong class="program-kpi-val" style="color:#b0124d;">Mendatang</strong>
+                            <span class="program-kpi-sub">Agenda Puncak Nasional</span>
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Jangkauan Wilayah</span>
@@ -4133,40 +3936,26 @@
 
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#b0124d;">★</span>
+                            <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
                                 <h3>Pendelegasian Juara Terbaik Kabupaten Kutai Timur</h3>
                                 <p>Siswa Duta Literasi Pelajar dan Guru Pembimbing Terpilih dari Kutai Timur akan diberangkatkan untuk mewakili daerah di panggung kehormatan akbar Festival Literasi Nasional.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#b0124d;">★</span>
+                            <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
                                 <h3>Penghargaan Kepala Daerah Peduli Literasi</h3>
                                 <p>Penganugerahan apresiasi bergengsi kepada Bupati Kutai Timur dan Kepala Dinas Pendidikan atas komitmen menggerakkan 268 sekolah dan 15.758 peserta aktif.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-item-index" style="background:#b0124d;">★</span>
+                            <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Simposium Nasional &amp; Bedah Kebijakan Literasi</h3>
                                 <p>Forum diskusi strategis bertaraf nasional bersama para pakar pendidikan, perwakilan UNESCO, pejabat kementerian, serta pegiat literasi terkemuka tanah air.</p>
                             </div>
                         </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong style="color:#d81b60;">Mendatang</strong><span>Puncak Nasional</span></article>
-                        <article class="scorecard"><strong>34</strong><span>Provinsi Mitra</span></article>
-                        <article class="scorecard"><strong>Rekor</strong><span>Prestasi Nasional</span></article>
-                        <article class="scorecard"><strong>Puspresnas</strong><span>Sertifikasi Sah</span></article>
-                    </div>
-
-                    <div class="metric-list">
-                        <div class="metric-row"><span>Status Indikator</span><strong style="color:#d81b60;">Agenda Mendatang</strong></div>
-                        <div class="metric-row"><span>Delegasi Kutim</span><strong>Juara 1 Tingkat Kabupaten</strong></div>
-                        <div class="metric-row"><span>Penghargaan Bupati</span><strong>Kepala Daerah Berprestasi</strong></div>
                     </div>
                 `
             }
