@@ -835,8 +835,68 @@
         }
 
         /* ==========================================================
-           SIMULASI SKETSEL & PAMERAN FESTIVAL LITERASI KUTAI TIMUR
+           SIMULASI SKETSEL, TATA PANGGUNG & PAMERAN FESTIVAL LITERASI
            ========================================================== */
+        .sim-header-section {
+            background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
+            border: 1px solid #e5e5ea;
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .sim-header-section h2 {
+            margin: 0 0 10px;
+            font-size: clamp(24px, 2.6vw, 34px);
+            letter-spacing: -.03em;
+            color: #111111;
+        }
+
+        .sim-header-section .lead {
+            margin: 0 0 20px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #48484a;
+            max-width: 980px;
+        }
+
+        .sim-stats-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .sim-stat-card {
+            background: #ffffff;
+            border: 1px solid #e5e5ea;
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: transform .15s ease, border-color .15s ease;
+        }
+
+        .sim-stat-card:hover {
+            border-color: #0071e3;
+            transform: translateY(-2px);
+        }
+
+        .sim-stat-card strong {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0071e3;
+            line-height: 1.1;
+        }
+
+        .sim-stat-card span {
+            font-size: 11px;
+            color: #6e6e73;
+            font-weight: 600;
+        }
+
+        /* Applicative Exhibition Container */
         .sim-container {
             display: flex;
             flex-direction: column;
@@ -858,10 +918,10 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            flex: 1 1 calc(25% - 10px);
-            min-width: 130px;
+            flex: 1 1 calc(20% - 10px);
+            min-width: 140px;
             gap: 8px;
-            padding: 8px 14px;
+            padding: 10px 14px;
             border-radius: 8px;
             font-size: 12.5px;
             font-weight: 600;
@@ -894,10 +954,12 @@
             display: flex;
         }
 
-        /* Virtual Sketsel Viewport */
+        /* ==========================================================
+           TAB 1: VIRTUAL BOOTH WITH REAL SCHOOL POSTERS & VOTING
+           ========================================================== */
         .sketsel-viewport {
             position: relative;
-            background: radial-gradient(circle at 50% 15%, #2a2b33 0%, #131417 100%);
+            background: radial-gradient(circle at 50% 15%, #252731 0%, #111215 100%);
             border-radius: 16px;
             padding: 24px 20px 32px;
             overflow: hidden;
@@ -915,7 +977,7 @@
             justify-content: space-between;
             gap: 12px;
             width: 100%;
-            max-width: 680px;
+            max-width: 760px;
             margin-bottom: 24px;
             padding: 10px 16px;
             background: rgba(255, 255, 255, 0.08);
@@ -993,7 +1055,7 @@
         .sketsel-stage {
             position: relative;
             width: 100%;
-            max-width: 640px;
+            max-width: 720px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1040,8 +1102,8 @@
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 220px;
-            height: 480px;
+            width: 260px;
+            height: 520px;
             background: radial-gradient(ellipse at top, rgba(255, 240, 180, 0.45) 0%, rgba(255, 230, 150, 0.15) 50%, rgba(255, 220, 100, 0) 80%);
             pointer-events: none;
             clip-path: polygon(35% 0%, 65% 0%, 100% 100%, 0% 100%);
@@ -1129,61 +1191,52 @@
             padding-bottom: 4px;
         }
 
-        .poster-artwork-card {
-            background: linear-gradient(135deg, #f9fafb 0%, #f0f3f8 100%);
-            border: 1px solid #e1e4ea;
-            border-radius: 4px;
-            padding: 10px 10px;
-            min-height: 115px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .poster-artwork-media {
             position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 4px;
             overflow: hidden;
+            background: #111;
+            border: 1px solid #e5e5ea;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
         }
 
-        .poster-artwork-card::before {
-            content: "";
+        .poster-artwork-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .2s ease;
+        }
+
+        .poster-artwork-media:hover .poster-artwork-img {
+            transform: scale(1.03);
+        }
+
+        .poster-info-overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #0071e3, #34c759);
+            padding: 8px 10px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+            color: #ffffff;
         }
 
-        .poster-artwork-type {
-            font-size: 9px;
+        .poster-info-title {
+            font-size: 12px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            color: #0071e3;
-        }
-
-        .poster-artwork-title {
-            font-size: 13px;
-            font-weight: 800;
             line-height: 1.25;
-            color: #1d1d1f;
-            margin: 4px 0 2px;
+            margin: 0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
-        .poster-artwork-author {
-            font-size: 11px;
-            color: #555559;
-            line-height: 1.3;
-        }
-
-        .poster-artwork-excerpt {
-            font-size: 10.5px;
-            line-height: 1.4;
-            color: #6c6c72;
-            font-style: italic;
-            margin-top: 4px;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 4px 6px;
-            border-radius: 4px;
-            border-left: 2px solid #0071e3;
+        .poster-info-school {
+            font-size: 10px;
+            color: #ffd60a;
+            font-weight: 600;
+            margin-top: 2px;
         }
 
         /* Gap Indicator */
@@ -1202,7 +1255,7 @@
         /* Voting Strip ("Tempat Voting" 29.7 x 7 cm) */
         .voting-strip-target {
             position: relative;
-            height: 64px;
+            height: 60px;
             background: #ffffff;
             border: 2px dashed #0071e3;
             border-radius: 4px;
@@ -1294,7 +1347,650 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
         }
 
-        /* Blueprint Gallery Interactive Stage */
+        /* ==========================================================
+           TAB 2: GAMBAR TEKNIK ARSITEKTUR HTML/CSS (TAMPAK DEPAN & SAMPING)
+           ========================================================== */
+        .cad-blueprint-viewer {
+            background: #0d131f;
+            background-image: 
+                linear-gradient(rgba(0, 180, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 255, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+            border: 2px solid #1f2b3e;
+            border-radius: 14px;
+            padding: 28px 24px;
+            color: #ffffff;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), 0 8px 24px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cad-controls-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(0, 180, 255, 0.2);
+        }
+
+        .cad-view-switcher {
+            display: inline-flex;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 180, 255, 0.25);
+        }
+
+        .cad-view-btn {
+            background: transparent;
+            color: #8aa4c4;
+            border: none;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+
+        .cad-view-btn.active {
+            background: #0071e3;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 113, 227, 0.6);
+        }
+
+        .cad-view-btn:hover:not(.active) {
+            color: #ffffff;
+        }
+
+        .cad-stage-drawing {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 48px;
+            min-height: 480px;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Dimension Callout lines */
+        .dim-line-v {
+            position: absolute;
+            width: 2px;
+            background: #00e5ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dim-line-v::before, .dim-line-v::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            background: #00e5ff;
+        }
+
+        .dim-line-v::before { top: 0; }
+        .dim-line-v::after { bottom: 0; }
+
+        .dim-label {
+            background: #0d131f;
+            color: #00e5ff;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border: 1px solid rgba(0, 229, 255, 0.4);
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        /* Pure HTML/CSS Sketsel Tampak Depan */
+        .cad-sketsel-front {
+            width: 300px;
+            height: 450px;
+            border: 4px solid #7c8594;
+            background: #19202c;
+            border-radius: 4px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 12px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .cad-lighting-bar {
+            position: absolute;
+            top: -16px;
+            left: 5%;
+            right: 5%;
+            height: 8px;
+            background: #505c6e;
+            border-radius: 2px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cad-spot-unit {
+            width: 14px;
+            height: 12px;
+            background: #ffd60a;
+            border-radius: 2px 2px 4px 4px;
+            margin-top: 4px;
+            box-shadow: 0 0 10px #ffd60a;
+        }
+
+        .cad-poster-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 8px;
+            height: 100%;
+        }
+
+        .cad-poster-cell {
+            background: #253145;
+            border: 1px solid #485c7b;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 6px 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cad-poster-cell img {
+            width: 100%;
+            height: 95px;
+            object-fit: cover;
+            border-radius: 2px;
+            border: 1px solid #364964;
+        }
+
+        .cad-voting-strip-cell {
+            height: 26px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px dashed #00e5ff;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 4px;
+        }
+
+        .cad-voting-strip-cell span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Pure HTML/CSS Sketsel Tampak Samping */
+        .cad-sketsel-side {
+            width: 44px;
+            height: 450px;
+            background: #2b3545;
+            border: 3px solid #6b7a90;
+            border-radius: 2px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cad-side-gooseneck {
+            position: absolute;
+            top: -18px;
+            width: 60px;
+            height: 20px;
+            border-top: 4px solid #6b7a90;
+            border-right: 4px solid #6b7a90;
+            border-radius: 0 8px 0 0;
+            right: -24px;
+        }
+
+        .cad-side-lamp-head {
+            position: absolute;
+            bottom: -6px;
+            right: -8px;
+            width: 14px;
+            height: 10px;
+            background: #ffd60a;
+            border-radius: 3px;
+            transform: rotate(35deg);
+            box-shadow: 0 0 12px #ffd60a;
+        }
+
+        .cad-side-foot-base {
+            position: absolute;
+            bottom: -8px;
+            width: 140px;
+            height: 12px;
+            background: #4a576c;
+            border-radius: 3px;
+            border: 1px solid #8493ab;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .cad-side-board-lines {
+            position: absolute;
+            inset: 20px -3px 20px -3px;
+            border-left: 2px dashed #00e5ff;
+            border-right: 2px dashed #00e5ff;
+        }
+
+        /* Human Scale Vector Figure */
+        .cad-human-figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 306px; /* Scaled to 1.7m relative to 2.5m (450px) */
+            position: relative;
+        }
+
+        .cad-human-svg {
+            height: 100%;
+            width: auto;
+            fill: #3e506d;
+            stroke: #6682a8;
+            stroke-width: 1.5;
+        }
+
+        .cad-title-block {
+            margin-top: 24px;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 180, 255, 0.25);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 11px;
+            color: #8aa4c4;
+        }
+
+        .cad-title-block b {
+            color: #00e5ff;
+        }
+
+        /* ==========================================================
+           TAB 3: TATA PANGGUNG UTAMA & VENUE HALL (FULL LAYOUT)
+           ========================================================== */
+        .stage-full-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .stage-visual-grand-stage {
+            background: linear-gradient(180deg, #181920 0%, #0d0e12 100%);
+            border: 2px solid #2d303d;
+            border-radius: 14px;
+            padding: 24px 20px;
+            color: #ffffff;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7), 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-top-truss-rig {
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 16px;
+            background: repeating-linear-gradient(45deg, #44475a, #44475a 6px, #2b2d38 6px, #2b2d38 12px);
+            border-bottom: 2px solid #5a5e74;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            z-index: 5;
+        }
+
+        .stage-truss-spot {
+            width: 12px;
+            height: 10px;
+            background: #ffd60a;
+            border-radius: 2px;
+            box-shadow: 0 0 14px #ffd60a;
+        }
+
+        /* Massive LED Videotron Screen */
+        .stage-led-videotron {
+            position: relative;
+            max-width: 780px;
+            height: 220px;
+            margin: 18px auto 0;
+            background: radial-gradient(circle at 50% 50%, #003a8c 0%, #00122e 100%);
+            border: 6px solid #1f232c;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 113, 227, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 18px;
+            overflow: hidden;
+        }
+
+        .stage-led-videotron::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px, transparent 2px, transparent 4px);
+            pointer-events: none;
+        }
+
+        .stage-led-logo {
+            height: 42px;
+            width: auto;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+        }
+
+        .stage-led-title {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: .02em;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin: 0 0 4px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .stage-led-sub {
+            font-size: 12px;
+            color: #ffd60a;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        /* Raised Stage Platform */
+        .stage-raised-platform {
+            position: relative;
+            max-width: 860px;
+            margin: -10px auto 0;
+            background: linear-gradient(180deg, #2c2f3d 0%, #1a1b22 100%);
+            border: 2px solid #434759;
+            border-radius: 8px;
+            padding: 24px 20px 20px;
+            display: grid;
+            grid-template-columns: 140px 1fr 140px;
+            gap: 16px;
+            align-items: center;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8);
+        }
+
+        .stage-podium-box {
+            background: #1e2028;
+            border: 1px solid #4a4e61;
+            border-radius: 6px;
+            padding: 10px 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .stage-podium-box svg {
+            color: #00e5ff;
+        }
+
+        .stage-podium-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #d1d5db;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .stage-perf-center {
+            text-align: center;
+            background: rgba(0, 113, 227, 0.1);
+            border: 1px dashed rgba(0, 180, 255, 0.4);
+            border-radius: 8px;
+            padding: 14px 10px;
+        }
+
+        .stage-perf-badge {
+            background: #0071e3;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .stage-perf-desc {
+            font-size: 11px;
+            color: #d1d5db;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .stage-trophy-box {
+            background: #1e2028;
+            border: 1px solid #4a4e61;
+            border-radius: 6px;
+            padding: 10px 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .stage-trophy-box svg {
+            color: #ffd60a;
+        }
+
+        /* Comprehensive 25m x 20.8m Venue Hall Grid */
+        .venue-hall-blueprint {
+            background: #ffffff;
+            border: 1px solid #e5e5ea;
+            border-radius: 14px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .venue-hall-map {
+            display: grid;
+            grid-template-columns: 280px minmax(360px, 1.4fr) 240px;
+            gap: 14px;
+            background: #f5f5f7;
+            border: 2px solid #363945;
+            border-radius: 10px;
+            padding: 16px;
+            min-height: 380px;
+        }
+
+        .hall-col {
+            border-radius: 8px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .hall-col-pameran {
+            background: #eef5fc;
+            border: 2px dashed #0071e3;
+        }
+
+        .hall-col-audiens {
+            background: #edf8f0;
+            border: 2px dashed #34c759;
+        }
+
+        .hall-col-panggung {
+            background: #fef7ec;
+            border: 2px dashed #ff9500;
+        }
+
+        .hall-header-tag {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hall-col-pameran .hall-header-tag { color: #0071e3; }
+        .hall-col-audiens .hall-header-tag { color: #248a3d; }
+        .hall-col-panggung .hall-header-tag { color: #b36600; }
+
+        /* Audience Seating layout inside hall */
+        .seating-preview-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .sofa-row {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+        }
+
+        .sofa-cell {
+            flex: 1;
+            height: 18px;
+            background: #ff3b30;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chairs-block {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+        }
+
+        .chair-dot {
+            height: 10px;
+            background: #34c759;
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .aisle-line {
+            height: 14px;
+            background: #ffffff;
+            border: 1px dashed #a1a1a6;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            color: #6e6e73;
+        }
+
+        .pameran-cluster-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin: 10px 0;
+        }
+
+        .pameran-cluster-mini {
+            background: #ffffff;
+            border: 1px solid #b8d7fa;
+            border-radius: 4px;
+            padding: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #005bb5;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 7 Clusters Inspector */
+        .cluster-inspector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .cluster-card {
+            background: #fbfbfd;
+            border: 1px solid #e5e5ea;
+            border-radius: 10px;
+            padding: 14px;
+            cursor: pointer;
+            transition: all .15s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cluster-card:hover {
+            border-color: #0071e3;
+            transform: translateY(-2px);
+        }
+
+        .cluster-card.active {
+            border-color: #0071e3;
+            background: #f0f7ff;
+            box-shadow: 0 4px 14px rgba(0, 113, 227, 0.15);
+        }
+
+        .cluster-card.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #0071e3;
+        }
+
+        .cluster-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            color: #0071e3;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .cluster-number {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1d1d1f;
+            line-height: 1.1;
+        }
+
+        .cluster-label {
+            font-size: 11px;
+            color: #6e6e73;
+            margin-top: 4px;
+        }
+
+        /* Blueprint Gallery */
         .blueprint-viewer-box {
             display: flex;
             flex-direction: column;
@@ -1380,134 +2076,6 @@
         .blueprint-thumb-card span {
             font-size: 10px;
             color: #6e6e73;
-        }
-
-        /* 7 Clusters Inspector */
-        .cluster-inspector-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .cluster-card {
-            background: #fbfbfd;
-            border: 1px solid #e5e5ea;
-            border-radius: 10px;
-            padding: 14px;
-            cursor: pointer;
-            transition: all .15s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cluster-card:hover {
-            border-color: #0071e3;
-            transform: translateY(-2px);
-        }
-
-        .cluster-card.active {
-            border-color: #0071e3;
-            background: #f0f7ff;
-            box-shadow: 0 4px 14px rgba(0, 113, 227, 0.15);
-        }
-
-        .cluster-card.active::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #0071e3;
-        }
-
-        .cluster-badge {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            color: #0071e3;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .cluster-number {
-            font-size: 22px;
-            font-weight: 800;
-            color: #1d1d1f;
-            line-height: 1.1;
-        }
-
-        .cluster-label {
-            font-size: 11px;
-            color: #6e6e73;
-            margin-top: 4px;
-        }
-
-        /* Venue Hall Map Visual */
-        .venue-hall-schematic {
-            background: #ffffff;
-            border: 1px solid #e5e5ea;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .venue-diagram-canvas {
-            position: relative;
-            background: #f5f5f7;
-            border: 2px solid #3a3b45;
-            border-radius: 8px;
-            min-height: 240px;
-            display: flex;
-            overflow: hidden;
-        }
-
-        .venue-zone {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 14px;
-            font-size: 12px;
-            font-weight: 700;
-            transition: all .2s;
-            cursor: pointer;
-        }
-
-        .venue-zone-pameran {
-            width: 25%;
-            background: rgba(0, 113, 227, 0.12);
-            border-right: 2px dashed #0071e3;
-            color: #0071e3;
-        }
-
-        .venue-zone-pameran:hover, .venue-zone-pameran.active {
-            background: rgba(0, 113, 227, 0.22);
-        }
-
-        .venue-zone-kursi {
-            width: 55%;
-            background: rgba(52, 199, 89, 0.12);
-            border-right: 2px dashed #34c759;
-            color: #248a3d;
-        }
-
-        .venue-zone-kursi:hover, .venue-zone-kursi.active {
-            background: rgba(52, 199, 89, 0.22);
-        }
-
-        .venue-zone-panggung {
-            width: 20%;
-            background: rgba(255, 149, 0, 0.15);
-            color: #b36600;
-        }
-
-        .venue-zone-panggung:hover, .venue-zone-panggung.active {
-            background: rgba(255, 149, 0, 0.25);
         }
 
         /* Responsive adjustments */
@@ -1643,7 +2211,7 @@
         </div>
         <nav class="tab-list" aria-label="Tab Navigasi Acara Puncak">
             <button class="tab" data-window="window-acara-puncak" data-tab="overview" aria-selected="true"><span class="tab-mark">01</span>Konsep &amp; Esensi</button>
-            <button class="tab" data-window="window-acara-puncak" data-tab="simulation" aria-selected="false"><span class="tab-mark">02</span>Simulasi Pameran 3D</button>
+            <button class="tab" data-window="window-acara-puncak" data-tab="simulation" aria-selected="false"><span class="tab-mark">02</span>Simulasi &amp; Rancang Bangun</button>
             <button class="tab" data-window="window-acara-puncak" data-tab="rundown" aria-selected="false"><span class="tab-mark">03</span>Rangkaian Acara</button>
             <button class="tab" data-window="window-acara-puncak" data-tab="regions" aria-selected="false"><span class="tab-mark">04</span>Rekam Jejak Daerah</button>
             <button class="tab" data-window="window-acara-puncak" data-tab="awards" aria-selected="false"><span class="tab-mark">05</span>Penganugerahan &amp; Prestise</button>
@@ -2036,34 +2604,67 @@
                 `
             },
             simulation: {
-                kicker: 'Simulasi & Spesifikasi Teknis Pameran',
-                title: 'Simulasi Sketsel Pameran Karya & Voting Interaktif',
-                lead: 'Eksplorasi virtual rancang bangun booth pameran Festival Literasi Kutai Timur: simulasi sketsel 1:1, tata lampu sorot, stempel voting stiker bulat 2 cm, serta kalkulasi kapasitas 7 klaster sketsel hall.',
-                meta: [
-                    ['Dimensi Sketsel', '1,0 m x 2,5 m (2 Sisi)'],
-                    ['Kapasitas Sketsel', '8 Poster A3 (4 Depan + 4 Belakang)'],
-                    ['Kebutuhan Sketsel', '42 Unit (84 Lampu Sorot)'],
-                    ['Kapasitas Total', '336 Poster (Target: 335 Karya)']
-                ],
+                kicker: 'Spesifikasi Teknis &amp; Rancang Bangun Acara Puncak FL Kutai Timur',
+                title: 'Simulasi Pameran Sketsel, Tata Panggung Megah, &amp; Voting Interaktif',
+                lead: 'Perencanaan komprehensif venue 25 m × 20,8 m: simulasi sketsel 1:1 dengan karya poster orisinil sekolah Kutai Timur, tata lampu sorot, stempel voting stiker bulat 2 cm, rancang bangun panggung kehormatan VVIP &amp; audiens, serta gambar teknik arsitektur presisi berbasis kode murni HTML &amp; CSS.',
+                aside: null,
                 body: `
+                    <!-- SECTION 1: KETERANGAN & STATISTIK TEKNIS DI BAGIAN ATAS -->
+                    <section class="sim-header-section">
+                        <div class="kicker">Rancang Bangun Resmi · Festival Literasi Kutai Timur</div>
+                        <h2>Spesifikasi Pameran, Panggung VVIP, &amp; Tata Kelola Venue Hall</h2>
+                        <p class="lead">Seluruh modul di bawah ini mengacu pada standar teknis koordinasi Disdikbud Kutai Timur: partisi sketsel modular 1,0 m × 2,5 m berkapasitas 8 poster bolak-balik, tata cahaya sorot presisi, panggung penganugerahan megah dengan LED videotron, serta pembagian zona venue 25 m × 20,8 m.</p>
+                        
+                        <div class="sim-stats-strip">
+                            <div class="sim-stat-card">
+                                <strong>42 Unit</strong>
+                                <span>Sketsel Partisi (2 Sisi)</span>
+                            </div>
+                            <div class="sim-stat-card">
+                                <strong>84 Spotlights</strong>
+                                <span>Lampu Sorot Warm Light</span>
+                            </div>
+                            <div class="sim-stat-card">
+                                <strong>336 Slot</strong>
+                                <span>Kapasitas Poster A3</span>
+                            </div>
+                            <div class="sim-stat-card">
+                                <strong>12 × 6 Meter</strong>
+                                <span>Dimensi Panggung VVIP</span>
+                            </div>
+                            <div class="sim-stat-card">
+                                <strong>25 × 20.8 M</strong>
+                                <span>Luas Hall Penyelenggaraan</span>
+                            </div>
+                            <div class="sim-stat-card">
+                                <strong>Ø 20 mm</strong>
+                                <span>Stiker Bulat Voting</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 2: LAYOUT APLIKATIF PAMERAN & PANGGUNG (FULL WIDTH) -->
                     <div class="sim-container">
-                        <!-- Mode Selector Bar -->
+                        <!-- Mode Selector Bar (5 Mode Aplikatif) -->
                         <div class="sim-mode-bar" role="tablist">
                             <button class="sim-mode-btn active" data-sim-tab="booth" type="button">
-                                🏢 Simulasi Sketsel &amp; Voting
+                                🏢 Simulasi Sketsel &amp; Voting (Poster Asli)
                             </button>
-                            <button class="sim-mode-btn" data-sim-tab="blueprint" type="button">
-                                📐 Galeri Blueprint Asli (5 Gambar)
+                            <button class="sim-mode-btn" data-sim-tab="cad" type="button">
+                                📐 Gambar Teknik HTML/CSS (Depan &amp; Samping)
+                            </button>
+                            <button class="sim-mode-btn" data-sim-tab="stage" type="button">
+                                🎭 Tata Panggung Utama &amp; Venue (Full Layout)
                             </button>
                             <button class="sim-mode-btn" data-sim-tab="clusters" type="button">
                                 📊 Susunan 7 Klaster (336 Poster)
                             </button>
-                            <button class="sim-mode-btn" data-sim-tab="venue" type="button">
-                                🏟️ Denah Venue Hall (25m x 20.8m)
+                            <button class="sim-mode-btn" data-sim-tab="blueprint" type="button">
+                                🖼️ Arsip Blueprint Asli (5 Gambar)
                             </button>
                         </div>
 
-                        <!-- Panel 1: Interactive Virtual Booth (Sketsel 1:1) -->
+                        <!-- PANEL 1: SIMULASI SKETSEL DENGAN POSTER ASLI SEKOLAH KUTIM & VOTING INTERAKTIF -->
                         <div class="sim-panel active" id="sim-panel-booth">
                             <div class="sketsel-viewport">
                                 <!-- Sketsel Toolbar -->
@@ -2111,9 +2712,9 @@
                                             <span>Jarak Antar Poster: 10 cm</span>
                                         </div>
 
-                                        <!-- 4 A3 Posters Matrix -->
+                                        <!-- 4 A3 Posters Matrix with Real School Posters -->
                                         <div class="poster-matrix" id="poster-matrix-container">
-                                            <!-- Dynamically populated by JS -->
+                                            <!-- Dynamically populated by JS with user's real posters -->
                                         </div>
                                     </div>
 
@@ -2126,7 +2727,301 @@
                             </div>
                         </div>
 
-                        <!-- Panel 2: Galeri Blueprint Asli -->
+                        <!-- PANEL 2: GAMBAR TEKNIK ARSITEKTUR HTML/CSS (TAMPAK DEPAN & SAMPING) -->
+                        <div class="sim-panel" id="sim-panel-cad">
+                            <div class="cad-blueprint-viewer">
+                                <div class="cad-controls-header">
+                                    <div class="cad-view-switcher">
+                                        <button class="cad-view-btn active" id="cad-btn-front" type="button">
+                                            🏢 Tampak Depan (Front 1.0m × 2.5m)
+                                        </button>
+                                        <button class="cad-view-btn" id="cad-btn-side" type="button">
+                                            📐 Tampak Samping (Side Profile &amp; Kaki)
+                                        </button>
+                                    </div>
+                                    <div style="font-size:12px; color:#00e5ff; font-family:ui-monospace, monospace;">
+                                        MODE GAMBAR TEKNIK MURNI HTML &amp; CSS (VECTOR SHARP)
+                                    </div>
+                                </div>
+
+                                <!-- CAD DRAWING STAGE (PURE HTML & CSS) -->
+                                <div class="cad-stage-drawing" id="cad-drawing-stage">
+                                    <!-- FRONT VIEW (HTML/CSS) -->
+                                    <div id="cad-view-front-container" style="display:flex; align-items:flex-end; gap:36px; position:relative;">
+                                        <!-- Human Scale Vector Figure (1.7 m) -->
+                                        <div class="cad-human-figure" title="Skala Manusia Tinggi 1.7 Meter (1700 mm)">
+                                            <div style="font-size:10px; color:#6682a8; font-family:monospace; margin-bottom:4px;">1700 mm</div>
+                                            <svg class="cad-human-svg" viewBox="0 0 100 240">
+                                                <circle cx="50" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="6"/>
+                                                <path d="M50 42 v90 M50 64 L20 110 M50 64 L80 110 M50 132 L28 230 M50 132 L72 230" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                                            </svg>
+                                            <span style="font-size:9px; color:#8aa4c4; font-family:monospace; margin-top:4px;">Skala Manusia</span>
+                                        </div>
+
+                                        <!-- Pure HTML/CSS Sketsel Model -->
+                                        <div class="cad-sketsel-front">
+                                            <div class="cad-lighting-bar">
+                                                <div class="cad-spot-unit" title="Lampu Sorot 1 (Warm Light)"></div>
+                                                <div class="cad-spot-unit" title="Lampu Sorot 2 (Warm Light)"></div>
+                                            </div>
+                                            <div class="cad-poster-grid">
+                                                <div class="cad-poster-cell">
+                                                    <img src="assets/posters/poster-1.jpg" alt="Poster 1">
+                                                    <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
+                                                    <div class="cad-voting-strip-cell">
+                                                        <span style="background:#ff3b30;"></span>
+                                                        <span style="background:#34c759;"></span>
+                                                        <span style="background:#0071e3;"></span>
+                                                        <span style="background:#ffcc00;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="cad-poster-cell">
+                                                    <img src="assets/posters/poster-2.jpg" alt="Poster 2">
+                                                    <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
+                                                    <div class="cad-voting-strip-cell">
+                                                        <span style="background:#0071e3;"></span>
+                                                        <span style="background:#0071e3;"></span>
+                                                        <span style="background:#34c759;"></span>
+                                                        <span style="background:#ff3b30;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="cad-poster-cell">
+                                                    <img src="assets/posters/poster-3.jpg" alt="Poster 3">
+                                                    <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
+                                                    <div class="cad-voting-strip-cell">
+                                                        <span style="background:#ffcc00;"></span>
+                                                        <span style="background:#ff3b30;"></span>
+                                                        <span style="background:#34c759;"></span>
+                                                        <span style="background:#0071e3;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="cad-poster-cell">
+                                                    <img src="assets/posters/poster-4.jpg" alt="Poster 4">
+                                                    <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
+                                                    <div class="cad-voting-strip-cell">
+                                                        <span style="background:#ff3b30;"></span>
+                                                        <span style="background:#af52de;"></span>
+                                                        <span style="background:#0071e3;"></span>
+                                                        <span style="background:#ffcc00;"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Dimension Callout Line Right -->
+                                        <div style="display:flex; flex-direction:column; align-items:center; height:450px; justify-content:space-between; margin-left:10px;">
+                                            <span class="dim-label">▲ 2500 mm (2,5 m)</span>
+                                            <div style="width:2px; height:370px; background:#00e5ff;"></div>
+                                            <span class="dim-label">▼ Dasar Lantai</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- SIDE VIEW (HTML/CSS) -->
+                                    <div id="cad-view-side-container" style="display:none; align-items:flex-end; gap:50px; position:relative;">
+                                        <!-- Human Side Figure -->
+                                        <div class="cad-human-figure" title="Skala Pengunjung (Jarak Pandang 1.2 Meter)">
+                                            <div style="font-size:10px; color:#6682a8; font-family:monospace; margin-bottom:4px;">1700 mm</div>
+                                            <svg class="cad-human-svg" viewBox="0 0 80 240" style="width:50px;">
+                                                <circle cx="40" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="6"/>
+                                                <path d="M40 42 v90 M40 68 L55 110 M40 132 L35 230 M40 132 L48 230" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                                            </svg>
+                                            <span style="font-size:9px; color:#8aa4c4; font-family:monospace; margin-top:4px;">Jarak Pandang 1.2 m</span>
+                                        </div>
+
+                                        <!-- Pure HTML/CSS Side Profile Sketsel -->
+                                        <div class="cad-sketsel-side">
+                                            <div class="cad-side-gooseneck">
+                                                <div class="cad-side-lamp-head"></div>
+                                            </div>
+                                            <div class="cad-side-board-lines"></div>
+                                            <div class="cad-side-foot-base"></div>
+                                        </div>
+
+                                        <!-- Side Dimension Annotations -->
+                                        <div style="display:flex; flex-direction:column; gap:16px; font-family:ui-monospace, monospace; font-size:11px; color:#8aa4c4;">
+                                            <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
+                                                <b style="color:#00e5ff;">Lampu Sorot:</b> Sudut sorot 35° (Jangkauan 250 mm)
+                                            </div>
+                                            <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
+                                                <b style="color:#00e5ff;">Ketebalan Partisi:</b> 50 mm Aluminium Extrusion
+                                            </div>
+                                            <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
+                                                <b style="color:#00e5ff;">Double-Sided:</b> Sisi A (Depan) + Sisi B (Belakang)
+                                            </div>
+                                            <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
+                                                <b style="color:#00e5ff;">Kaki T-Base:</b> Lebar 600 mm (Stabilisator Anti-Goyang)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Technical CAD Title Block -->
+                                <div class="cad-title-block">
+                                    <div>PROYEK: <b>FESTIVAL LITERASI KUTAI TIMUR</b></div>
+                                    <div>LEMBAR: <b>DWG-01/SKETSEL-A3</b></div>
+                                    <div>SKALA: <b>1 : 10 (PARAMETRIK HTML)</b></div>
+                                    <div>STATUS: <b>TERVALIDASI DISDIKBUD</b></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PANEL 3: TATA PANGGUNG UTAMA & VENUE HALL (FULL EXPANDED LAYOUT) -->
+                        <div class="sim-panel" id="sim-panel-stage">
+                            <div class="stage-full-layout">
+                                <!-- Perspective Grand Stage Preview -->
+                                <div class="stage-visual-grand-stage">
+                                    <div class="stage-top-truss-rig">
+                                        <div class="stage-truss-spot"></div>
+                                        <div class="stage-truss-spot"></div>
+                                        <div class="stage-truss-spot"></div>
+                                        <div class="stage-truss-spot"></div>
+                                        <div class="stage-truss-spot"></div>
+                                        <div class="stage-truss-spot"></div>
+                                    </div>
+
+                                    <!-- Giant LED Videotron Screen Backdrop -->
+                                    <div class="stage-led-videotron">
+                                        <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
+                                        <h3 class="stage-led-title">FESTIVAL LITERASI KUTAI TIMUR</h3>
+                                        <div class="stage-led-sub">PUNCAK PENGANUGERAHAN &amp; SELEBRASI KARYA KUTAI TIMUR</div>
+                                    </div>
+
+                                    <!-- Raised Stage Platform with Podium, Trophy & Cultural Center -->
+                                    <div class="stage-raised-platform">
+                                        <!-- Podium Speeches -->
+                                        <div class="stage-podium-box">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                                            <div class="stage-podium-label">Podium Bupati &amp; Kadisdik</div>
+                                        </div>
+
+                                        <!-- Cultural Performance Area -->
+                                        <div class="stage-perf-center">
+                                            <span class="stage-perf-badge">Area Pentas Seni Siswa (8 × 5 m)</span>
+                                            <p class="stage-perf-desc">Panggung luas untuk penampilan Tari Kreasi Dayak Long Mesangat, Tari Jepen Muara Ancalong, Adat Dayak Basap Kaubun, Tari Kolaborasi Batu Ampar, &amp; Tarian Hudoq Kombeng.</p>
+                                        </div>
+
+                                        <!-- Trophy & Awards Table -->
+                                        <div class="stage-trophy-box">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                                            <div class="stage-podium-label">Meja Piala &amp; Piagam</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Full Comprehensive Venue Hall Floor Plan (25m x 20.8m) -->
+                                <div class="venue-hall-blueprint">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                                        <h3 style="margin:0; font-size:18px; color:#111;">Denah Rancang Bangun Aula (25,0 m × 20,8 m)</h3>
+                                        <span style="font-size:12px; font-weight:700; color:#0071e3; background:#e8f3ff; padding:4px 10px; border-radius:6px;">Skala Proporsional 1 : 1</span>
+                                    </div>
+
+                                    <div class="venue-hall-map">
+                                        <!-- KOLOM 1: AREA PAMERAN (4.8 m) -->
+                                        <div class="hall-col hall-col-pameran">
+                                            <div>
+                                                <div class="hall-header-tag">
+                                                    <span>Area Pameran Karya</span>
+                                                    <span>4.8 Meter</span>
+                                                </div>
+                                                <p style="font-size:11.5px; color:#48484a; margin:0 0 10px; line-height:1.4;">
+                                                    Menampung 42 unit sketsel (336 karya) dalam 7 klaster modular dengan alur sirkulasi 2 arah.
+                                                </p>
+                                                <div class="pameran-cluster-blocks">
+                                                    <div class="pameran-cluster-mini"><span>Klaster 1 &amp; 2 (SD)</span><b>72 Karya</b></div>
+                                                    <div class="pameran-cluster-mini"><span>Klaster 3 (SMP)</span><b>64 Karya</b></div>
+                                                    <div class="pameran-cluster-mini"><span>Klaster 4 (SMA/SMK)</span><b>64 Karya</b></div>
+                                                    <div class="pameran-cluster-mini"><span>Klaster 5 (Guru)</span><b>64 Karya</b></div>
+                                                    <div class="pameran-cluster-mini"><span>Klaster 6 &amp; 7 (Piala Bupati)</span><b>72 Karya</b></div>
+                                                </div>
+                                            </div>
+                                            <div style="font-size:10.5px; color:#005bb5; font-weight:700; background:#fff; padding:6px; border-radius:4px; text-align:center;">
+                                                📍 Pintu Masuk &amp; Booth Stiker Voting
+                                            </div>
+                                        </div>
+
+                                        <!-- KOLOM 2: AREA DERETAN KURSI AUDIENS (16.0 m) -->
+                                        <div class="hall-col hall-col-audiens">
+                                            <div>
+                                                <div class="hall-header-tag">
+                                                    <span>Area Kursi Audiens</span>
+                                                    <span>16.0 Meter</span>
+                                                </div>
+                                                <p style="font-size:11.5px; color:#48484a; margin:0 0 10px; line-height:1.4;">
+                                                    Tata letak berjenjang untuk kenyamanan pandangan panggung dan kelancaran keprotokolan daerah.
+                                                </p>
+                                                <div class="seating-preview-grid">
+                                                    <!-- VVIP Sofas -->
+                                                    <div class="sofa-row">
+                                                        <div class="sofa-cell">SOFA VVIP BUPATI &amp; KADISDIK</div>
+                                                        <div class="sofa-cell">FORKOPIMDA KUTAI TIMUR</div>
+                                                    </div>
+                                                    <!-- Aisle -->
+                                                    <div class="aisle-line">LORONG UTAMA KIRAB &amp; PROTOKOL (LEBAR 2.5 METER)</div>
+                                                    <!-- Delegations chairs -->
+                                                    <div class="chairs-block">
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                        <div class="chair-dot" title="Kursi Delegasi"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="font-size:10.5px; color:#248a3d; font-weight:700; background:#fff; padding:6px; border-radius:4px; text-align:center;">
+                                                🎥 FOH Sound Console &amp; Multi-Camera Live Streaming
+                                            </div>
+                                        </div>
+
+                                        <!-- KOLOM 3: PANGGUNG UTAMA (SISI KANAN) -->
+                                        <div class="hall-col hall-col-panggung">
+                                            <div>
+                                                <div class="hall-header-tag">
+                                                    <span>Panggung Utama</span>
+                                                    <span>12 × 6 Meter</span>
+                                                </div>
+                                                <p style="font-size:11.5px; color:#48484a; margin:0 0 10px; line-height:1.4;">
+                                                    Panggung megah penganugerahan piala bupati, LED screen 10×4m, dan atraksi seni budaya.
+                                                </p>
+                                                <div style="background:#fff; border:1px solid #fed7aa; border-radius:6px; padding:10px; display:flex; flex-direction:column; gap:6px; font-size:11px; color:#9a3412;">
+                                                    <div>📺 <b>LED Screen:</b> P3 High Definition</div>
+                                                    <div>🎙️ <b>Tata Suara:</b> Line Array Audio</div>
+                                                    <div>💡 <b>Lighting:</b> Moving Head &amp; Profile</div>
+                                                    <div>🚪 <b>Backstage:</b> Ruang Transit VVIP</div>
+                                                </div>
+                                            </div>
+                                            <div style="font-size:10.5px; color:#b36600; font-weight:700; background:#fff; padding:6px; border-radius:4px; text-align:center;">
+                                                ⭐ Panggung Kehormatan Tertinggi
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PANEL 4: SUSUNAN 7 KLASTER & KAPASITAS (336 POSTER) -->
+                        <div class="sim-panel" id="sim-panel-clusters">
+                            <div class="feature-item" style="background:#ffffff; margin-bottom:12px;">
+                                <div class="feature-item-body">
+                                    <h3>Formasi 7 Klaster Sketsel di Area Pameran</h3>
+                                    <p>Penataan 42 unit sketsel dibagi ke dalam 7 klaster modular untuk memaksimalkan sirkulasi pengunjung dan kenyamanan proses apresiasi karya.</p>
+                                </div>
+                            </div>
+                            <div class="cluster-inspector-grid" id="cluster-cards-grid">
+                                <!-- 7 Cluster Cards rendered by JS -->
+                            </div>
+                            <div id="cluster-detail-box" style="margin-top:14px; padding:16px; border-radius:10px; background:#f5f5f7; border:1px solid #e5e5ea;">
+                                <!-- Live dynamic cluster details -->
+                            </div>
+                        </div>
+
+                        <!-- PANEL 5: ARSIP BLUEPRINT ASLI DARI RAPAT KOORDINASI -->
                         <div class="sim-panel" id="sim-panel-blueprint">
                             <div class="blueprint-viewer-box">
                                 <div class="blueprint-hero-image-wrap">
@@ -2156,85 +3051,6 @@
                                         <span>Venue 25m x 20.8m</span>
                                     </button>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Panel 3: Susunan 7 Klaster & Kapasitas -->
-                        <div class="sim-panel" id="sim-panel-clusters">
-                            <div class="feature-item" style="background:#ffffff; margin-bottom:12px;">
-                                <div class="feature-item-body">
-                                    <h3>Formasi 7 Klaster Sketsel di Area Pameran</h3>
-                                    <p>Penataan 42 unit sketsel dibagi ke dalam 7 klaster modular untuk memaksimalkan sirkulasi pengunjung dan kenyamanan proses apresiasi karya.</p>
-                                </div>
-                            </div>
-                            <div class="cluster-inspector-grid" id="cluster-cards-grid">
-                                <!-- 7 Cluster Cards rendered by JS -->
-                            </div>
-                            <div id="cluster-detail-box" style="margin-top:14px; padding:16px; border-radius:10px; background:#f5f5f7; border:1px solid #e5e5ea;">
-                                <!-- Live dynamic cluster details -->
-                            </div>
-                        </div>
-
-                        <!-- Panel 4: Denah Venue Hall -->
-                        <div class="sim-panel" id="sim-panel-venue">
-                            <div class="venue-hall-schematic">
-                                <div class="venue-diagram-canvas">
-                                    <div class="venue-zone venue-zone-pameran active" data-zone="pameran">
-                                        <span>AREA PAMERAN</span>
-                                        <small>Kedalaman 4.8 M · 42 Sketsel</small>
-                                    </div>
-                                    <div class="venue-zone venue-zone-kursi" data-zone="kursi">
-                                        <span>AREA DERETAN KURSI</span>
-                                        <small>Kedalaman 16.0 M · Ratusan Audiens</small>
-                                    </div>
-                                    <div class="venue-zone venue-zone-panggung" data-zone="panggung">
-                                        <span>PANGGUNG UTAMA</span>
-                                        <small>Sisi Kanan Venue</small>
-                                    </div>
-                                </div>
-                                <div id="venue-zone-detail" style="padding:14px; background:#fbfbfd; border-radius:8px; border:1px solid #e5e5ea;">
-                                    <h4 style="margin:0 0 4px; color:#0071e3;" id="venue-zone-title">Area Pameran (Kedalaman 4,8 Meter · 42 Sketsel)</h4>
-                                    <p style="margin:0; font-size:13px; color:#555558;" id="venue-zone-desc">Didedikasikan untuk 7 klaster pameran karya siswa &amp; guru dengan lorong lalu lintas pengunjung yang lapang dan aman.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `,
-                aside: `
-                    <div class="scorecard-grid">
-                        <article class="scorecard"><strong>42</strong><span>Unit Sketsel</span></article>
-                        <article class="scorecard"><strong>84</strong><span>Lampu Sorot</span></article>
-                        <article class="scorecard"><strong>336</strong><span>Slot Karya A3</span></article>
-                        <article class="scorecard"><strong>2 cm</strong><span>Stiker Voting</span></article>
-                    </div>
-
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <span class="feature-item-index">📐</span>
-                            <div class="feature-item-body">
-                                <h3>Standar Dimensi Sketsel</h3>
-                                <p>Tinggi 2,5 meter x Lebar 1,0 meter. Setiap sisi menampung 4 lembar poster A3 (2 baris x 2 kolom), total 8 karya per partisi bolak-balik.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-item-index">🗳️</span>
-                            <div class="feature-item-body">
-                                <h3>Tempat Voting 29,7 x 7 cm</h3>
-                                <p>Diletakkan 3 cm di bawah masing-masing poster A3. Audiens menempelkan stiker dot bulat berdiameter 2 cm untuk memilih karya favorit.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-item-index">💡</span>
-                            <div class="feature-item-body">
-                                <h3>Tata Cahaya Presisi</h3>
-                                <p>2 buah lampu sorot (spotlight) warm light per unit sketsel diarahkan tepat ke permukaan karya agar naskah puisi dan cerpen terbaca jelas.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-item-index">🏢</span>
-                            <div class="feature-item-body">
-                                <h3>Proporsi Ruang Venue</h3>
-                                <p>Total aula berukuran 25 m x 20,8 m. Zona pameran mengambil 4,8 meter, sedangkan 16 meter difokuskan untuk deretan kursi audiens dan panggung.</p>
                             </div>
                         </div>
                     </div>
@@ -2461,11 +3277,14 @@
             const postersFront = [
                 {
                     id: 1,
-                    type: 'Karya Puisi Siswa SD',
-                    title: 'Zamrud di Tepian Mahakam',
-                    author: 'Anindya Putri · SDN 001 Sangatta Utara',
-                    excerpt: 'Di antara desau dedaunan Kutim, kurenda bait doa demi masa depan negeri...',
-                    votes: 14,
+                    type: 'Tari Kreasi Khas Kalimantan',
+                    title: 'Macam Macam Tari Kalimantan',
+                    school: 'SDN 002 Long Mesangat',
+                    author: 'Siswa dan Siswi SDN 002 Long Mesangat',
+                    mentor: 'Siti Nur Jannah, S.Pd.',
+                    img: 'assets/posters/poster-1.jpg',
+                    excerpt: 'Tari Kreasi Dayak terinspirasi dari budaya dan tradisi masyarakat Dayak, memadukan gerak tradisional dengan kreasi modern.',
+                    votes: 24,
                     dots: [
                         { x: 28, y: 34, color: '#ff3b30' },
                         { x: 54, y: 40, color: '#34c759' },
@@ -2475,11 +3294,14 @@
                 },
                 {
                     id: 2,
-                    type: 'Karya Puisi Siswa SMP',
-                    title: 'Lentera Sangatta Mengalun',
-                    author: 'Fajar Kurniawan · SMPN 2 Sangatta Selatan',
-                    excerpt: 'Buku adalah sayap yang menerbangkanku menembus kabut khatulistiwa...',
-                    votes: 21,
+                    type: 'Muara 1001 Kultur Nusantara',
+                    title: 'Ngambang Taun Adat Dayak Basap',
+                    school: 'SDN 002 Kaubun',
+                    author: 'Penari Budaya SDN 002 Kaubun',
+                    mentor: 'Eva Kurniawati',
+                    img: 'assets/posters/poster-2.jpg',
+                    excerpt: 'Perayaan adat tahunan suku Dayak Basap di Ds Bumi Jaya Kaubun. Wujud pelestarian budaya ungkap syukur dan ikatan kebersamaan.',
+                    votes: 31,
                     dots: [
                         { x: 26, y: 34, color: '#0071e3' },
                         { x: 50, y: 42, color: '#0071e3' },
@@ -2490,11 +3312,14 @@
                 },
                 {
                     id: 3,
-                    type: 'Karya Cerpen Siswa SMA',
-                    title: 'Senja di Teluk Pandan',
-                    author: 'Zahra Nabila · SMAN 1 Bengalon',
-                    excerpt: 'Halaman demi halaman kubuka, merajut kisah dari tanah tambang hingga harum laut...',
-                    votes: 18,
+                    type: 'Tari Tradisional Pesisir Mahakam',
+                    title: 'Pesona Tari Jepen',
+                    school: 'SD Negeri 002 Muara Ancalong',
+                    author: 'Mawadatun, Dinda, Nur Salabiah, Calista, Anggina, Zalfa',
+                    mentor: 'Marhani dan Siti Patimah',
+                    img: 'assets/posters/poster-3.jpg',
+                    excerpt: 'Tari tradisional khas masyarakat pesisir sungai Mahakam yang menggambarkan keceriaan, semangat hidup, dan rasa syukur.',
+                    votes: 28,
                     dots: [
                         { x: 32, y: 36, color: '#ffcc00' },
                         { x: 62, y: 32, color: '#ff3b30' },
@@ -2504,11 +3329,14 @@
                 },
                 {
                     id: 4,
-                    type: 'Karya Guru Penggerak',
-                    title: 'Merajut Asa di Ujung Negeri',
-                    author: 'Budi Santoso, S.Pd. · SMPN 1 Rantau Pulung',
-                    excerpt: 'Seorang pendidik menanam kata, memanen kebijaksanaan dan peradaban baru...',
-                    votes: 27,
+                    type: 'Tari Kolaborasi Nusantara Kutim',
+                    title: 'Muara Ragam Nusantara',
+                    school: 'SD Negeri 006 Batu Ampar',
+                    author: 'Dewi Indah Lestari, Hajah Ratih, Safaratul Ramadani',
+                    mentor: 'Aisyah Aulia Sabran, S.Pd & Fatimah, S.Pd',
+                    img: 'assets/posters/poster-4.jpg',
+                    excerpt: 'Menggambarkan Kutai Timur sebagai muara pertemuan berbagai suku dan budaya di Nusantara, berdampingan dalam harmoni.',
+                    votes: 37,
                     dots: [
                         { x: 22, y: 36, color: '#ff3b30' },
                         { x: 46, y: 30, color: '#af52de' },
@@ -2523,24 +3351,31 @@
             const postersBack = [
                 {
                     id: 5,
-                    type: 'Karya Puisi Siswa SD',
-                    title: 'Pantun Rimba Kutai Timur',
-                    author: 'Rizky Ramadhan · SDN 004 Muara Wahau',
-                    excerpt: 'Bunga anggrek mekar berseri, buku dibaca cerdaskan negeri...',
-                    votes: 12,
+                    type: 'Tarian Hudoq & Kulit Kayu',
+                    title: 'Anek Puyat (Sayuq Ayaq Daloq)',
+                    school: 'SD Negeri 008 Kombeng',
+                    author: 'Marcheline, Chelsea, Bunga',
+                    mentor: 'Sulin Iman, S.Pd & Suryati, S.Pd.I',
+                    img: 'assets/posters/poster-5.jpg',
+                    excerpt: 'Di desa Miau Baru, anak-anak Dayak memakai baju dari kulit kayu, menari riang gembira dengan irama sape & tarian Hudoq.',
+                    votes: 35,
                     dots: [
                         { x: 30, y: 35, color: '#34c759' },
                         { x: 60, y: 38, color: '#ff3b30' },
-                        { x: 90, y: 32, color: '#0071e3' }
+                        { x: 90, y: 32, color: '#0071e3' },
+                        { x: 120, y: 36, color: '#ffcc00' }
                     ]
                 },
                 {
                     id: 6,
-                    type: 'Artikel Budaya Siswa SMP',
-                    title: 'Menjaga Harmoni Warisan Dayak',
-                    author: 'Melani Kartika · SMPN 1 Kaliorang',
-                    excerpt: 'Kearifan lokal mengajarkan harmoni antara tutur kata dan alam semesta...',
-                    votes: 16,
+                    type: 'Tari Kreasi Khas Kalimantan (Display 2)',
+                    title: 'Macam Macam Tari Kalimantan',
+                    school: 'SDN 002 Long Mesangat',
+                    author: 'Siswa dan Siswi SDN 002 Long Mesangat',
+                    mentor: 'Siti Nur Jannah, S.Pd.',
+                    img: 'assets/posters/poster-1.jpg',
+                    excerpt: 'Pertunjukan tari kreasi khas Kalimantan oleh generasi muda Long Mesangat.',
+                    votes: 19,
                     dots: [
                         { x: 34, y: 35, color: '#0071e3' },
                         { x: 64, y: 30, color: '#ffcc00' },
@@ -2549,30 +3384,34 @@
                 },
                 {
                     id: 7,
-                    type: 'Karya Cerpen Siswa SMA',
-                    title: 'Langkah Kecil di Sangkulirang',
-                    author: 'Dimas Pratama · SMAN 1 Kaubun',
-                    excerpt: 'Gua telapak tangan purba menjadi saksi, literasi telah berakar ribuan tahun silam...',
-                    votes: 23,
+                    type: 'Muara 1001 Kultur Nusantara (Display 2)',
+                    title: 'Ngambang Taun Adat Dayak Basap',
+                    school: 'SDN 002 Kaubun',
+                    author: 'Penari Budaya SDN 002 Kaubun',
+                    mentor: 'Eva Kurniawati',
+                    img: 'assets/posters/poster-2.jpg',
+                    excerpt: 'Pesona kearifan lokal suku Dayak Basap merajut persatuan di Bumi Jaya Kaubun.',
+                    votes: 22,
                     dots: [
                         { x: 30, y: 35, color: '#ff3b30' },
                         { x: 60, y: 40, color: '#ff3b30' },
-                        { x: 90, y: 32, color: '#34c759' },
-                        { x: 120, y: 38, color: '#0071e3' }
+                        { x: 90, y: 32, color: '#34c759' }
                     ]
                 },
                 {
                     id: 8,
-                    type: 'Karya Guru Penggerak',
-                    title: 'Menyalakan Bara di Ruang Kelas',
-                    author: 'Rahmawati, M.Pd. · SMAN 2 Muara Ancalong',
-                    excerpt: 'Ketika setiap anak memegang buku, tak ada lagi kegelapan yang tak tersingkirkan...',
-                    votes: 19,
+                    type: 'Pesona Budaya Pesisir (Display 2)',
+                    title: 'Pesona Tari Jepen',
+                    school: 'SD Negeri 002 Muara Ancalong',
+                    author: 'Mawadatun, Dinda, Nur Salabiah, Calista, Anggina, Zalfa',
+                    mentor: 'Marhani dan Siti Patimah',
+                    img: 'assets/posters/poster-3.jpg',
+                    excerpt: 'Dinamika gerak tari pesisir Mahakam mengekspresikan harmoni dan syukur warga Kutai Timur.',
+                    votes: 27,
                     dots: [
                         { x: 30, y: 36, color: '#af52de' },
                         { x: 60, y: 32, color: '#0071e3' },
-                        { x: 90, y: 40, color: '#ffcc00' },
-                        { x: 120, y: 34, color: '#34c759' }
+                        { x: 90, y: 40, color: '#ffcc00' }
                     ]
                 }
             ];
@@ -2585,7 +3424,7 @@
 
                 const activeList = isFrontSide ? postersFront : postersBack;
                 if (sideLabel) {
-                    sideLabel.textContent = isFrontSide ? 'Sisi A · Tampak Depan (4 Poster)' : 'Sisi B · Tampak Belakang (4 Poster)';
+                    sideLabel.textContent = isFrontSide ? 'Sisi A · Tampak Depan (4 Poster Asli)' : 'Sisi B · Tampak Belakang (4 Poster Asli)';
                 }
 
                 matrix.innerHTML = activeList.map(item => `
@@ -2594,16 +3433,15 @@
                             <span>Poster A3 (29.7 × 42 cm)</span>
                             <span class="voting-tally-pill" id="tally-pill-${item.id}">⭐ ${item.votes} Suara</span>
                         </div>
-                        <div class="poster-artwork-card">
-                            <div>
-                                <span class="poster-artwork-type">${item.type}</span>
-                                <h4 class="poster-artwork-title">${item.title}</h4>
-                                <div class="poster-artwork-author">${item.author}</div>
+                        <div class="poster-artwork-media" title="Poster Asli: ${item.title}">
+                            <img class="poster-artwork-img" src="${item.img}" alt="${item.title}">
+                            <div class="poster-info-overlay">
+                                <h4 class="poster-info-title">${item.title}</h4>
+                                <div class="poster-info-school">${item.school}</div>
                             </div>
-                            <div class="poster-artwork-excerpt">“${item.excerpt}”</div>
                         </div>
                         <div class="spec-gap-indicator">↕ Celah 3 cm ke Tempat Voting</div>
-                        <div class="voting-strip-target" id="voting-target-${item.id}" data-poster-id="${item.id}" title="Klik untuk menempelkan stiker voting bulat 2 cm">
+                        <div class="voting-strip-target" id="voting-target-${item.id}" data-poster-id="${item.id}" title="Klik untuk menempelkan stiker voting bulat Ø 2 cm">
                             <div class="voting-strip-label">
                                 <span>Tempat Voting (29.7 × 7 cm)</span>
                                 <span>Stiker Ø 2 cm</span>
@@ -2660,6 +3498,27 @@
                     if (panel) panel.classList.add('active');
                 });
             });
+
+            // CAD View Switching (Front vs Side HTML/CSS)
+            const btnCadFront = document.getElementById('cad-btn-front');
+            const btnCadSide = document.getElementById('cad-btn-side');
+            const cadViewFront = document.getElementById('cad-view-front-container');
+            const cadViewSide = document.getElementById('cad-view-side-container');
+
+            if (btnCadFront && btnCadSide && cadViewFront && cadViewSide) {
+                btnCadFront.addEventListener('click', () => {
+                    btnCadFront.classList.add('active');
+                    btnCadSide.classList.remove('active');
+                    cadViewFront.style.display = 'flex';
+                    cadViewSide.style.display = 'none';
+                });
+                btnCadSide.addEventListener('click', () => {
+                    btnCadSide.classList.add('active');
+                    btnCadFront.classList.remove('active');
+                    cadViewFront.style.display = 'none';
+                    cadViewSide.style.display = 'flex';
+                });
+            }
 
             // Spotlight Toggle
             const btnSpotlight = document.getElementById('btn-toggle-spotlight');
