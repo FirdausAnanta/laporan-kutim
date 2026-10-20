@@ -783,6 +783,11 @@
             background: #0071e3;
         }
 
+        .prog-bar-fill.warning,
+        .prog-bar-fill.highlight {
+            background: #ff9500;
+        }
+
         .prog-bar-fill.process {
             background: #8e8e93;
         }
@@ -3212,7 +3217,7 @@
                                     <strong>60%</strong>
                                 </div>
                                 <div class="prog-bar-track">
-                                    <div class="prog-bar-fill highlight" style="width: 60%;"></div>
+                                    <div class="prog-bar-fill warning" style="width: 60%; background: #ff9500;"></div>
                                 </div>
                             </div>
 
@@ -3463,11 +3468,6 @@
                             <strong class="program-kpi-val success">60%</strong>
                             <span class="program-kpi-sub">161 dari 268 Sekolah</span>
                         </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Standar Publikasi</span>
-                            <strong class="program-kpi-val highlight">ISBN</strong>
-                            <span class="program-kpi-sub">Perpusnas &amp; Puspresnas</span>
-                        </div>
                     </div>
 
                     <div class="feature-list">
@@ -3516,16 +3516,6 @@
                             <strong class="program-kpi-val highlight">55,2%</strong>
                             <span class="program-kpi-sub">Dari Total 268 Sekolah</span>
                         </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Infrastruktur</span>
-                            <strong class="program-kpi-val">Cloud</strong>
-                            <span class="program-kpi-sub">Subdomain Mandiri SSL</span>
-                        </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Biaya Platform</span>
-                            <strong class="program-kpi-val success">0 Biaya</strong>
-                            <span class="program-kpi-sub">Fasilitas Program Daerah</span>
-                        </div>
                     </div>
 
                     <div class="feature-list">
@@ -3546,8 +3536,8 @@
                         <div class="feature-item">
                             <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
-                                <h3>Pendampingan Berkelanjutan untuk Sisa Sekolah</h3>
-                                <p>Tim teknis Nyalanesia terus membuka layanan konsultasi klaim mandiri agar 120 sekolah lainnya segera mengaktivasi hak akses subdomain weblit mereka menuju target 268 sekolah.</p>
+                                <h3>Pendampingan Berkelanjutan</h3>
+                                <p>Konsultan Program Nyalanesia terus membuka layanan konsultasi mandiri untuk mengembangkan website literasi sekolah dan mendorong siswa serta guru aktif melakukan microblogging dan publikasi karya secara berkala.</p>
                             </div>
                         </div>
                     </div>
@@ -3557,7 +3547,7 @@
             kompetisi: {
                 kicker: 'Tahap 04 · Ajang Kejuaraan & Seleksi Berjenjang',
                 title: 'Kompetisi Literasi Daerah & Lomba Tim Literasi',
-                lead: 'Ajang kompetisi bergengsi untuk menyeleksi karya cipta terbaik, pemilihan Duta Literasi Pelajar, serta kejuaraan Lomba Tim Literasi Sekolah se-Kabupaten Kutai Timur.',
+                lead: 'Ajang kompetisi bergengsi untuk menyeleksi Tim Literasi Sekolah se-Kabupaten Kutai Timur menuju Sekolah Percontohan Literasi Nasional.',
                 body: `
                     <div class="status-badge-banner done">
                         Tahap Selesai Dilaksanakan · 22 Tim Sekolah Bertanding di Lomba Tim Literasi (20 Oktober 2026)
@@ -3574,16 +3564,6 @@
                             <strong class="program-kpi-val highlight">5</strong>
                             <span class="program-kpi-sub">Cabang Prestasi</span>
                         </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Piala Kehormatan</span>
-                            <strong class="program-kpi-val">Bupati</strong>
-                            <span class="program-kpi-sub">Piala Bergilir Daerah</span>
-                        </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Jalur PPDB</span>
-                            <strong class="program-kpi-val success">Puspresnas</strong>
-                            <span class="program-kpi-sub">Sertifikat Resmi</span>
-                        </div>
                     </div>
 
                     <div class="feature-list">
@@ -3597,15 +3577,15 @@
                         <div class="feature-item">
                             <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
-                                <h3>Penghargaan Prestasi Siswa &amp; Guru</h3>
-                                <p>Pemenang Cipta Puisi, Cerpen, Artikel Guru, dan Pemilihan Duta Literasi Pelajar Kutai Timur akan menerima penghargaan resmi di atas Panggung Utama Acara Puncak.</p>
+                                <h3>Penghargaan Prestasi Sekolah</h3>
+                                <p>Tim Literasi Sekolah terbaik se-Kabupaten Kutai Timur yang terpilih menuju Sekolah Percontohan Literasi Nasional akan menerima penghargaan resmi di atas Panggung Utama Acara Puncak.</p>
                             </div>
                         </div>
                         <div class="feature-item">
                             <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
                                 <h3>Legitimasi Nilai Portofolio Pendidikan</h3>
-                                <p>Piagam juara telah terdaftar dalam sistem kurasi Puspresnas Kemendikbudristek RI dan dapat dimanfaatkan siswa untuk seleksi jalur prestasi sekolah lanjutan.</p>
+                                <p>Capaian dalam seleksi ini menjadi bukti resmi rekam jejak prestasi literasi sekolah sekaligus memperkuat portofolio akademik menuju tingkat nasional.</p>
                             </div>
                         </div>
                     </div>
@@ -3614,8 +3594,8 @@
 
             nyalagames: {
                 kicker: 'Tahap 05 · Gamifikasi Edukasi Interaktif',
-                title: 'Nyalagames: Gamifikasi & Asah Literasi Interaktif',
-                lead: 'Metode belajar inovatif melalui mini game digital untuk memacu penguasaan kosakata bahasa Indonesia baku, pemahaman bacaan, dan kelincahan berpikir kritis para siswa.',
+                title: 'Nyalagames: Platform Belajar, Mengajar, dan Asesmen Berbasis Game',
+                lead: 'Media pembelajaran interaktif yang mengintegrasikan 6 Literasi Dasar Gerakan Literasi Sekolah (GLS), Kurikulum Merdeka, dan persiapan ANBK. Dirancang untuk menghadirkan pengalaman belajar yang berkesadaran (mindful), bermakna (meaningful), dan menyenangkan (joyful) di sekolah maupun di rumah.',
                 body: `
                     <div class="status-badge-banner process">
                         Tahap Sedang Berjalan · Pelaksanaan Gamifikasi di Sekolah (November 2026)
@@ -3628,42 +3608,94 @@
                             <span class="program-kpi-sub">Sedang Berlangsung</span>
                         </div>
                         <div class="program-kpi-card">
-                            <span class="program-kpi-label">Modul Permainan</span>
-                            <strong class="program-kpi-val">100+</strong>
-                            <span class="program-kpi-sub">Level Asah Kosakata</span>
+                            <span class="program-kpi-label">Cakupan Materi</span>
+                            <strong class="program-kpi-val highlight">6 Literasi GLS</strong>
+                            <span class="program-kpi-sub">ANBK, Asesmen &amp; Olimpiade</span>
                         </div>
                         <div class="program-kpi-card">
-                            <span class="program-kpi-label">Leaderboard</span>
-                            <strong class="program-kpi-val highlight">Real-Time</strong>
-                            <span class="program-kpi-sub">Peringkat Sekolah &amp; Siswa</span>
+                            <span class="program-kpi-label">Ruang Permainan</span>
+                            <strong class="program-kpi-val">4 Dunia Game</strong>
+                            <span class="program-kpi-sub">Literasi, Numerasi &amp; Karakter</span>
                         </div>
                         <div class="program-kpi-card">
-                            <span class="program-kpi-label">Perangkat Akses</span>
-                            <strong class="program-kpi-val success">Multi-Alat</strong>
+                            <span class="program-kpi-label">Akses Belajar</span>
+                            <strong class="program-kpi-val success">Sekolah &amp; Rumah</strong>
                             <span class="program-kpi-sub">HP, Tablet &amp; Laptop</span>
                         </div>
                     </div>
 
-                    <div class="feature-list">
+                    <div class="feature-list" style="margin:24px 0 28px;">
                         <div class="feature-item">
                             <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
-                                <h3>Distribusi Kode Kelas &amp; Aktivasi Akun Siswa</h3>
-                                <p>Saat ini guru pendamping di sekolah sedang mengaktifkan akun dan memandu siswa mencoba modul tantangan logika kata, sinonim-antonim, dan tebak konteks bacaan.</p>
+                                <h3>Eksplorasi 4 Ruang Belajar dan Bermain</h3>
+                                <p>Guru pendamping memandu siswa mengakses akun kelas dan menjelajahi empat dunia permainan: Litera Dinobot (Baca Tulis &amp; Literasi ANBK), Sigma Cube (Numerasi), Garuda Quest (Budaya &amp; Karakter), serta School Island untuk kuis dan tugas khusus sekolah.</p>
                             </div>
                         </div>
                         <div class="feature-item">
                             <span class="feature-item-index">02</span>
                             <div class="feature-item-body">
-                                <h3>Membangun Kebiasaan Membaca Menyenangkan</h3>
-                                <p>Sistem poin dan lencana digital memotivasi anak untuk rajin membaca tanpa merasa dipaksa, menjadikan literasi sebagai kegiatan bermain yang seru dan menantang.</p>
+                                <h3>Pembelajaran Berkesadaran, Bermakna, dan Menyenangkan</h3>
+                                <p>Pendekatan berbasis game membantu siswa memahami materi secara mendalam tanpa rasa jenuh. Siswa dapat melanjutkan petualangan belajar, latihan ANBK, hingga persiapan olimpiade secara mandiri baik di sekolah maupun dari rumah.</p>
                             </div>
                         </div>
                         <div class="feature-item">
                             <span class="feature-item-index">03</span>
                             <div class="feature-item-body">
-                                <h3>Perekaman Skor Otomatis ke Guru</h3>
-                                <p>Guru dapat melihat kemajuan perbendaharaan kata masing-masing siswa melalui dashboard nilai terintegrasi secara cepat dan akurat.</p>
+                                <h3>Asesmen, PR, dan Pemantauan Nilai Terintegrasi</h3>
+                                <p>Melalui fitur kuis, PR, dan asesmen khusus sekolah di School Island, guru dapat mengelola tugas serta memantau perkembangan literasi, numerasi, dan karakter setiap siswa secara langsung.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin:28px 0 12px; font-size:16px; font-weight:700;">Empat Pilar Dunia Permainan &amp; Asesmen Nyalagames</h3>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; margin-bottom:28px;">
+                        <div style="background:#f5f5f7; border:1px solid #e5e5ea; border-radius:12px; padding:16px;">
+                            <strong style="display:block; font-size:14px; color:#1d1d1f; margin-bottom:6px;">School Island (Khusus Sekolahmu)</strong>
+                            <p style="font-size:13px; color:#6e6e73; line-height:1.5; margin:0;">Ruang kuis, pekerjaan rumah (PR), dan asesmen mandiri yang disesuaikan dengan kebutuhan materi di sekolah masing-masing.</p>
+                        </div>
+                        <div style="background:#f5f5f7; border:1px solid #e5e5ea; border-radius:12px; padding:16px;">
+                            <strong style="display:block; font-size:14px; color:#1d1d1f; margin-bottom:6px;">Litera Dinobot (Baca Tulis &amp; Literasi)</strong>
+                            <p style="font-size:13px; color:#6e6e73; line-height:1.5; margin:0;">Petualangan interaktif untuk mengasah literasi baca-tulis dalam Gerakan Literasi Sekolah (GLS) sekaligus latihan soal Literasi ANBK.</p>
+                        </div>
+                        <div style="background:#f5f5f7; border:1px solid #e5e5ea; border-radius:12px; padding:16px;">
+                            <strong style="display:block; font-size:14px; color:#1d1d1f; margin-bottom:6px;">Sigma Cube (Numerasi)</strong>
+                            <p style="font-size:13px; color:#6e6e73; line-height:1.5; margin:0;">Tantangan berbasis permainan untuk melatih penalaran matematika, pemecahan masalah, dan kesiapan Numerasi ANBK.</p>
+                        </div>
+                        <div style="background:#f5f5f7; border:1px solid #e5e5ea; border-radius:12px; padding:16px;">
+                            <strong style="display:block; font-size:14px; color:#1d1d1f; margin-bottom:6px;">Garuda Quest (Budaya &amp; Karakter)</strong>
+                            <p style="font-size:13px; color:#6e6e73; line-height:1.5; margin:0;">Misi permainan yang mengenalkan literasi budaya dan kewargaan sekaligus menguatkan profil karakter siswa sesuai standar ANBK.</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin:24px 0 12px; font-size:16px; font-weight:700;">Tangkapan Layar &amp; Antarmuka Nyalagames</h3>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin:16px 0 24px;">
+                        <div style="background:#ffffff; border:1px solid #e5e5ea; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                            <img src="assets/nyalagames/nyalagames-home-karakter.png" alt="Beranda Karakter Nyalagames" style="width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover;">
+                            <div style="padding:12px 14px;">
+                                <strong style="font-size:13px; color:#1d1d1f; display:block;">Beranda &amp; Avatar Siswa</strong>
+                                <span style="font-size:12px; color:#86868b;">Kustomisasi karakter peserta didik &amp; level Pendekar Literasi</span>
+                            </div>
+                        </div>
+                        <div style="background:#ffffff; border:1px solid #e5e5ea; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                            <img src="assets/nyalagames/nyalagames-dunia-game.png" alt="Pilihan Dunia Permainan" style="width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover;">
+                            <div style="padding:12px 14px;">
+                                <strong style="font-size:13px; color:#1d1d1f; display:block;">Eksplorasi Dunia Belajar</strong>
+                                <span style="font-size:12px; color:#86868b;">Litera Dinobot, Sigma Cube &amp; Garuda Quest</span>
+                            </div>
+                        </div>
+                        <div style="background:#ffffff; border:1px solid #e5e5ea; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                            <img src="assets/nyalagames/nyalagames-olimpiade.png" alt="Olimpiade &amp; Kejuaraan" style="width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover;">
+                            <div style="padding:12px 14px;">
+                                <strong style="font-size:13px; color:#1d1d1f; display:block;">Olimpiade Literasi</strong>
+                                <span style="font-size:12px; color:#86868b;">Kompetisi nasional dan leaderboard antarsekolah</span>
+                            </div>
+                        </div>
+                        <div style="background:#ffffff; border:1px solid #e5e5ea; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                            <img src="assets/nyalagames/nyalagames-avatar-item.png" alt="Toko Item &amp; Gamifikasi" style="width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover;">
+                            <div style="padding:12px 14px;">
+                                <strong style="font-size:13px; color:#1d1d1f; display:block;">Gamifikasi &amp; Reward</strong>
+                                <span style="font-size:12px; color:#86868b;">Penukaran koin bintang dan perlengkapan avatar</span>
                             </div>
                         </div>
                     </div>
@@ -3695,19 +3727,14 @@
                             <strong class="program-kpi-val success">Lengkap</strong>
                             <span class="program-kpi-sub">Video &amp; Panduan Solusi</span>
                         </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Tujuan Utama</span>
-                            <strong class="program-kpi-val">ANBK</strong>
-                            <span class="program-kpi-sub">Kesiapan Asesmen Nasional</span>
-                        </div>
                     </div>
 
                     <div class="feature-list">
                         <div class="feature-item">
                             <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
-                                <h3>Pengukuran Objektif Kemampuan Membaca</h3>
-                                <p>Soal disusun mengacu pada kerangka Asesmen Kompetensi Minimum (AKM) meliputi aspek menemukan informasi, interpretasi &amp; integrasi, serta evaluasi &amp; refleksi teks.</p>
+                                <h3>Pengukuran Terstandar Capaian Literasi</h3>
+                                <p>Instrumen uji mengacu pada kerangka Tes Kemampuan Akademik (TKA) yang menilai ketepatan memahami informasi tersurat (tekstual), menarik simpulan tersirat (inferensial), hingga mengevaluasi dan mengapresiasi isi bacaan.</p>
                             </div>
                         </div>
                         <div class="feature-item">
@@ -3752,11 +3779,6 @@
                             <span class="program-kpi-label">Fokus Materi</span>
                             <strong class="program-kpi-val">Kontekstual</strong>
                             <span class="program-kpi-sub">Matematika Sehari-Hari</span>
-                        </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Indikator Sukses</span>
-                            <strong class="program-kpi-val success">Rapor Pend.</strong>
-                            <span class="program-kpi-sub">Kenaikan Skor Numerasi</span>
                         </div>
                     </div>
 
@@ -3813,8 +3835,8 @@
                         </div>
                         <div class="program-kpi-card">
                             <span class="program-kpi-label">Karya Akhir</span>
-                            <strong class="program-kpi-val success">Jurnal Sains</strong>
-                            <span class="program-kpi-sub">Laporan Peneliti Cilik</span>
+                            <strong class="program-kpi-val success">Eco-Warrior</strong>
+                            <span class="program-kpi-sub">Menanam Pohon di Sekolah</span>
                         </div>
                     </div>
 
@@ -3869,11 +3891,6 @@
                             <strong class="program-kpi-val">Dayak &amp; Kutai</strong>
                             <span class="program-kpi-sub">Serta Multikultur Daerah</span>
                         </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Buku Karya</span>
-                            <strong class="program-kpi-val success">Cerita Rakyat</strong>
-                            <span class="program-kpi-sub">Antologi Tradisi Lisan</span>
-                        </div>
                     </div>
 
                     <div class="feature-list">
@@ -3922,38 +3939,14 @@
                             <strong class="program-kpi-val highlight">34</strong>
                             <span class="program-kpi-sub">Provinsi se-Indonesia</span>
                         </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Apresiasi Tertinggi</span>
-                            <strong class="program-kpi-val success">Rekor MURI</strong>
-                            <span class="program-kpi-sub">Karya Literasi Indonesia</span>
-                        </div>
-                        <div class="program-kpi-card">
-                            <span class="program-kpi-label">Piala Nasional</span>
-                            <strong class="program-kpi-val">Menteri</strong>
-                            <span class="program-kpi-sub">Apresiasi Kemendikbudristek</span>
-                        </div>
                     </div>
 
                     <div class="feature-list">
                         <div class="feature-item">
                             <span class="feature-item-index">01</span>
                             <div class="feature-item-body">
-                                <h3>Pendelegasian Juara Terbaik Kabupaten Kutai Timur</h3>
-                                <p>Siswa Duta Literasi Pelajar dan Guru Pembimbing Terpilih dari Kutai Timur akan diberangkatkan untuk mewakili daerah di panggung kehormatan akbar Festival Literasi Nasional.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-item-index">02</span>
-                            <div class="feature-item-body">
-                                <h3>Penghargaan Kepala Daerah Peduli Literasi</h3>
-                                <p>Penganugerahan apresiasi bergengsi kepada Bupati Kutai Timur dan Kepala Dinas Pendidikan atas komitmen menggerakkan 268 sekolah dan 15.758 peserta aktif.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-item-index">03</span>
-                            <div class="feature-item-body">
-                                <h3>Simposium Nasional &amp; Bedah Kebijakan Literasi</h3>
-                                <p>Forum diskusi strategis bertaraf nasional bersama para pakar pendidikan, perwakilan UNESCO, pejabat kementerian, serta pegiat literasi terkemuka tanah air.</p>
+                                <h3>Puncak Pertemuan, Pembelajaran, dan Pengkaryaan</h3>
+                                <p>Forum inspiratif tingkat nasional yang mempertemukan delegasi Kutai Timur dengan ribuan pendidik dan pelajar tanah air untuk saling belajar, berkarya, dan merayakan capaian literasi sekolah.</p>
                             </div>
                         </div>
                     </div>
