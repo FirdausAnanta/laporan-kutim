@@ -787,6 +787,101 @@
             background: #8e8e93;
         }
 
+        /* Program Poster Gallery Grid */
+        .program-poster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 16px;
+            margin: 18px 0 24px;
+        }
+
+        .program-poster-card {
+            background: #ffffff;
+            border: 1px solid #e5e5ea;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform .2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .2s ease, border-color .2s ease;
+            position: relative;
+        }
+
+        .program-poster-card:hover {
+            transform: translateY(-4px);
+            border-color: #0071e3;
+            box-shadow: 0 14px 30px rgba(0, 113, 227, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .program-poster-thumb-wrap {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            background: #111622;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .program-poster-thumb-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .3s ease;
+        }
+
+        .program-poster-card:hover .program-poster-thumb-wrap img {
+            transform: scale(1.05);
+        }
+
+        .program-poster-zoom-tag {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            pointer-events: none;
+            opacity: 0.95;
+            transition: opacity .15s ease;
+        }
+
+        .program-poster-meta {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: #ffffff;
+        }
+
+        .program-poster-category {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #0071e3;
+            letter-spacing: .04em;
+        }
+
+        .program-poster-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1d1d1f;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .program-poster-school {
+            font-size: 11.5px;
+            color: #6e6e73;
+            line-height: 1.25;
+        }
+
         /* Workspace Content Area */
         .workspace-content {
             display: grid;
@@ -2845,6 +2940,114 @@
     </div>
 
     <script>
+        /* Global Poster Registry for Modal Lightbox */
+        const GLOBAL_POSTERS = [
+            {
+                id: 1,
+                type: 'Tari Kreasi Khas Kalimantan',
+                title: 'Macam Macam Tari Kalimantan',
+                school: 'SDN 002 Long Mesangat',
+                author: 'Siswa dan Siswi SDN 002 Long Mesangat',
+                mentor: 'Siti Nur Jannah, S.Pd.',
+                img: 'assets/posters/poster-1.jpg',
+                excerpt: 'Tari Kreasi Dayak adalah tarian yang terinspirasi dari budaya dan tradisi masyarakat Dayak di Kalimantan. Tarian ini memadukan gerakan khas tari tradisional Dayak dengan sentuhan kreasi modern, sehingga menghasilkan pertunjukan yang menarik namun tetap mencerminkan nilai-nilai budaya daerah.',
+                votes: 24
+            },
+            {
+                id: 2,
+                type: 'Muara 1001 Kultur Nusantara',
+                title: 'Ngambang Taun Adat Dayak Basap',
+                school: 'SDN 002 Kaubun',
+                author: 'Siswa dan Tim Budaya SDN 002 Kaubun',
+                mentor: 'Eva Kurniawati (Koordinator)',
+                img: 'assets/posters/poster-2.jpg',
+                excerpt: 'Perayaan adat tahunan suku Dayak Basap di Ds Bumi Jaya, Kec Kaubun. Wujud pelestarian budaya daerah sebagai ungkapan rasa syukur atas hasil panen dan mempererat ikatan kebersamaan masyarakat.',
+                votes: 31
+            },
+            {
+                id: 3,
+                type: 'Tari Tradisional Pesisir Mahakam',
+                title: 'Pesona Tari Jepen',
+                school: 'SD Negeri 002 Muara Ancalong',
+                author: 'Mawadatun, Dinda Ariska, Nur Salabiah, Calista Raya, Anggina, Zalfa Aqila',
+                mentor: 'Marhani dan Siti Patimah',
+                img: 'assets/posters/poster-3.jpg',
+                excerpt: 'Tari Jepen adalah tari tradisional khas masyarakat pesisir sungai Mahakam. Tarian ini menggambarkan keceriaan, semangat hidup, rasa syukur serta kebersamaan dengan gerak kaki yang dinamis dan energik.',
+                votes: 28
+            },
+            {
+                id: 4,
+                type: 'Tari Kolaborasi Nusantara Kutim',
+                title: 'Muara Ragam Nusantara',
+                school: 'SD Negeri 006 Batu Ampar',
+                author: 'Dewi Indah Lestari, Hajah Ratih, Safaratul Ramadani',
+                mentor: 'Aisyah Aulia Sabran, S.Pd & Fatimah, S.Pd',
+                img: 'assets/posters/poster-4.jpg',
+                excerpt: 'Pertunjukan ini menggambarkan Kutai Timur sebagai muara pertemuan berbagai suku dan budaya di Nusantara. Melalui gerak tari dan musik tradisional, budaya yang hidup berdampingan dalam harmoni penuh kedamaian.',
+                votes: 37
+            },
+            {
+                id: 5,
+                type: 'Tarian Hudoq & Budaya Dayak Miau Baru',
+                title: 'Anek Puyat (Sayuq Ayaq Daloq Anek Are Puyat)',
+                school: 'SD Negeri 008 Kombeng',
+                author: 'Marcheline, Chelsea, Bunga',
+                mentor: 'Sulin Iman, S.Pd (Pelatih) & Suryati, S.Pd.I (Koordinator)',
+                img: 'assets/posters/poster-5.jpg',
+                excerpt: 'Di Kalimantan Timur tepatnya di desa Miau Baru, anak-anak Dayak memakai baju dari kulit kayu, mereka menari bersama dengan riang gembira mengikuti irama musik sape dan gendang. Bermula dari lompatan yang berirama dengan Tungtukeh, menggambarkan seperti seekor Rusa yang lincah dan penuh kegembiraan. Meniru gerakan menyumpit untuk melatih ketelitian dalam berburu, dan menampilkan tarian Hudoq sebagai ungkapan syukur warisan leluhur identitas yang hidup.',
+                votes: 35
+            }
+        ];
+
+        function openGlobalPosterModal(item) {
+            const modal = document.getElementById('poster-detail-modal');
+            if (!modal || !item) return;
+
+            const img = document.getElementById('poster-modal-img');
+            const title = document.getElementById('poster-modal-title');
+            const type = document.getElementById('poster-modal-type');
+            const school = document.getElementById('poster-modal-school');
+            const author = document.getElementById('poster-modal-author');
+            const mentor = document.getElementById('poster-modal-mentor');
+            const excerpt = document.getElementById('poster-modal-excerpt');
+
+            if (img) img.src = item.img;
+            if (title) title.textContent = item.title;
+            if (type) type.textContent = item.type;
+            if (school) school.textContent = item.school;
+            if (author) author.textContent = item.author || '-';
+            if (mentor) mentor.textContent = item.mentor || '-';
+            if (excerpt) excerpt.textContent = item.excerpt || '-';
+
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeGlobalPosterModal() {
+            const modal = document.getElementById('poster-detail-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        // Global delegation for modal trigger & close
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('[data-modal-poster-id]');
+            if (trigger) {
+                const posterId = parseInt(trigger.dataset.modalPosterId, 10);
+                const item = GLOBAL_POSTERS.find(p => p.id === posterId);
+                if (item) openGlobalPosterModal(item);
+            }
+            if (e.target.closest('#poster-modal-close') || e.target.closest('#poster-modal-dismiss') || e.target.id === 'poster-modal-backdrop') {
+                closeGlobalPosterModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeGlobalPosterModal();
+        });
+
         /* State & Elements */
         const windows = [...document.querySelectorAll('.window')];
         const dockApps = [...document.querySelectorAll('.app')];
@@ -3152,6 +3355,71 @@
                         </div>
                     </div>
 
+                    <h3 style="margin:22px 0 6px; font-size:16px;">🖼 Galeri Karya Poster Terverifikasi (Klik Gambar untuk Lihat Utuh)</h3>
+                    <p style="font-size:13px; color:#6e6e73; margin:0 0 14px;">Berikut adalah contoh poster A3 karya siswa dan tim budaya sekolah se-Kutai Timur yang telah tuntas dihimpun dan siap dipamerkan pada Acara Puncak:</p>
+
+                    <div class="program-poster-grid">
+                        <div class="program-poster-card" data-modal-poster-id="1" title="Klik untuk lihat poster utuh: Macam Macam Tari Kalimantan">
+                            <div class="program-poster-thumb-wrap">
+                                <img src="assets/posters/poster-1.jpg" alt="Macam Macam Tari Kalimantan" loading="lazy">
+                                <span class="program-poster-zoom-tag">🔍 Buka Utuh</span>
+                            </div>
+                            <div class="program-poster-meta">
+                                <span class="program-poster-category">Tari Kreasi Dayak</span>
+                                <h4 class="program-poster-title">Macam Macam Tari Kalimantan</h4>
+                                <span class="program-poster-school">SDN 002 Long Mesangat</span>
+                            </div>
+                        </div>
+
+                        <div class="program-poster-card" data-modal-poster-id="2" title="Klik untuk lihat poster utuh: Ngambang Taun Adat Dayak Basap">
+                            <div class="program-poster-thumb-wrap">
+                                <img src="assets/posters/poster-2.jpg" alt="Ngambang Taun Adat Dayak Basap" loading="lazy">
+                                <span class="program-poster-zoom-tag">🔍 Buka Utuh</span>
+                            </div>
+                            <div class="program-poster-meta">
+                                <span class="program-poster-category">Tradisi 1001 Kultur</span>
+                                <h4 class="program-poster-title">Ngambang Taun Adat Dayak Basap</h4>
+                                <span class="program-poster-school">SDN 002 Kaubun</span>
+                            </div>
+                        </div>
+
+                        <div class="program-poster-card" data-modal-poster-id="3" title="Klik untuk lihat poster utuh: Pesona Tari Jepen">
+                            <div class="program-poster-thumb-wrap">
+                                <img src="assets/posters/poster-3.jpg" alt="Pesona Tari Jepen" loading="lazy">
+                                <span class="program-poster-zoom-tag">🔍 Buka Utuh</span>
+                            </div>
+                            <div class="program-poster-meta">
+                                <span class="program-poster-category">Pesisir Mahakam</span>
+                                <h4 class="program-poster-title">Pesona Tari Jepen</h4>
+                                <span class="program-poster-school">SD Negeri 002 Muara Ancalong</span>
+                            </div>
+                        </div>
+
+                        <div class="program-poster-card" data-modal-poster-id="4" title="Klik untuk lihat poster utuh: Muara Ragam Nusantara">
+                            <div class="program-poster-thumb-wrap">
+                                <img src="assets/posters/poster-4.jpg" alt="Muara Ragam Nusantara" loading="lazy">
+                                <span class="program-poster-zoom-tag">🔍 Buka Utuh</span>
+                            </div>
+                            <div class="program-poster-meta">
+                                <span class="program-poster-category">Kolaborasi Nusantara</span>
+                                <h4 class="program-poster-title">Muara Ragam Nusantara</h4>
+                                <span class="program-poster-school">SD Negeri 006 Batu Ampar</span>
+                            </div>
+                        </div>
+
+                        <div class="program-poster-card" data-modal-poster-id="5" title="Klik untuk lihat poster utuh: Anek Puyat Tarian Hudoq">
+                            <div class="program-poster-thumb-wrap">
+                                <img src="assets/posters/poster-5.jpg" alt="Anek Puyat Tarian Hudoq" loading="lazy">
+                                <span class="program-poster-zoom-tag">🔍 Buka Utuh</span>
+                            </div>
+                            <div class="program-poster-meta">
+                                <span class="program-poster-category">Tarian Hudoq Dayak</span>
+                                <h4 class="program-poster-title">Anek Puyat (Tarian Hudoq)</h4>
+                                <span class="program-poster-school">SD Negeri 008 Kombeng</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="feature-list">
                         <div class="feature-item">
                             <span class="feature-item-index">01</span>
@@ -3182,6 +3450,13 @@
                         <article class="scorecard"><strong>94%</strong><span>Rasio Sekolah</span></article>
                         <article class="scorecard"><strong>A3</strong><span>Standar Format</span></article>
                         <article class="scorecard"><strong>100%</strong><span>Kurasi Visual</span></article>
+                    </div>
+
+                    <div class="evidence-gallery" style="margin-bottom:16px;">
+                        <div class="evidence-stage" data-modal-poster-id="1" style="cursor:pointer;" title="Klik untuk pratinjau utuh poster">
+                            <img src="assets/posters/poster-1.jpg" alt="Poster A3 Pameran" loading="lazy">
+                            <div class="evidence-caption">🔍 Contoh Cetak Fisik A3 (29,7 × 42 cm): SDN 002 Long Mesangat. Klik gambar untuk pratinjau utuh.</div>
+                        </div>
                     </div>
 
                     <div class="metric-list">
