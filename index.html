@@ -2081,15 +2081,60 @@
         .pub-topic { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,.12), rgba(0,113,227,.08)); border: 1px solid rgba(16,185,129,.28); }
         .pub-topic-index { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: #10b981; color: #fff; font-size: 12px; font-weight: 800; flex: none; }
         .pub-article-list { display: grid; gap: 14px; }
-        .pub-article { display: block; padding: 18px 20px; border-radius: 14px; background: #fff; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 2px 10px rgba(0,0,0,.04); color: inherit; text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s; }
-        .pub-article:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.09); border-color: rgba(16,185,129,.5); }
+        .pub-article { display: block; padding: 20px 22px; border-radius: 14px; background: #fff; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 2px 10px rgba(0,0,0,.04); color: inherit; transition: box-shadow .2s, border-color .2s; }
+        .pub-article-img-wrap {
+            position: relative;
+            margin: 14px 0 16px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: #f8f9fa;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+            transition: transform .2s, box-shadow .2s, border-color .2s;
+            display: block;
+            width: 100%;
+            padding: 0;
+            text-align: left;
+        }
+        .pub-article-img-wrap:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+        .pub-article-img-wrap img {
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+        .pub-article-img-hint {
+            position: absolute;
+            bottom: 12px;
+            right: 14px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #ffffff;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+            pointer-events: none;
+        }
         .pub-article-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: 11.5px; color: #6b6e7c; margin-bottom: 8px; }
         .pub-media-badge { background: #1f1f2e; color: #fff; padding: 3px 9px; border-radius: 5px; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; }
-        .pub-article h4 { font-size: 16px; line-height: 1.35; margin: 0 0 8px; font-family: Georgia, 'Times New Roman', serif; }
-        .pub-article p { font-size: 13px; line-height: 1.6; margin: 0 0 8px; color: #44474f; }
-        .pub-article blockquote { margin: 8px 0; padding: 8px 12px; border-left: 3px solid #10b981; background: rgba(16,185,129,.06); font-size: 12.5px; line-height: 1.55; font-style: italic; }
-        .pub-article blockquote cite { display: block; margin-top: 4px; font-style: normal; font-weight: 700; font-size: 11.5px; color: #047857; }
-        .pub-article-link { display: inline-block; margin-top: 4px; font-size: 12px; font-weight: 700; color: #047857; }
+        .pub-article h4 { font-size: 17px; line-height: 1.4; margin: 0 0 10px; font-family: Georgia, 'Times New Roman', serif; color: #111827; }
+        .pub-article p { font-size: 13.5px; line-height: 1.65; margin: 0 0 10px; color: #44474f; }
+        .pub-article blockquote { margin: 10px 0; padding: 10px 14px; border-left: 3px solid #10b981; background: rgba(16,185,129,.06); font-size: 13px; line-height: 1.6; font-style: italic; border-radius: 0 6px 6px 0; }
+        .pub-article blockquote cite { display: block; margin-top: 5px; font-style: normal; font-weight: 700; font-size: 11.5px; color: #047857; }
+        .pub-article-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; font-size: 12.5px; font-weight: 700; color: #047857; text-decoration: none; }
+        .pub-article-link:hover { text-decoration: underline; }
         .pub-video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
         .pub-video-card { display: flex; flex-direction: column; padding: 0; border: 1px solid rgba(0,0,0,.08); border-radius: 14px; overflow: hidden; background: #fff; cursor: pointer; text-align: left; font: inherit; color: inherit; box-shadow: 0 2px 10px rgba(0,0,0,.05); transition: transform .2s, box-shadow .2s; }
         .pub-video-card:hover, .pub-video-card:focus-visible { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.14); outline: none; }
@@ -5506,22 +5551,56 @@
 
                     <h3 class="pub-section-title">Contoh Pemuatan Media Massa Tahun 2025</h3>
                     <div class="pub-article-list">
-                        <a class="pub-article" href="https://mediaindonesia.com/nusantara/839406/festival-literasi-kutai-timur-1-jadi-momentum-majukan-generasi-muda-ke-kancah-nasional" target="_blank" rel="noopener">
-                            <div class="pub-article-meta"><span class="pub-media-badge">Media Indonesia · Nusantara</span><span>Heryadi · 11/12/2025</span></div>
+                        <article class="pub-article">
+                            <div class="pub-article-meta">
+                                <span class="pub-media-badge">Media Indonesia · Nusantara</span>
+                                <span>Heryadi · 11/12/2025</span>
+                            </div>
                             <h4>Festival Literasi Kutai Timur #1 Jadi Momentum Majukan Generasi Muda ke Kancah Nasional</h4>
+
+                            <button type="button" class="pub-article-img-wrap"
+                                data-modal-image-src="assets/publikasi/media-indonesia-puncak-kutim-1.png"
+                                data-modal-title="Festival Literasi Kutai Timur #1 Jadi Momentum Majukan Generasi Muda ke Kancah Nasional"
+                                data-modal-tag="Media Indonesia · Nusantara"
+                                data-modal-sub="Pemuatan berita puncak acara Festival Literasi Kutai Timur #1 di harian nasional Media Indonesia (11 Desember 2025)">
+                                <img src="assets/publikasi/media-indonesia-puncak-kutim-1.png" alt="Tangkapan Layar Media Indonesia - Festival Literasi Kutim #1" loading="lazy">
+                                <span class="pub-article-img-hint">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                                    Klik untuk melihat ukuran sebenarnya
+                                </span>
+                            </button>
+
                             <p>Pemkab Kutai Timur menggelar Festival Literasi Kutai Timur #1. Sebanyak 13.333 siswa dan guru dari 332 sekolah berpartisipasi pada festival yang digelar Dinas Pendidikan dan Kebudayaan Kutai Timur bersama Nyalanesia di Gedung Serba Guna Bukit Pelangi.</p>
                             <p>Mereka mengikuti pelatihan/workshop, penulisan karya, penerbitan buku, pengembangan website literasi sekolah, perlombaan dan apresiasi, hingga puncak acara.</p>
                             <blockquote>“Kami sadar masih ada kekurangan, tetapi dampaknya besar dan positif. Ini membuka ruang karya bagi siswa untuk melaju ke tingkat nasional pada 2026.” <cite>Mulyono, Kepala Dinas Pendidikan dan Kebudayaan Kutai Timur</cite></blockquote>
                             <blockquote>“Mulai dari Kutai Timur, mari kita kirimkan pesan ke Indonesia bahwa setiap anak berhak bersinar melalui literasi.” <cite>Imam Subchan, Advisor Nyalanesia</cite></blockquote>
-                            <span class="pub-article-link">Baca di mediaindonesia.com ↗</span>
-                        </a>
-                        <a class="pub-article" href="https://mediaindonesia.com/humaniora/828872/pelatihan-menulis-puisi-festival-literasi-kutai-timur-1-hadirkan-oka-rusmini-sebagai-narasumber-nasional" target="_blank" rel="noopener">
-                            <div class="pub-article-meta"><span class="pub-media-badge">Media Indonesia · Humaniora</span><span>Basuki Eka Purnama · 10/11/2025</span></div>
+                            <a class="pub-article-link" href="https://mediaindonesia.com/nusantara/839406/festival-literasi-kutai-timur-1-jadi-momentum-majukan-generasi-muda-ke-kancah-nasional" target="_blank" rel="noopener">Baca artikel selengkapnya di mediaindonesia.com ↗</a>
+                        </article>
+
+                        <article class="pub-article">
+                            <div class="pub-article-meta">
+                                <span class="pub-media-badge">Media Indonesia · Humaniora</span>
+                                <span>Basuki Eka Purnama · 10/11/2025</span>
+                            </div>
                             <h4>Pelatihan Menulis Puisi Festival Literasi Kutai Timur #1, Hadirkan Oka Rusmini sebagai Narasumber Nasional</h4>
+
+                            <button type="button" class="pub-article-img-wrap"
+                                data-modal-image-src="assets/publikasi/media-indonesia-workshop-oka-rusmini.png"
+                                data-modal-title="Pelatihan Menulis Puisi Festival Literasi Kutai Timur #1, Hadirkan Oka Rusmini sebagai Narasumber Nasional"
+                                data-modal-tag="Media Indonesia · Humaniora"
+                                data-modal-sub="Pemuatan berita pelatihan menulis puisi daring bersama sastrawan nasional Oka Rusmini (10 November 2025)">
+                                <img src="assets/publikasi/media-indonesia-workshop-oka-rusmini.png" alt="Tangkapan Layar Media Indonesia - Pelatihan Menulis Puisi Oka Rusmini" loading="lazy">
+                                <span class="pub-article-img-hint">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                                    Klik untuk melihat ukuran sebenarnya
+                                </span>
+                            </button>
+
                             <p>Nyalanesia bersama Dinas Pendidikan dan Kebudayaan Kutai Timur menyelenggarakan Pelatihan Penulisan Daring bertema “Menulis Puisi dari Hal Terdekat di Sekitar Kita” melalui Zoom Meeting, Kamis (30/10), pukul 10.00–11.30 WITA.</p>
                             <p>Narasumber Oka Rusmini adalah penyair dan novelis nasional penulis novel <i>Tarian Bumi</i> serta penerima S.E.A. Write Award. Ratusan sekolah peserta mengikuti dengan nonton bareng di sekolah masing-masing, lengkap dengan tanya-jawab dan praktik langsung menulis.</p>
-                            <span class="pub-article-link">Baca di mediaindonesia.com ↗</span>
-                        </a>
+                            <p>Dalam sesi pelatihan, Oka Rusmini mengajak peserta yang terdiri dari guru dan siswa untuk menemukan inspirasi menulis dari hal-hal sederhana di sekitar mereka. Ia menyampaikan bahwa generasi muda saat ini sebenarnya sudah terbiasa menulis, hanya saja belum menyadari potensi itu sepenuhnya.</p>
+                            <a class="pub-article-link" href="https://mediaindonesia.com/humaniora/828872/pelatihan-menulis-puisi-festival-literasi-kutai-timur-1-hadirkan-oka-rusmini-sebagai-narasumber-nasional" target="_blank" rel="noopener">Baca artikel selengkapnya di mediaindonesia.com ↗</a>
+                        </article>
                     </div>
                 `
             },
