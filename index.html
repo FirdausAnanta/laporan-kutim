@@ -2624,6 +2624,8 @@
         /* Massive LED Videotron Screen */
         .stage-led-videotron {
             position: relative;
+            z-index: 1;
+            isolation: isolate;
             max-width: 780px;
             aspect-ratio: 10 / 3;
             margin: 18px auto 0;
@@ -2691,6 +2693,7 @@
         /* Raised Stage Platform */
         .stage-raised-platform {
             position: relative;
+            z-index: 3;
             max-width: 860px;
             margin: -10px auto 0;
             background: linear-gradient(180deg, #2c2f3d 0%, #1a1b22 100%);
@@ -5210,7 +5213,7 @@
                             <!-- Giant LED Videotron Screen Backdrop -->
                             <div class="stage-led-videotron">
                                 <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
-                                <iframe class="stage-led-embed" loading="lazy" title="BG Statis Acara Kutim #2 - Nyalanesia" src="https://www.canva.com/design/DAHXxILoZ5o/ZQ30l_c6BGS0MvS-T1ukWw/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                                <iframe class="stage-led-embed" loading="lazy" title="BG Statis Acara Kutim #2 - Nyalanesia" src="https://www.canva.com/design/DAHXxILoZ5o/ZQ30l_c6BGS0MvS-T1ukWw/watch?embed&autoplay=1&loop=1&mute=1" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen"></iframe>
                             </div>
 
                             <!-- Raised Stage Platform with Podium, Trophy & Cultural Center -->
