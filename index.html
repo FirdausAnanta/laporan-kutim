@@ -2627,19 +2627,48 @@
             z-index: 1;
             isolation: isolate;
             max-width: 780px;
-            aspect-ratio: 10 / 3;
             margin: 18px auto 0;
+            padding: 14px;
+            background:
+                linear-gradient(145deg, #3a3f4d 0%, #1b1e27 45%, #0d0f15 100%);
+            border: 1px solid #5a6074;
+            border-radius: 12px;
+            box-shadow:
+                0 0 40px rgba(0, 113, 227, 0.45),
+                0 14px 28px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.18),
+                inset 0 -2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .stage-led-videotron::before,
+        .stage-led-videotron::after {
+            content: "";
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            top: 4px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #8a90a3, #2a2d38);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+            z-index: 3;
+        }
+
+        .stage-led-videotron::before { left: 4px; }
+        .stage-led-videotron::after { right: 4px; }
+
+        .stage-led-screen {
+            position: relative;
+            aspect-ratio: 10 / 3;
+            overflow: hidden;
+            border-radius: 4px;
             background: radial-gradient(circle at 50% 50%, #003a8c 0%, #00122e 100%);
-            border: 6px solid #1f232c;
-            border-radius: 8px;
-            box-shadow: 0 0 35px rgba(0, 113, 227, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.6);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 0;
-            overflow: hidden;
+            box-shadow:
+                inset 0 0 0 2px #000,
+                inset 0 0 18px rgba(0, 0, 0, 0.75),
+                0 0 0 1px rgba(255, 255, 255, 0.08);
         }
 
         .stage-led-embed {
@@ -2651,13 +2680,24 @@
             z-index: 1;
         }
 
-        .stage-led-videotron::before {
+        .stage-led-screen::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px, transparent 2px, transparent 4px);
+            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0px, rgba(0, 0, 0, 0.10) 1px, transparent 1px, transparent 3px);
             pointer-events: none;
             z-index: 2;
+        }
+
+        .stage-led-screen::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(115deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 45%),
+                radial-gradient(ellipse at center, transparent 62%, rgba(0, 0, 0, 0.35) 100%);
+            pointer-events: none;
+            z-index: 3;
         }
 
         .stage-led-logo,
@@ -5212,8 +5252,10 @@
 
                             <!-- Giant LED Videotron Screen Backdrop -->
                             <div class="stage-led-videotron">
-                                <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
-                                <iframe class="stage-led-embed" loading="lazy" title="BG Statis Acara Kutim #2 - Nyalanesia" src="https://www.canva.com/design/DAHXxILoZ5o/ZQ30l_c6BGS0MvS-T1ukWw/watch?embed&autoplay=1&loop=1&mute=1" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen"></iframe>
+                                <div class="stage-led-screen">
+                                    <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
+                                    <iframe class="stage-led-embed" loading="lazy" title="BG Statis Acara Kutim #2 - Nyalanesia" src="https://www.canva.com/design/DAHXxILoZ5o/ZQ30l_c6BGS0MvS-T1ukWw/watch?embed&autoplay=1&loop=1&mute=1" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen"></iframe>
+                                </div>
                             </div>
 
                             <!-- Raised Stage Platform with Podium, Trophy & Cultural Center -->
