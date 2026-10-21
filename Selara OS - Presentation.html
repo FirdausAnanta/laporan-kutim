@@ -220,9 +220,24 @@
             pointer-events: none;
         }
 
-        .app-hover-zone:hover .app,
-        .app:focus-visible {
+        .app {
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .app-hover-zone:hover .app {
             transform: translateY(-16px) scale(1.15);
+        }
+
+        .dock button,
+        .dock .app,
+        .app:focus,
+        .app:focus-visible,
+        .dock button:focus,
+        .dock button:focus-visible {
+            outline: none !important;
+            outline-offset: 0 !important;
+            box-shadow: none;
         }
 
         .app::after {
@@ -3602,7 +3617,13 @@
             winEl.classList.remove('open', 'minimized', 'screen-expanded');
             removeDockWindow(winEl.id);
             syncDockIndicators();
-            if (lastTrigger) lastTrigger.focus();
+            if (lastTrigger) {
+                lastTrigger.blur();
+                lastTrigger = null;
+            }
+            if (document.activeElement && typeof document.activeElement.blur === 'function') {
+                document.activeElement.blur();
+            }
         }
 
         const programData = {
@@ -6037,12 +6058,8 @@
             }
         });
 
-        // Automatically open window-program on presentation launch
-        const initialTarget = window.location.hash ? window.location.hash.substring(1) : 'window-program';
-        const targetApp = dockApps.find(a => a.dataset.target === initialTarget) || dockApps[0];
-        if (targetApp) {
-            openWindow(targetApp.dataset.target, targetApp);
-        }
+        // Initial state: show clean wallpaper only on reload/launch (no window opened automatically)
+        syncDockIndicators();
     </script>
 </body>
 
