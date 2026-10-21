@@ -5527,14 +5527,14 @@
 
         /* DATA: PUBLIKASI */
         const publikasiVideos = [
-            { id: '14ycNAm1x3sIAJYGWqhU-GgwbEfa-cnkV', title: 'Background Penampil', tag: 'Background', thumb: true },
-            { id: '1D-gxqwM0Z5dOOm9izFAsqJaTqOzE1uLZ', title: 'Background Penampil 2', tag: 'Background', thumb: true },
-            { id: '1A18eU-XN9ds7FR9KPOEjVJWwvyHVgjtC', title: 'Background Rekor MURI FL Kutim #2', tag: 'Background', thumb: false },
-            { id: '1GdApj6htMYH0PbPYIaUBCHJ7KBJj1UQq', title: 'Background Statis Panggung', tag: 'Background', thumb: true },
-            { id: '1Fz1x_bUfpENMH8MhlsTbSY-IcIJAd0tW', title: 'Sambutan Bupati', tag: 'Sambutan', thumb: false },
-            { id: '1sOfisnxffx3te-__S5FTO25oSUj1av_s', title: 'Sambutan Kadis', tag: 'Sambutan', thumb: false },
-            { id: '1B8DcW4FgO4riykauydDrv6xD30cxs-rI', title: 'Sambutan Sekdis', tag: 'Sambutan', thumb: false },
-            { id: '1sOQPE9cZklAT-e2vBVlkQTdRC2w9le4L', title: 'Video Awarding', tag: 'Awarding', thumb: false }
+            { id: '14ycNAm1x3sIAJYGWqhU-GgwbEfa-cnkV', title: 'Background Penampil', tag: 'Background', thumb: 'assets/publikasi/thumb-bg-penampil-1.png' },
+            { id: '1D-gxqwM0Z5dOOm9izFAsqJaTqOzE1uLZ', title: 'Background Penampil 2', tag: 'Background', thumb: 'assets/publikasi/thumb-bg-penampil-2.png' },
+            { id: '1A18eU-XN9ds7FR9KPOEjVJWwvyHVgjtC', title: 'Background Rekor MURI FL Kutim #2', tag: 'Background', thumb: 'assets/publikasi/thumb-bg-rekor-muri.png' },
+            { id: '1GdApj6htMYH0PbPYIaUBCHJ7KBJj1UQq', title: 'Background Statis Panggung', tag: 'Background', thumb: 'assets/publikasi/thumb-bg-statis-panggung.png' },
+            { id: '1Fz1x_bUfpENMH8MhlsTbSY-IcIJAd0tW', title: 'Sambutan Bupati', tag: 'Sambutan', thumb: 'assets/publikasi/thumb-sambutan-bupati.png' },
+            { id: '1sOfisnxffx3te-__S5FTO25oSUj1av_s', title: 'Sambutan Kadis', tag: 'Sambutan', thumb: 'assets/publikasi/thumb-sambutan-kadis.png' },
+            { id: '1B8DcW4FgO4riykauydDrv6xD30cxs-rI', title: 'Sambutan Sekdis', tag: 'Sambutan', thumb: 'assets/publikasi/thumb-sambutan-sekdis.png' },
+            { id: '1sOQPE9cZklAT-e2vBVlkQTdRC2w9le4L', title: 'Video Awarding', tag: 'Awarding', thumb: 'assets/publikasi/thumb-video-awarding.png' }
         ];
 
         const publikasiData = {
@@ -5612,9 +5612,8 @@
                     <div class="pub-video-grid">
                         ${publikasiVideos.map((v, i) => `
                             <button class="pub-video-card" type="button" data-video-id="${v.id}" data-video-title="${v.title}" aria-label="Putar ${v.title}">
-                                <span class="pub-video-thumb ${v.thumb ? '' : 'is-pending'}">
-                                    ${v.thumb ? `<img src="https://drive.google.com/thumbnail?id=${v.id}&sz=w800" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('is-pending');this.remove();">` : ''}
-                                    <span class="pub-video-pending-label">Thumbnail menyusul</span>
+                                <span class="pub-video-thumb">
+                                    <img src="${v.thumb}" alt="${v.title}" loading="lazy">
                                     <span class="pub-video-play" aria-hidden="true"></span>
                                 </span>
                                 <span class="pub-video-info">
