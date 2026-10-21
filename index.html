@@ -2625,7 +2625,7 @@
         .stage-led-videotron {
             position: relative;
             max-width: 780px;
-            height: 220px;
+            aspect-ratio: 10 / 3;
             margin: 18px auto 0;
             background: radial-gradient(circle at 50% 50%, #003a8c 0%, #00122e 100%);
             border: 6px solid #1f232c;
@@ -2636,8 +2636,17 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 18px;
+            padding: 0;
             overflow: hidden;
+        }
+
+        .stage-led-embed {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            z-index: 1;
         }
 
         .stage-led-videotron::before {
@@ -2646,6 +2655,7 @@
             inset: 0;
             background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px, transparent 2px, transparent 4px);
             pointer-events: none;
+            z-index: 2;
         }
 
         .stage-led-logo,
@@ -5199,14 +5209,8 @@
 
                             <!-- Giant LED Videotron Screen Backdrop -->
                             <div class="stage-led-videotron">
-                                <video class="stage-led-logo stage-led-logo-video" autoplay loop muted playsinline poster="assets/nyalanesia-brand-logo.png" title="Logo Nyalanesia">
-                                    <source src="assets/nyalanesia-logo.webm" type="video/webm">
-                                    <source src="assets/logo-nyalanesia.webm" type="video/webm">
-                                    <source src="assets/nyalanesia.webm" type="video/webm">
-                                    <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
-                                </video>
-                                <h3 class="stage-led-title">FESTIVAL LITERASI KUTAI TIMUR</h3>
-                                <div class="stage-led-sub">PUNCAK PENGANUGERAHAN &amp; SELEBRASI KARYA KUTAI TIMUR</div>
+                                <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
+                                <iframe class="stage-led-embed" loading="lazy" title="BG Statis Acara Kutim #2 - Nyalanesia" src="https://www.canva.com/design/DAHXxILoZ5o/ZQ30l_c6BGS0MvS-T1ukWw/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                             </div>
 
                             <!-- Raised Stage Platform with Podium, Trophy & Cultural Center -->
