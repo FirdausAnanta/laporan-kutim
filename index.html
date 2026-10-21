@@ -2648,11 +2648,16 @@
             pointer-events: none;
         }
 
-        .stage-led-logo {
-            height: 42px;
+        .stage-led-logo,
+        .stage-led-logo-video {
+            height: 48px;
+            max-width: 240px;
             width: auto;
             margin-bottom: 8px;
+            object-fit: contain;
             filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+            background: transparent;
+            display: block;
         }
 
         .stage-led-title {
@@ -2763,22 +2768,30 @@
 
         .venue-hall-map {
             display: grid;
-            grid-template-columns: 280px minmax(360px, 1.4fr) 240px;
-            gap: 14px;
-            background: #f5f5f7;
-            border: 2px solid #363945;
-            border-radius: 10px;
-            padding: 16px;
-            min-height: 380px;
+            grid-template-columns: minmax(260px, 1.15fr) minmax(320px, 1.55fr) minmax(230px, 1fr);
+            gap: 18px;
+            background: #f8f9fa;
+            border: 2px solid #2c3038;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 920px) {
+            .venue-hall-map {
+                grid-template-columns: 1fr;
+            }
         }
 
         .hall-col {
-            border-radius: 8px;
-            padding: 14px;
+            border-radius: 10px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            background-clip: padding-box;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
         }
 
         .hall-col-pameran {
@@ -2805,6 +2818,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .hall-col-pameran .hall-header-tag { color: #0071e3; }
@@ -5184,7 +5199,12 @@
 
                             <!-- Giant LED Videotron Screen Backdrop -->
                             <div class="stage-led-videotron">
-                                <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
+                                <video class="stage-led-logo stage-led-logo-video" autoplay loop muted playsinline poster="assets/nyalanesia-brand-logo.png" title="Logo Nyalanesia">
+                                    <source src="assets/nyalanesia-logo.webm" type="video/webm">
+                                    <source src="assets/logo-nyalanesia.webm" type="video/webm">
+                                    <source src="assets/nyalanesia.webm" type="video/webm">
+                                    <img class="stage-led-logo" src="assets/nyalanesia-brand-logo.png" alt="Logo Nyalanesia">
+                                </video>
                                 <h3 class="stage-led-title">FESTIVAL LITERASI KUTAI TIMUR</h3>
                                 <div class="stage-led-sub">PUNCAK PENGANUGERAHAN &amp; SELEBRASI KARYA KUTAI TIMUR</div>
                             </div>
