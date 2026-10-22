@@ -3397,10 +3397,8 @@
         <nav class="tab-list" aria-label="Tab Navigasi Acara Puncak">
             <button class="tab" data-window="window-acara-puncak" data-tab="rundown" aria-selected="true"><span class="tab-mark">01</span>Rangkaian Acara</button>
             <button class="tab" data-window="window-acara-puncak" data-tab="sketsel" aria-selected="false"><span class="tab-mark">02</span>Simulasi Sketsel &amp; Voting Poster</button>
-            <button class="tab" data-window="window-acara-puncak" data-tab="cad" aria-selected="false"><span class="tab-mark">03</span>Gambar Teknik Blueprint Sketsel</button>
-            <button class="tab" data-window="window-acara-puncak" data-tab="venue" aria-selected="false"><span class="tab-mark">04</span>Tata Panggung &amp; Area Venue</button>
-            <button class="tab" data-window="window-acara-puncak" data-tab="clusters" aria-selected="false"><span class="tab-mark">05</span>Susunan 7 Klaster Pameran</button>
-            <button class="tab" data-window="window-acara-puncak" data-tab="blueprint" aria-selected="false"><span class="tab-mark">06</span>Arsip Blueprint &amp; Desain Asli</button>
+            <button class="tab" data-window="window-acara-puncak" data-tab="venue" aria-selected="false"><span class="tab-mark">03</span>Tata Panggung &amp; Area Venue</button>
+            <button class="tab" data-window="window-acara-puncak" data-tab="blueprint" aria-selected="false"><span class="tab-mark">04</span>Arsip Blueprint &amp; Desain Asli</button>
         </nav>
         <div class="workspace-content" id="puncak-content" tabindex="-1">
             <!-- Dynamic Content rendered by JS -->
@@ -5180,148 +5178,6 @@
                 `
             },
 
-            cad: {
-                kicker: 'Gambar Teknik Arsitektur · Presisi 1:1',
-                title: 'Gambar Teknik Blueprint Sketsel',
-                lead: 'Gambar teknik arsitektur presisi berbasis kode vektor HTML & CSS: visualisasi tampak depan (1,0 m × 2,5 m) berskala manusia 1,7 m, tampak samping profil aluminium extrusion 50 mm, kaki T-base 600 mm, serta spesifikasi teknis tervalidasi Disdikbud Kutai Timur.',
-                body: `
-                    <div class="cad-blueprint-viewer">
-                        <div class="cad-controls-header">
-                            <div class="cad-view-switcher">
-                                <button class="cad-view-btn active" id="cad-btn-front" type="button">
-                                    Tampak Depan (1,0 × 2,5 m)
-                                </button>
-                                <button class="cad-view-btn" id="cad-btn-side" type="button">
-                                    Tampak Samping (Profil &amp; Kaki)
-                                </button>
-                            </div>
-                            <div style="font-size:12px; color:#00e5ff; font-family:ui-monospace, monospace;">
-                                Gambar Teknik Vektor Presisi 1:1
-                            </div>
-                        </div>
-
-                        <!-- CAD DRAWING STAGE (PURE HTML & CSS) -->
-                        <div class="cad-stage-drawing" id="cad-drawing-stage">
-                            <!-- FRONT VIEW (HTML/CSS) -->
-                            <div id="cad-view-front-container" style="display:flex; align-items:flex-end; gap:36px; position:relative;">
-                                <!-- Human Scale Vector Figure (1.7 m) -->
-                                <div class="cad-human-figure" title="Skala Manusia Tinggi 1.7 Meter (1700 mm)">
-                                    <div style="font-size:10px; color:#6682a8; font-family:monospace; margin-bottom:4px;">1700 mm</div>
-                                    <svg class="cad-human-svg" viewBox="0 0 100 240">
-                                        <circle cx="50" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="6"/>
-                                        <path d="M50 42 v90 M50 64 L20 110 M50 64 L80 110 M50 132 L28 230 M50 132 L72 230" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-                                    </svg>
-                                    <span style="font-size:9px; color:#8aa4c4; font-family:monospace; margin-top:4px;">Skala Manusia</span>
-                                </div>
-
-                                <!-- Pure HTML/CSS Sketsel Model -->
-                                <div class="cad-sketsel-front">
-                                    <div class="cad-lighting-bar">
-                                        <div class="cad-spot-unit" title="Lampu Sorot 1 (Warm Light)"></div>
-                                        <div class="cad-spot-unit" title="Lampu Sorot 2 (Warm Light)"></div>
-                                    </div>
-                                    <div class="cad-poster-grid">
-                                        <div class="cad-poster-cell" data-poster-id="1" style="cursor:pointer;" title="Klik untuk lihat poster utuh: Macam Macam Tari Kalimantan">
-                                            <img src="assets/posters/poster-1.jpg" alt="Poster 1">
-                                            <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
-                                            <div class="cad-voting-strip-cell">
-                                                <span style="background:#ff3b30;"></span>
-                                                <span style="background:#34c759;"></span>
-                                                <span style="background:#0071e3;"></span>
-                                                <span style="background:#ffcc00;"></span>
-                                            </div>
-                                        </div>
-                                        <div class="cad-poster-cell" data-poster-id="2" style="cursor:pointer;" title="Klik untuk lihat poster utuh: Ngambang Taun Adat Dayak Basap">
-                                            <img src="assets/posters/poster-2.jpg" alt="Poster 2">
-                                            <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
-                                            <div class="cad-voting-strip-cell">
-                                                <span style="background:#0071e3;"></span>
-                                                <span style="background:#0071e3;"></span>
-                                                <span style="background:#34c759;"></span>
-                                                <span style="background:#ff3b30;"></span>
-                                            </div>
-                                        </div>
-                                        <div class="cad-poster-cell" data-poster-id="3" style="cursor:pointer;" title="Klik untuk lihat poster utuh: Pesona Tari Jepen">
-                                            <img src="assets/posters/poster-3.jpg" alt="Poster 3">
-                                            <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
-                                            <div class="cad-voting-strip-cell">
-                                                <span style="background:#ffcc00;"></span>
-                                                <span style="background:#ff3b30;"></span>
-                                                <span style="background:#34c759;"></span>
-                                                <span style="background:#0071e3;"></span>
-                                            </div>
-                                        </div>
-                                        <div class="cad-poster-cell" data-poster-id="4" style="cursor:pointer;" title="Klik untuk lihat poster utuh: Muara Ragam Nusantara">
-                                            <img src="assets/posters/poster-4.jpg" alt="Poster 4">
-                                            <div style="font-size:8px; color:#8aa4c4; margin-top:2px;">A3 297×420mm</div>
-                                            <div class="cad-voting-strip-cell">
-                                                <span style="background:#ff3b30;"></span>
-                                                <span style="background:#af52de;"></span>
-                                                <span style="background:#0071e3;"></span>
-                                                <span style="background:#ffcc00;"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Dimension Callout Line Right -->
-                                <div style="display:flex; flex-direction:column; align-items:center; height:450px; justify-content:space-between; margin-left:10px;">
-                                    <span class="dim-label">▲ 2500 mm (2,5 m)</span>
-                                    <div style="width:2px; height:370px; background:#00e5ff;"></div>
-                                    <span class="dim-label">▼ Dasar Lantai</span>
-                                </div>
-                            </div>
-
-                            <!-- SIDE VIEW (HTML/CSS) -->
-                            <div id="cad-view-side-container" style="display:none; align-items:flex-end; gap:50px; position:relative;">
-                                <!-- Human Side Figure -->
-                                <div class="cad-human-figure" title="Skala Pengunjung (Jarak Pandang 1.2 Meter)">
-                                    <div style="font-size:10px; color:#6682a8; font-family:monospace; margin-bottom:4px;">1700 mm</div>
-                                    <svg class="cad-human-svg" viewBox="0 0 80 240" style="width:50px;">
-                                        <circle cx="40" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="6"/>
-                                        <path d="M40 42 v90 M40 68 L55 110 M40 132 L35 230 M40 132 L48 230" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-                                    </svg>
-                                    <span style="font-size:9px; color:#8aa4c4; font-family:monospace; margin-top:4px;">Jarak Pandang 1.2 m</span>
-                                </div>
-
-                                <!-- Pure HTML/CSS Side Profile Sketsel -->
-                                <div class="cad-sketsel-side">
-                                    <div class="cad-side-gooseneck">
-                                        <div class="cad-side-lamp-head"></div>
-                                    </div>
-                                    <div class="cad-side-board-lines"></div>
-                                    <div class="cad-side-foot-base"></div>
-                                </div>
-
-                                <!-- Side Dimension Annotations -->
-                                <div style="display:flex; flex-direction:column; gap:16px; font-family:ui-monospace, monospace; font-size:11px; color:#8aa4c4;">
-                                    <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
-                                        <b style="color:#00e5ff;">Lampu Sorot:</b> Sudut sorot 35° (Jangkauan 250 mm)
-                                    </div>
-                                    <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
-                                        <b style="color:#00e5ff;">Ketebalan Partisi:</b> 50 mm Aluminium Extrusion
-                                    </div>
-                                    <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
-                                        <b style="color:#00e5ff;">Double-Sided:</b> Sisi A (Depan) + Sisi B (Belakang)
-                                    </div>
-                                    <div style="background:#151e2c; padding:8px 12px; border-radius:6px; border:1px solid #293a52;">
-                                        <b style="color:#00e5ff;">Kaki T-Base:</b> Lebar 600 mm (Stabilisator Anti-Goyang)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Technical CAD Title Block -->
-                        <div class="cad-title-block">
-                            <div>PROYEK: <b>FESTIVAL LITERASI KUTAI TIMUR</b></div>
-                            <div>LEMBAR: <b>DWG-01/SKETSEL-A3</b></div>
-                            <div>SKALA: <b>1 : 10 (PARAMETRIK HTML)</b></div>
-                            <div>STATUS: <b>TERVALIDASI DISDIKBUD</b></div>
-                        </div>
-                    </div>
-                `
-            },
-
             venue: {
                 kicker: 'Perencanaan Tata Kelola Ruang Aula 25,0 m × 20,8 m',
                 title: 'Tata Panggung & Area Venue',
@@ -5463,26 +5319,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                `
-            },
-
-            clusters: {
-                kicker: 'Kapasitas Pameran 336 Karya Poster A3',
-                title: 'Susunan 7 Klaster Pameran',
-                lead: 'Penataan 42 unit sketsel dibagi ke dalam 7 klaster modular untuk memaksimalkan sirkulasi pengunjung dan kenyamanan proses apresiasi karya.',
-                body: `
-                    <div class="feature-item" style="background:#ffffff; margin-bottom:12px;">
-                        <div class="feature-item-body">
-                            <h3>Formasi 7 Klaster Sketsel di Area Pameran</h3>
-                            <p>Penataan 42 unit sketsel dibagi ke dalam 7 klaster modular untuk memaksimalkan sirkulasi pengunjung dan kenyamanan proses apresiasi karya.</p>
-                        </div>
-                    </div>
-                    <div class="cluster-inspector-grid" id="cluster-cards-grid">
-                        <!-- 7 Cluster Cards rendered by JS -->
-                    </div>
-                    <div id="cluster-detail-box" style="margin-top:14px; padding:16px; border-radius:10px; background:#f5f5f7; border:1px solid #e5e5ea;">
-                        <!-- Live dynamic cluster details -->
                     </div>
                 `
             },
@@ -5631,7 +5467,6 @@
         let currentStickerColor = '#ff3b30';
         let isFrontSide = true;
         let areSpotlightsOn = true;
-        let activeClusterId = 1;
 
         const postersFront = [
             {
@@ -5775,42 +5610,6 @@
             }
         ];
 
-        const clusterData = [
-            { id: 1, name: 'Klaster 1', sketsel: 5, capacity: 40, role: 'Zona Sambutan & Gerbang Masuk Utama' },
-            { id: 2, name: 'Klaster 2', sketsel: 4, capacity: 32, role: 'Zona Apresiasi Puisi Jenjang SD' },
-            { id: 3, name: 'Klaster 3', sketsel: 8, capacity: 64, role: 'Zona Antologi Cerpen & Puisi SMP' },
-            { id: 4, name: 'Klaster 4', sketsel: 8, capacity: 64, role: 'Zona Karya Sastra Jenjang SMA / SMK' },
-            { id: 5, name: 'Klaster 5', sketsel: 8, capacity: 64, role: 'Zona Karya Guru Penggerak Literasi' },
-            { id: 6, name: 'Klaster 6', sketsel: 4, capacity: 32, role: 'Zona Sekolah Berprestasi Daerah' },
-            { id: 7, name: 'Klaster 7', sketsel: 5, capacity: 40, role: 'Zona Mahakarya Pemenang Piala Bupati' }
-        ];
-
-        function renderClusterDetail(cl) {
-            const clusterDetail = document.getElementById('cluster-detail-box');
-            if (!clusterDetail) return;
-            const lamps = cl.sketsel * 2;
-            clusterDetail.innerHTML = `
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <h4 style="margin:0; color:#0071e3; font-size:15px;">${cl.name} · ${cl.role}</h4>
-                    <span style="background:#0071e3; color:#fff; font-size:11px; font-weight:700; padding:3px 8px; border-radius:4px;">${cl.capacity} Slot Karya</span>
-                </div>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; font-size:13px; color:#48484a;">
-                    <div style="background:#fff; padding:10px; border-radius:8px; border:1px solid #e5e5ea;">
-                        <span style="display:block; font-size:10px; color:#8e8e93; text-transform:uppercase;">Jumlah Sketsel</span>
-                        <strong style="font-size:18px; color:#1d1d1f;">${cl.sketsel} Unit</strong>
-                    </div>
-                    <div style="background:#fff; padding:10px; border-radius:8px; border:1px solid #e5e5ea;">
-                        <span style="display:block; font-size:10px; color:#8e8e93; text-transform:uppercase;">Lampu Sorot</span>
-                        <strong style="font-size:18px; color:#ff9500;">${lamps} Spotlights</strong>
-                    </div>
-                    <div style="background:#fff; padding:10px; border-radius:8px; border:1px solid #e5e5ea;">
-                        <span style="display:block; font-size:10px; color:#8e8e93; text-transform:uppercase;">Sirkulasi Gang</span>
-                        <strong style="font-size:18px; color:#34c759;">Lapang &amp; Aman</strong>
-                    </div>
-                </div>
-            `;
-        }
-
         function initSketselTab() {
             const matrix = document.getElementById('poster-matrix-container');
             const sideLabel = document.getElementById('sketsel-current-side-label');
@@ -5943,79 +5742,19 @@
             });
         }
 
-        function initCadTab() {
-            const btnCadFront = document.getElementById('cad-btn-front');
-            const btnCadSide = document.getElementById('cad-btn-side');
-            const cadViewFront = document.getElementById('cad-view-front-container');
-            const cadViewSide = document.getElementById('cad-view-side-container');
-
-            if (btnCadFront && btnCadSide && cadViewFront && cadViewSide) {
-                btnCadFront.onclick = () => {
-                    btnCadFront.classList.add('active');
-                    btnCadSide.classList.remove('active');
-                    cadViewFront.style.display = 'flex';
-                    cadViewSide.style.display = 'none';
-                };
-                btnCadSide.onclick = () => {
-                    btnCadSide.classList.add('active');
-                    btnCadFront.classList.remove('active');
-                    cadViewFront.style.display = 'none';
-                    cadViewSide.style.display = 'flex';
-                };
-            }
-
-            document.querySelectorAll('.cad-poster-cell').forEach(cell => {
-                cell.onclick = () => {
-                    const posterId = parseInt(cell.dataset.posterId, 10);
-                    const posterItem = postersFront.find(p => p.id === posterId);
-                    if (posterItem) openGlobalPosterModal(posterItem);
-                };
-            });
-        }
-
-        function initClustersTab() {
-            const clusterGrid = document.getElementById('cluster-cards-grid');
-            if (!clusterGrid) return;
-
-            clusterGrid.innerHTML = clusterData.map((cl, idx) => `
-                <div class="cluster-card ${cl.id === activeClusterId ? 'active' : ''}" data-cluster-id="${cl.id}">
-                    <span class="cluster-badge">${cl.name}</span>
-                    <div class="cluster-number">${cl.capacity}</div>
-                    <div class="cluster-label">${cl.sketsel} Sketsel (${cl.sketsel * 2} Lampu)</div>
-                </div>
-            `).join('');
-
-            const selectedCluster = clusterData.find(c => c.id === activeClusterId) || clusterData[0];
-            renderClusterDetail(selectedCluster);
-
-            clusterGrid.querySelectorAll('.cluster-card').forEach(card => {
-                card.onclick = () => {
-                    clusterGrid.querySelectorAll('.cluster-card').forEach(c => c.classList.remove('active'));
-                    card.classList.add('active');
-                    const clId = parseInt(card.dataset.clusterId, 10);
-                    activeClusterId = clId;
-                    const found = clusterData.find(c => c.id === clId);
-                    if (found) renderClusterDetail(found);
-                };
-            });
-        }
-
         function initBlueprintTab() {
-            const blueprintMain = document.getElementById('blueprint-main-view');
-            const blueprintBadge = document.getElementById('blueprint-badge');
-            document.querySelectorAll('.blueprint-thumb-card').forEach(thumb => {
+            const thumbs = document.querySelectorAll('.blueprint-thumb-card');
+            const mainImg = document.getElementById('blueprint-main-view');
+            const badge = document.getElementById('blueprint-badge');
+            thumbs.forEach(thumb => {
                 thumb.onclick = () => {
-                    document.querySelectorAll('.blueprint-thumb-card').forEach(t => t.classList.remove('active'));
+                    thumbs.forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
-                    if (blueprintMain) {
-                        blueprintMain.style.opacity = '0';
-                        setTimeout(() => {
-                            blueprintMain.src = thumb.dataset.img;
-                            blueprintMain.style.opacity = '1';
-                        }, 120);
+                    if (mainImg && thumb.dataset.img) {
+                        mainImg.src = thumb.dataset.img;
                     }
-                    if (blueprintBadge) {
-                        blueprintBadge.textContent = thumb.dataset.title;
+                    if (badge && thumb.dataset.title) {
+                        badge.textContent = thumb.dataset.title;
                     }
                 };
             });
@@ -6024,10 +5763,6 @@
         function initPuncakInteractions(tabKey) {
             if (tabKey === 'sketsel') {
                 initSketselTab();
-            } else if (tabKey === 'cad') {
-                initCadTab();
-            } else if (tabKey === 'clusters') {
-                initClustersTab();
             } else if (tabKey === 'blueprint') {
                 initBlueprintTab();
             }
