@@ -2278,6 +2278,7 @@
             width: auto;
             height: auto;
             object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             display: block;
@@ -2317,8 +2318,9 @@
 
         .interactive-screen-thumb {
             position: relative;
-            background: #0f172a;
+            background: #f1f5f9;
             overflow: hidden;
+            border-bottom: 1px solid #e5e5ea;
         }
 
         .interactive-screen-thumb img {
@@ -2327,6 +2329,9 @@
             display: block;
             aspect-ratio: 16/9;
             object-fit: cover;
+            object-position: top center;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
             transition: transform .25s ease;
         }
 
@@ -4592,12 +4597,12 @@
 
                     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px; margin:16px 0 24px;">
                         <div class="interactive-screen-card"
-                             data-modal-image-src="assets/tka/tka-jadwal-tryout.png"
+                             data-modal-image-src="assets/tka/tka-jadwal-tryout.png?v=20261022"
                              data-modal-title="Jadwal Pelaksanaan Tryout Digital"
                              data-modal-tag="TKA · Jadwal CBT"
                              data-modal-sub="Antarmuka jadwal pengerjaan tryout terhubung master server, durasi waktu pengerjaan otomatis, dan timer hitung mundur pelaksanaan.">
                             <div class="interactive-screen-thumb">
-                                <img src="assets/tka/tka-jadwal-tryout.png" alt="Jadwal Pelaksanaan Tryout Digital">
+                                <img src="assets/tka/tka-jadwal-tryout.png?v=20261022" alt="Jadwal Pelaksanaan Tryout Digital">
                                 <span class="interactive-screen-zoom-tag">🔍 Perbesar</span>
                             </div>
                             <div class="interactive-screen-info">
@@ -4607,12 +4612,12 @@
                         </div>
 
                         <div class="interactive-screen-card"
-                             data-modal-image-src="assets/tka/tka-dashboard-sekolah.png"
+                             data-modal-image-src="assets/tka/tka-dashboard-sekolah.png?v=20261022"
                              data-modal-title="Dashboard Analitik Satuan Pendidikan (Sekolah)"
                              data-modal-tag="TKA · Rapor Sekolah"
                              data-modal-sub="Pemantauan capaian rata-rata sekolah, sebaran distribusi rentang nilai, peringkat sekolah, serta radar capaian kompetensi per mapel.">
                             <div class="interactive-screen-thumb">
-                                <img src="assets/tka/tka-dashboard-sekolah.png" alt="Dashboard Analitik Satuan Pendidikan">
+                                <img src="assets/tka/tka-dashboard-sekolah.png?v=20261022" alt="Dashboard Analitik Satuan Pendidikan">
                                 <span class="interactive-screen-zoom-tag">🔍 Perbesar</span>
                             </div>
                             <div class="interactive-screen-info">
@@ -4622,12 +4627,12 @@
                         </div>
 
                         <div class="interactive-screen-card"
-                             data-modal-image-src="assets/tka/tka-pembahasan-siswa.png"
+                             data-modal-image-src="assets/tka/tka-pembahasan-siswa.png?v=20261022"
                              data-modal-title="Portal Pembahasan &amp; Bedah Soal Interaktif"
                              data-modal-tag="TKA · Bedah Soal"
                              data-modal-sub="Akses video pembahasan materi mendalam bersama tutor ahli serta modul panduan PDF berisi penjelasan langkah penyelesaian soal.">
                             <div class="interactive-screen-thumb">
-                                <img src="assets/tka/tka-pembahasan-siswa.png" alt="Portal Pembahasan &amp; Bedah Soal">
+                                <img src="assets/tka/tka-pembahasan-siswa.png?v=20261022" alt="Portal Pembahasan &amp; Bedah Soal">
                                 <span class="interactive-screen-zoom-tag">🔍 Perbesar</span>
                             </div>
                             <div class="interactive-screen-info">
@@ -4637,12 +4642,12 @@
                         </div>
 
                         <div class="interactive-screen-card"
-                             data-modal-image-src="assets/tka/tka-dashboard-murid.png"
+                             data-modal-image-src="assets/tka/tka-dashboard-murid.png?v=20261022"
                              data-modal-title="Rapor Diagnostik &amp; Hasil Belajar Siswa"
                              data-modal-tag="TKA · Rapor Siswa"
                              data-modal-sub="Visualisasi capaian individual murid, perbandingan benchmark nilai terhadap rata-rata Kutim &amp; target nasional, serta predikat capaian.">
                             <div class="interactive-screen-thumb">
-                                <img src="assets/tka/tka-dashboard-murid.png" alt="Rapor Diagnostik Hasil Belajar Siswa">
+                                <img src="assets/tka/tka-dashboard-murid.png?v=20261022" alt="Rapor Diagnostik Hasil Belajar Siswa">
                                 <span class="interactive-screen-zoom-tag">🔍 Perbesar</span>
                             </div>
                             <div class="interactive-screen-info">
@@ -4652,12 +4657,12 @@
                         </div>
 
                         <div class="interactive-screen-card"
-                             data-modal-image-src="assets/tka/tka-dashboard-dinas.png"
+                             data-modal-image-src="assets/tka/tka-dashboard-dinas.png?v=20261022"
                              data-modal-title="Peta Mutu &amp; Dashboard Dinas Pendidikan Kabupaten"
                              data-modal-tag="TKA · Dashboard Dinas"
                              data-modal-sub="Rekapitulasi komprehensif tingkat kabupaten Kutai Timur (300 sekolah &amp; 3.000 siswa), tren kenaikan Tryout 1 ke Tryout 2, dan perbandingan target nasional.">
                             <div class="interactive-screen-thumb">
-                                <img src="assets/tka/tka-dashboard-dinas.png" alt="Peta Mutu Dashboard Dinas Pendidikan">
+                                <img src="assets/tka/tka-dashboard-dinas.png?v=20261022" alt="Peta Mutu Dashboard Dinas Pendidikan">
                                 <span class="interactive-screen-zoom-tag">🔍 Perbesar</span>
                             </div>
                             <div class="interactive-screen-info">
